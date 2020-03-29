@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b18374ca-4b1a-48ee-bfc3-e10fa15ff221" name="plastictecnic-portal" url="http://3.0.245.237">
+        <fileTransfer host="3.0.245.237" port="22" privateKey="C:\Users\user\Documents\Portal\key\Qareello_Key.pem" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
