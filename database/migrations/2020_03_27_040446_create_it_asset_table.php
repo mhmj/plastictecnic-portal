@@ -28,6 +28,8 @@ class CreateItAssetTable extends Migration
             $table->timestamps();
 
             $table->foreign('asset_category_id')->references('id')->on('asset_category')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
             $table->foreign('it_asset_brand_id')->references('id')->on('it_asset_brand')->onDelete('cascade');
         });
     }

@@ -9,7 +9,14 @@
 namespace App\Http\Controllers\ITAsset;
 
 
+use App\Classes\Modules\ControllerLogic\ITAsset\AssignITAssetLogic;
+use Illuminate\Http\Request;
+
 class AssignITAssetController
 {
+    public function assign(String $ITAssetId, Request $request, AssignITAssetLogic $logic)
+    {
+        return $logic->execute($ITAssetId, $request);
+    }
 
 }

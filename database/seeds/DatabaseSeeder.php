@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ITAssetBrandTableSeeder::class);
         $this->call(AssetCategoryTableSeeder::class);
-        $this->call(ITAssetTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(CompanyTableSeeder::class);
         $this->call(DepartmentTableSeeder::class);
         $this->call(DesignationTableSeeder::class);
         $this->call(StaffTableSeeder::class);
+        $this->call(ITAssetTableSeeder::class);
 
     }
 }

@@ -9,7 +9,15 @@
 namespace App\Http\Controllers\ITAsset;
 
 
+use App\Classes\Modules\ControllerLogic\ITAsset\UpdateITAssetLogic;
+use Illuminate\Http\Request;
+
 class UpdateITAssetController
 {
+
+    public function update(string $ITAssetID, Request $request, UpdateITAssetLogic $logic)
+    {
+        return $logic->execute($ITAssetID,$request);
+    }
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\AssetCategory as AssetCategoryModel;
 use App\ITAssetBrand as ITAssetBrandModel;
+use App\Company as CompanyModel;
+use App\Staff as StaffModel;
 
 class ITAsset extends JsonResource
 {
@@ -19,8 +21,8 @@ class ITAsset extends JsonResource
         return [
             'id' => $this->id,
             'asset_category_id' => AssetCategoryModel::where('id', $this->asset_category_id)->first(),
-            //'company' => CompanyModel::where('id', $this->company_id)->first(),
-            //'staff_id' => $this->staff_id,
+            'company' => CompanyModel::where('id', $this->company_id)->first(),
+            'staff_id' => StaffModel::where('id', $this->staff_id)->first(),
             'it_asset_brand_id' => ITAssetBrandModel::where('id', $this->it_asset_brand_id)->first(),
             'model' => $this->model,
             'serial_no' => $this->serial_no,

@@ -9,7 +9,27 @@
 namespace App\Classes\Modules\ControllerLogic\ITAsset;
 
 
+use App\Classes\Modules\ITAsset\Services\DeletesITAsset;
+
 class DeleteITAssetLogic
 {
+    /** @var  DeletesITAsset */
+    private $DeletesITAsset;
+
+    /**
+     * DeleteITAssetLogic constructor.
+     * @param DeletesITAsset $DeletesITAsset
+     */
+    public function __construct(DeletesITAsset $DeletesITAsset)
+    {
+        $this->DeletesITAsset = $DeletesITAsset;
+    }
+
+    public function execute(String $ITAssetID)
+    {
+        return $this->DeletesITAsset->execute($ITAssetID);
+    }
+
+
 
 }

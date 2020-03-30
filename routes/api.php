@@ -23,6 +23,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
     // Staff Routes
     Route::group(['prefix' => 'ITAsset', 'as' => 'ITAsset.', 'namespace' => 'ITAsset'], function () {
         Route::get('/list-it-asset', 'ListITAssetController@record')->name('list-it-asset');
+        Route::post('/create-it-asset', 'CreateITAssetController@create')->name('create-it-asset');
+        Route::post('/{id}/update-it-asset', 'UpdateITAssetController@update')->name('update-it-asset');
+        Route::delete('/{id}/delete-it-asset', 'DeleteITAssetController@delete')->name('delete-it-asset');
+        Route::post('/{id}/assign-it-asset', 'AssignITAssetController@assign')->name('assign-it-asset');
     });
 
     Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {

@@ -9,7 +9,12 @@
 namespace App\Http\Controllers\ITAsset;
 
 
+use App\Classes\Modules\ControllerLogic\ITAsset\DeleteITAssetLogic;
+
 class DeleteITAssetController
 {
-
+    public function delete(String $ITAssetID, DeleteITAssetLogic $logic)
+    {
+        return $logic->execute($ITAssetID);
+    }
 }
