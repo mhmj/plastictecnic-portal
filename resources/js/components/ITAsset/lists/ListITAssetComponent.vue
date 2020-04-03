@@ -2,15 +2,17 @@
     <div>
         <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
         <div>
-            <div>
-                <table class="table">
-                    <tbody>
+            <div class="table">
                     <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
-                    </tbody>
-                </table>
             </div>
             <div style="margin-top: 30px; justify-content: flex-end">
                 <pagination-component ref="pagination" v-on:changePage="fetchITAsset($event)"></pagination-component>
+            </div>
+            <div>
+                <delete-it-asset-modal-component :data="items"></delete-it-asset-modal-component>
+            </div>
+            <div>
+                <assign-it-asset-modal-component></assign-it-asset-modal-component>
             </div>
         </div>
     </div>
@@ -20,6 +22,11 @@
         data() {
             return {
                 ITassets: [],
+                ListCompany:[],
+                ListStaff:[],
+                ITAssetCategory:[],
+                ITAssetBrand:[],
+                items:[],
                 serverurl: '3.0.245.237',
                 isLoading: false,
 
@@ -29,14 +36,28 @@
             Event.$on('updateITList', () => {
                 this.fetchITAsset();
             });
-            console.log('Component mounted.')
+            Event.$on('getCompanies', () => {
+                this.getCompanies();
+            });
+            Event.$on('getITAssetCategories', () => {
+                this.getITAssetCategories();
+            });
+            Event.$on('getITAssetBrands', () => {
+                this.getITAssetBrands();
+            });
+            Event.$on('getStaff', () => {
+                this.getStaff();
+            });
         },
         created() {
             this.fetchITAsset();
+            this.getCompanies();
+            this.getITAssetCategories();
+            this.getITAssetBrands();
+            this.getStaff();
         },
         methods: {
             fetchITAsset(page = 1){
-                //turn on loading animation
                 this.isLoading = true;
 
                 fetch('http://'+ this.serverurl +'/api/v1/ITAsset/list-it-asset' + '?page='+ page).then(response => response.json())
@@ -49,7 +70,41 @@
                         this.isLoading = false;
                     })
                     .catch(error => console.log(error))
-            }
+            },
+            itemClicked(item) {
+                this.items = item;
+                //console.log(' Item click on X : ' + this.items.id);
+                $("#deleteModal").modal('show');
+            },
+            assignClicked(item) {
+                this.items = item;
+                //console.log(' Asset click on X : ' + this.items.id);
+                $("#assignModal").modal('show');
+            },
+            getCompanies(){
+                axios.get('/api/v1/getCompany')
+                    .then(function (response) {
+                        this.ListCompany = response.data;
+                    }.bind(this));
+            },
+            getITAssetCategories(){
+                axios.get('/api/v1/getITAssetCategory')
+                    .then(function (response) {
+                        this.ITAssetCategory = response.data;
+                    }.bind(this));
+            },
+            getITAssetBrands(){
+                axios.get('/api/v1/getITAssetBrand')
+                    .then(function (response) {
+                        this.ITAssetBrand = response.data;
+                    }.bind(this));
+            },
+            getStaff(){
+                axios.get('/api/v1/getStaff')
+                    .then(function (response) {
+                        this.ListStaff = response.data;
+                    }.bind(this));
+            },
         }
     }
 </script>

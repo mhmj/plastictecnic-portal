@@ -19,10 +19,10 @@ class CreateStaffTable extends Migration
             $table->unsignedBigInteger('department_id')->nullable();
             $table->unsignedBigInteger('designation_id')->nullable();
             $table->bigInteger('role_id')->unsigned()->index()->nullable();
+            $table->string('staff_no')->nullable();
             $table->string('email')->nullable();
             $table->string('username')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('full_name')->nullable();
             $table->string('password')->nullable();
             $table->string('telephone_no')->nullable();
             $table->string('phone_no')->nullable();

@@ -31,9 +31,15 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
     Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
         Route::get('/list-staff', 'ListStaffController@record')->name('list-staff');
+        Route::post('/create-staff', 'CreateStaffController@create')->name('create-staff');
+        Route::post('/{id}/update-staff', 'UpdateStaffController@update')->name('update-staff');
+        Route::delete('/{id}/delete-staff', 'DeleteStaffController@delete')->name('delete-staff');
     });
-
-
-
-
+    Route::get('/getCompany', 'DropdownController@getCompany');
+    Route::get('/getDepartment', 'DropdownController@getDepartment');
+    Route::get('/getDesignation', 'DropdownController@getDesignation');
+    Route::get('/getStaff', 'DropdownController@getStaff');
+    Route::get('/getITAssetCategory', 'DropdownController@getITAssetCategory');
+    Route::get('/getITAssetBrand', 'DropdownController@getITAssetBrand');
 });
+

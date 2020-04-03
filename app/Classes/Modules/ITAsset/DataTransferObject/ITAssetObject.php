@@ -18,9 +18,6 @@ class ITAssetObject
     private $company_id;
 
     /** @var  int|null */
-    private $staff_id;
-
-    /** @var  int|null */
     private $it_asset_brand_id;
 
     /** @var  strting|null */
@@ -54,11 +51,10 @@ class ITAssetObject
      * @param null|string $warranty_status
      * @param null|string $warranty_period
      */
-    public function __construct(?int $asset_category_id, ?int $company_id, ?int $staff_id, ?int $it_asset_brand_id, ?string $model, ?string $serial_no, ?string $service_tag, ?string $year_purchased, ?string $warranty_status, ?string $warranty_period)
+    public function __construct(?int $asset_category_id, ?int $company_id, ?int $it_asset_brand_id, ?string $model, ?string $serial_no, ?string $service_tag, ?string $year_purchased, ?string $warranty_status, ?string $warranty_period)
     {
         $this->asset_category_id = $asset_category_id;
         $this->company_id = $company_id;
-        $this->staff_id = $staff_id;
         $this->it_asset_brand_id = $it_asset_brand_id;
         $this->model = $model;
         $this->serial_no = $serial_no;
@@ -82,14 +78,6 @@ class ITAssetObject
     public function getCompanyId()
     {
         return $this->company_id;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getStaffId()
-    {
-        return $this->staff_id;
     }
 
     /**

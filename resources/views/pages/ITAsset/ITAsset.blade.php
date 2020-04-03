@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand" href="#pablo">
-                            <h4 class="card-title">Plastictecnic</h4>
+                            <h4 class="card-title">IT Asset</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,26 +61,82 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-12">
                         <div class="card  card-tasks">
                             <div class="card-header ">
-                                <h5 class="card-category">List of IT Asset</h5>
-                                <h4 class="card-title">IT Asset</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-category">List of IT Asset</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-category"><h4 class="card-title">IT Asset</h4></h5>
+                                    </div>
+                                    <div class="col" style="display: flex; justify-content: flex-end">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            New
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body ">
                                 <list-it-asset-component></list-it-asset-component>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category">List of Staff</h5>
-                                <h4 class="card-title"> Staff</h4>
-                            </div>
-                            <div class="card-body">
-                                <list-staff-component></list-staff-component>
-                            </div>
+                    {{--<div class="col-md-6">--}}
+                        {{--<div class="card">--}}
+                            {{--<div class="card-header">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<h5 class="card-category">List of Staff</h5>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<h5 class="card-category"><h4 class="card-title">Staff</h4></h5>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col" style="display: flex; justify-content: flex-end">--}}
+                                        {{--<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staffModal">--}}
+                                            {{--Register--}}
+                                        {{--</button>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="card-body">--}}
+                                {{--<list-staff-component></list-staff-component>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New IT Asset</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <create-it-asset-form-component></create-it-asset-form-component>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="staffModal" tabindex="-1" role="dialog" aria-labelledby="staffModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staffModalLabel">New Staff</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <create-staff-form-component></create-staff-form-component>
                         </div>
                     </div>
                 </div>

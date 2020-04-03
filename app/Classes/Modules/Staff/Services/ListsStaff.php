@@ -22,7 +22,7 @@ class ListsStaff
 
     public function execute(){
 
-        $staff = $this->resporitory->paginate(5);
+        $staff = $this->resporitory->latest()->paginate(5);
 
         return StaffResources::collection($staff);
     }

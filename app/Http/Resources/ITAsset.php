@@ -24,6 +24,7 @@ class ITAsset extends JsonResource
             'company' => CompanyModel::where('id', $this->company_id)->first(),
             'staff_id' => StaffModel::where('id', $this->staff_id)->first(),
             'it_asset_brand_id' => ITAssetBrandModel::where('id', $this->it_asset_brand_id)->first(),
+            'it_asset_no' => $this->it_asset_no,
             'model' => $this->model,
             'serial_no' => $this->serial_no,
             'service_tag' => $this->service_tag,

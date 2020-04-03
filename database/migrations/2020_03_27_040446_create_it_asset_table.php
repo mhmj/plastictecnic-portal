@@ -19,12 +19,14 @@ class CreateItAssetTable extends Migration
             $table->unsignedBigInteger('company_id')->nullable();
             $table->unsignedBigInteger('staff_id')->nullable();
             $table->unsignedBigInteger('it_asset_brand_id')->nullable();
+            $table->string('it_asset_no')->nullable();
             $table->string('model')->nullable();
             $table->string('serial_no')->nullable();
             $table->string('service_tag')->nullable();
             $table->string('year_purchased')->nullable();
             $table->string('warranty_status')->nullable();
             $table->string('warranty_period')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('asset_category_id')->references('id')->on('asset_category')->onDelete('cascade');

@@ -22,7 +22,7 @@ class ListsITAsset
 
     public function execute(){
 
-        $IT_asset = $this->resporitory->paginate(5);
+        $IT_asset = $this->resporitory->latest()->paginate(5);
 
         return ITAssetResources::collection($IT_asset);
     }

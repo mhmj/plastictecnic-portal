@@ -14,10 +14,10 @@ class StaffTableSeeder extends Seeder
         $staff = [
             [
                 'role_id' => '1',
+                'staff_no' => 'L0070',
                 'email' => 'mhazimmdjais@gmail.com',
                 'username' => 'mhmj',
-                'first_name' => 'Muhammad',
-                'last_name' => 'Hazim',
+                'full_name' => 'Muhammad Hazim',
                 'company_id' => '1',
                 'department_id' => '5',
                 'designation_id' => '1',

@@ -20,6 +20,7 @@ class CreateCompanyTable extends Migration
             $table->string('fax_no')->nullable();
             $table->string('email')->nullable();
             $table->string('location')->nullable();
+            $table->string('base')->nullable();
             $table->string('state')->nullable();
             $table->string('post_code')->nullable();
             $table->string('address')->nullable();

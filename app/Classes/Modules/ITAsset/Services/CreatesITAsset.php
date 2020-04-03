@@ -32,7 +32,7 @@ class CreatesITAsset
         $model = $this->repository->create([
             'asset_category_id' => $object->getAssetCategoryId(),
             'company_id' => $object->getCompanyId(),
-            'staff_id' => $object->getStaffId(),
+            //'staff_id' => $object->getStaffId(),
             'it_asset_brand_id' => $object->getItAssetBrandId(),
             'model' => $object->getModel(),
             'serial_no' => $object->getSerialNo(),

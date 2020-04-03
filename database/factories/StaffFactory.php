@@ -8,10 +8,10 @@ use Faker\Generator as Faker;
 $factory->define(\App\Staff::class, function (Faker $faker) {
     return [
         'role_id' => $faker->numberBetween($min = 1, $max = 2),
+        'staff_no' => $faker->numerify('LS ###'),
         'email'=> $faker->safeEmail,
         'username' => $faker->userName,
-        'first_name' => $faker->name,
-        'last_name' => $faker->name,
+        'full_name' => $faker->name,
         'company_id' => $faker->numberBetween($min = 1, $max = 3),
         'department_id' => $faker->numberBetween($min = 1, $max = 5),
         'designation_id' => $faker->numberBetween($min = 1, $max = 5),

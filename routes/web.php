@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function() {
-    return view('pages.dashboard');
-})->name('dashboard');
+//Route::get('/dashboard', function() {
+//    return view('pages.dashboard');
+//})->name('dashboard');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+Route::get('/ITAsset', 'HomeController@ITAsset')->name('ITAsset');
+Route::get('/IncidentReport', 'HomeController@IncidentReport')->name('IncidentReport');
+Route::get('/ITOperation', 'HomeController@ITOperation')->name('ITOperation');

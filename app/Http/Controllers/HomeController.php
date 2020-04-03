@@ -25,4 +25,24 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function dashboard()
+    {
+        return view('pages.dashboard.dashboard');
+    }
+
+    public function ITAsset()
+    {
+        return view('pages.ITAsset.ITAsset');
+    }
+
+    public function IncidentReport()
+    {
+        return view('pages.IncidentReport.IncidentReport');
+    }
+
+    public function ITOperation()
+    {
+        return view('pages.ITOperation.ITOperation');
+    }
 }

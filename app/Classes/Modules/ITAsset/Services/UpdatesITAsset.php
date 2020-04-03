@@ -33,7 +33,7 @@ class UpdatesITAsset
 
         $ITasset->asset_category_id = $object->getAssetCategoryId();
         $ITasset->company_id = $object->getCompanyId();
-        $ITasset->staff_id = $object->getStaffId();
+        //$ITasset->staff_id = $object->getStaffId();
         $ITasset->it_asset_brand_id = $object->getItAssetBrandId();
         $ITasset->model = $object->getModel();
         $ITasset->serial_no = $object->getSerialNo();

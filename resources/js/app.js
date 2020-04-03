@@ -31,6 +31,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
+Vue.component('delete-it-asset-modal-component', require('./components/Common/DeleteITAssetModal.vue').default);
+Vue.component('delete-staff-modal-component', require('./components/Common/DeleteStaffModal.vue').default);
+Vue.component('assign-it-asset-modal-component', require('./components/Common/AssignITAssetModal.vue').default);
 
 
 /////////////////////////////////// Login Component /////////////////////////////////////////////
@@ -51,7 +54,8 @@ Vue.component('it-asset-element-component', require('./components/ITAsset/elemen
 
                             /////////// Forms //////////////////
 
-
+Vue.component('it-asset-form-component', require('./components/ITAsset/forms/ITAssetFormComponent.vue').default);
+Vue.component('create-it-asset-form-component', require('./components/ITAsset/forms/CreateITAssetFormComponent.vue').default);
 
 /////////////////////////////////// Staff Component //////////////////////////////////////////
 
@@ -64,6 +68,9 @@ Vue.component('list-staff-component', require('./components/Staff/lists/ListStaf
 Vue.component('staff-element-component', require('./components/Staff/elements/StaffComponent.vue').default);
 
                             /////////// Forms //////////////////
+
+Vue.component('staff-form-component', require('./components/Staff/forms/StaffFormComponent.vue').default);
+Vue.component('create-staff-form-component', require('./components/Staff/forms/CreateStaffFormComponent.vue').default);
 
 
 
