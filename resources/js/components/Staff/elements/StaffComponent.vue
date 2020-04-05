@@ -34,7 +34,7 @@
                 <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-pencil-alt text-dark"></i>
                 </a>
-                <button data-toggle="modal" @click="$parent.itemClicked(staff)" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
+                <button data-toggle="modal" @click="toggleDelete()" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
@@ -43,6 +43,13 @@
             <div class="table" v-show="isEditing">
                 <div class="card card-body" >
                     <staff-form-component v-bind:key="staff.id" :data="staff"></staff-form-component>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table" v-show="isDeleting">
+                <div class="card card-body" >
+                    <delete-staff-form-component v-bind:key="staff.id" :data="staff"></delete-staff-form-component>
                 </div>
             </div>
         </div>
@@ -56,16 +63,23 @@
             return {
                 staff: this.data,
                 isEditing: false,
+                isDeleting: false,
             }
         },
         mounted(){
             Event.$on('toggleEdit', () => {
                 this.toggleEdit();
             });
+            Event.$on('toggleDelete', () => {
+                this.toggleDelete();
+            });
         },
         methods:{
             toggleEdit(){
                 this.isEditing = !this.isEditing;
+            },
+            toggleDelete(){
+                this.isDeleting = !this.isDeleting;
             },
         }
     }

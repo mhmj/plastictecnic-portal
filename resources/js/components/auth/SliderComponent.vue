@@ -2,7 +2,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="https://plastictecnic.com/wp-content/uploads/2019/11/Bangi%20factory.jpg" alt="First slide">
+                <img class="d-block w-100 h-50" src="https://plastictecnic.com/wp-content/uploads/2019/11/Bangi%20factory.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src=" https://www.plastictecnic.com/images/news_banner.jpg" alt="Second slide">

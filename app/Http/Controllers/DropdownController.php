@@ -44,7 +44,7 @@ class DropdownController extends Controller
 
     public function getStaff()
     {
-        $data = Staff::OrderBy('staff_no','ASC')->get();
+        $data = Staff::get();
         return response()->json($data);
     }
 

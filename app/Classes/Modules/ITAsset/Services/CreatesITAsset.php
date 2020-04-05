@@ -28,18 +28,23 @@ class CreatesITAsset
     }
 
     public function execute(ITAssetObject $object){
-
         $model = $this->repository->create([
             'asset_category_id' => $object->getAssetCategoryId(),
             'company_id' => $object->getCompanyId(),
             //'staff_id' => $object->getStaffId(),
             'it_asset_brand_id' => $object->getItAssetBrandId(),
             'model' => $object->getModel(),
+            'OS' => $object->getOS(),
+            'computer_name' => $object->getComputerName(),
+            'username' => $object->getUsername(),
+            'office' => $object->getOffice(),
+            'remark' => $object->getRemark(),
             'serial_no' => $object->getSerialNo(),
             'service_tag' => $object->getServiceTag(),
             'year_purchased' => $object->getYearPurchased(),
             'warranty_status' => $object->getWarrantyStatus(),
             'warranty_period' => $object->getWarrantyPeriod(),
+            'status' => $object->getStatus(),
         ]);
 
         return $model;

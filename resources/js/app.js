@@ -47,6 +47,7 @@ Vue.component('slider-component', require('./components/auth/SliderComponent.vue
                             /////////// Lists //////////////////
 
 Vue.component('list-it-asset-component', require('./components/ITAsset/lists/ListITAssetComponent.vue').default);
+Vue.component('list-it-asset-location-component', require('./components/ITAsset/lists/ListITAssetLocationComponent.vue').default);
 
                             /////////// Elements ///////////////
 
@@ -56,12 +57,15 @@ Vue.component('it-asset-element-component', require('./components/ITAsset/elemen
 
 Vue.component('it-asset-form-component', require('./components/ITAsset/forms/ITAssetFormComponent.vue').default);
 Vue.component('create-it-asset-form-component', require('./components/ITAsset/forms/CreateITAssetFormComponent.vue').default);
+Vue.component('delete-it-asset-form-component', require('./components/ITAsset/forms/DeleteITAssetFormComponent.vue').default);
+Vue.component('assign-it-asset-form-component', require('./components/ITAsset/forms/AssignITAssetFormComponent.vue').default);
 
 /////////////////////////////////// Staff Component //////////////////////////////////////////
 
                             /////////// Lists //////////////////
 
 Vue.component('list-staff-component', require('./components/Staff/lists/ListStaffComponent.vue').default);
+Vue.component('list-staff-location-component', require('./components/Staff/lists/ListStaffLocationComponent.vue').default);
 
                             /////////// Elements ///////////////
 
@@ -71,6 +75,7 @@ Vue.component('staff-element-component', require('./components/Staff/elements/St
 
 Vue.component('staff-form-component', require('./components/Staff/forms/StaffFormComponent.vue').default);
 Vue.component('create-staff-form-component', require('./components/Staff/forms/CreateStaffFormComponent.vue').default);
+Vue.component('delete-staff-form-component', require('./components/Staff/forms/DeleteStaffFormComponent.vue').default);
 
 
 

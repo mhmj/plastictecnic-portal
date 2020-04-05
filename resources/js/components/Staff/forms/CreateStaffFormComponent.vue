@@ -1,6 +1,6 @@
 <template>
     <div style="margin-bottom: 10px">
-        <form method="post" @submit.prevent="createStaff">
+        <form method="post" @submit.prevent="staffChecked">
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-6">
@@ -29,7 +29,6 @@
                         <div class="form-group form-group-default required">
                             <label class="muted">Company</label>
                             <select class="form-control" v-model="staff.company_id.id">
-                                <option value="0" disabled>Select Company</option>
                                 <option v-for="list in this.ListCompany" :value="list.id" v-bind:selected="list.id == staff.company_id.id">{{ list.name }} - {{ list.location }} ({{ list.base }})</option>
                             </select>
                         </div>
@@ -40,7 +39,6 @@
                         <div class="form-group form-group-default required">
                             <label class="muted">Department</label>
                             <select class="form-control" v-model="staff.department_id.id">
-                                <option value="0" disabled>Select Department</option>
                                 <option v-for="department in this.ListDepartment" :value="department.id" v-bind:selected="department.id == staff.department_id.id">{{ department.name }}</option>
                             </select>
                         </div>
@@ -49,7 +47,6 @@
                         <div class="form-group form-group-default required">
                             <label class="muted">Designation</label>
                             <select class="form-control" v-model="staff.designation_id.id">
-                                <option value="0" disabled>Select Designation</option>
                                 <option v-for="designation in this.ListDesignation" :value="designation.id" v-bind:selected="designation.id == staff.designation_id.id">{{ designation.name }}</option>
                             </select>
                         </div>
@@ -84,8 +81,8 @@
                     </div>
                     <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <a data-dismiss="modal" class="btn btn-default" style="margin-right: 10px">Cancel</a>
-                            <button @click="createStaff" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                            <button @click="staffChecked" class="btn btn-primary" data-dismiss="modal" style="margin-right: 10px">Submit</button>
+                            <a data-dismiss="modal" class="btn btn-default" >Cancel</a>
                         </div>
                     </div>
                 </div>
@@ -157,6 +154,26 @@
                         this.ListDesignation = response.data;
                     }.bind(this));
             },
+
+            staffChecked()
+            {
+                if(this.staff.company_id.id =="") {
+                    this.staff.company_id.id = 1;
+                }
+                if(this.staff.designation_id.id =="")
+                {
+                    this.staff.designation_id.id = 1;
+                }
+                if(this.staff.department_id.id =="")
+                {
+                    this.staff.department_id.id = 1;
+
+                }
+
+                this.createStaff();
+
+
+            },
             createStaff() {
 
                 var url = 'http://'+ this.serverurl +'/api/v1/staff/create-staff', method = 'post';
@@ -178,9 +195,24 @@
                     }
                 }).then((response) => {
                     this.clearForm();
-                    Event.$emit('updateStaffList');
+                    //this.fetchStaff();
+                        Event.$emit('updateStaffList');
 
                 })
+            },
+            fetchStaff(page = 1){
+                this.isLoading = true;
+
+                fetch('http://'+ this.serverurl +'/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
+                    .then(response => {
+
+                        this.staffs = response.data;
+                        this.$refs.pagination.makePagination(response.meta, response.links);
+
+                        //turn off loading animation
+                        this.isLoading = false;
+                    })
+                    .catch(error => console.log(error))
             },
             clearForm(){
                 this.staff = {

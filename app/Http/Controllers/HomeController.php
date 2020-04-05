@@ -36,6 +36,11 @@ class HomeController extends Controller
         return view('pages.ITAsset.ITAsset');
     }
 
+    public function Staff()
+    {
+        return view('pages.Staff.Staff');
+    }
+
     public function IncidentReport()
     {
         return view('pages.IncidentReport.IncidentReport');

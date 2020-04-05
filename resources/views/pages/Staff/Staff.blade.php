@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand" href="#pablo">
-                            <h4 class="card-title">IT Asset</h4>
+                            <h4 class="card-title">Staff</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,32 +61,51 @@
             </div>
             <div class="content">
                 <div class="row">
+                    {{--<div class="col-md-12">--}}
+                        {{--<div class="card  card-tasks">--}}
+                            {{--<div class="card-header ">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<h5 class="card-category">List of IT Asset</h5>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<h5 class="card-category"><h4 class="card-title">IT Asset</h4></h5>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col" style="display: flex; justify-content: flex-end">--}}
+                                        {{--<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">--}}
+                                            {{--New--}}
+                                        {{--</button>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="card-body ">--}}
+                                {{--<list-it-asset-component></list-it-asset-component>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="col-md-12">
-                        <div class="card  card-tasks">
-                            <div class="card-header ">
+                        <div class="card">
+                            <div class="card-header">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category">List of IT Asset</h5>
+                                        <h5 class="card-category">List of Staff</h5>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category"><h4 class="card-title">IT Asset</h4></h5>
+                                        <h5 class="card-category"><h4 class="card-title">Staff</h4></h5>
                                     </div>
                                     <div class="col" style="display: flex; justify-content: flex-end">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                            New
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staffModal">
+                                            Register
                                         </button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <ul class="nav nav-tabs" data-tabs="tabs">
-                                            {{--<li class="nav-item">--}}
-                                                {{--<button type="button" class="btn btn-sm btn-primary" href="#all" data-toggle="tab">--}}
-                                                    {{--All--}}
-                                                {{--</button>--}}
-                                            {{--</li>--}}
                                             <li class="nav-item">
                                                 <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
@@ -106,19 +125,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <div class="tab-content text-center">
-                                    {{--<div class="tab-pane active" id="all">--}}
-                                        {{--<list-it-asset-component></list-it-asset-component>--}}
-                                    {{--</div>--}}
                                     <div class="tab-pane active" id="bangi">
-                                        <list-it-asset-location-component id1="1" category="bangi"></list-it-asset-location-component>
+                                        <list-staff-location-component id1="1" category="bangi"></list-staff-location-component>
                                     </div>
                                     <div class="tab-pane"  id="nilai-a">
-                                        <list-it-asset-location-component id1="2" category="nilaiA"></list-it-asset-location-component>
+                                        <list-staff-location-component id1="2" category="nilaiA"></list-staff-location-component>
                                     </div>
                                     <div class="tab-pane" id="nilai-b">
-                                        <list-it-asset-location-component id1="3" category="nilaiB"></list-it-asset-location-component>
+                                        <list-staff-location-component id1="3" category="nilaiB"></list-staff-location-component>
                                     </div>
                                 </div>
                             </div>

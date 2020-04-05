@@ -11,13 +11,15 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-4">
-                            Asset No
+                            Computer Name
                         </div>
                         <div class="col-sm-1">
                             :
                         </div>
                         <div class="col-lg-7">
-                            {{this.$parent.items.it_asset_no}}
+                            <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
+                                {{this.$parent.items.computer_name}}
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -28,7 +30,7 @@
                             :
                         </div>
                         <div class="col-lg-7">
-                            <span class="fs-15" style="font-size: 15px;" v-for="category in this.$parent.ITAssetCategory" v-if="category.id == $parent.items.asset_category_id.id">
+                            <span class="fs-15" style="font-size: 15px; color: #007bff;" v-for="category in this.$parent.ITAssetCategory" v-if="category.id == $parent.items.asset_category_id.id">
                                 {{category.name}}
                             </span>
                         </div>
@@ -41,20 +43,22 @@
                             :
                         </div>
                         <div class="col-lg-7">
-                            <span class="fs-15" style="font-size: 15px;" v-for="brand in this.$parent.ITAssetBrand" v-if="brand.id == $parent.items.it_asset_brand_id.id">
+                            <span class="fs-15" style="font-size: 15px; color: #007bff;" v-for="brand in this.$parent.ITAssetBrand" v-if="brand.id == $parent.items.it_asset_brand_id.id">
                                 {{brand.name}}
                             </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
-                            Service Tag
+                            Model
                         </div>
                         <div class="col-sm-1">
                             :
                         </div>
                         <div class="col-lg-7">
-                            {{this.$parent.items.service_tag}}
+                            <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
+                                {{this.$parent.items.model}}
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -65,7 +69,9 @@
                             :
                         </div>
                         <div class="col-lg-7">
-                            {{this.$parent.items.serial_no}}
+                            <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
+                                {{this.$parent.items.serial_no}}
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -76,22 +82,32 @@
                             :
                         </div>
                         <div class="col-lg-7" >
-                            <span class="fs-15" style="font-size: 15px; justify-content: flex-start" v-for="list in this.$parent.ListCompany" v-if="list.id == $parent.items.company.id">
+                            <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start" v-for="list in this.$parent.ListCompany" v-if="list.id == $parent.items.company.id">
                                 {{list.name}} ({{list.base}})
                             </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
-                            Staff
+                            Staff1
                         </div>
                         <div class="col-sm-1">
                             :
                         </div>
                         <div class="col-lg-7" >
+                            <div v-if="this.$parent.items.staff_id === null  ">
+                                <span class="fs-10 muted" style="font-size: 15px; color: #007bff"> - </span>
+                            </div>
+                            <div v-else="this.$parent.items.staff_id !== null ">
+                            <span class="fs-10 muted" style="font-size: 15px;">
+                                <span class="fs-20" style="font-size: 14px; color: #007bff" v-for="staff in this.StaffList" v-if="staff.id == $parent.items.staff_id.id">
+                                    {{staff.full_name}} ( {{staff.staff_no}} )
+                                </span>
+                            </span>
+                            </div>
                             <select class="form-control" v-model="staff_id">
-                                <option value="0" disabled>Select Staff</option>
-                                <option v-for="staff_record in this.ListStaff" :value="staff_record.id">{{ staff_record.staff_no }} -{{ staff_record.full_name }}</option>
+                                <option value="" >Select Staff</option>
+                                <option v-for="list in this.StaffList" :value="list.id">{{ list.staff_no }} -{{ list.full_name }}</option>
                             </select>
                         </div>
                     </div>
@@ -111,6 +127,7 @@
             return{
                 serverurl: '3.0.245.237',
                 staff_id: '',
+                StaffList: [],
             }
         },
         mounted(){
@@ -125,13 +142,11 @@
             getStaff(){
                 axios.get('/api/v1/getStaff')
                     .then(function (response) {
-                        this.ListStaff = response.data;
-                        console.log(this.ListStaff);
+                        this.StaffList = response.data;
                     }.bind(this));
             },
             assignITAsset(item){
                 console.log(item);
-                console.log(this.staff_id);
 
                 var url = 'http://'+ this.serverurl +'/api/v1/ITAsset/'+ item +'/assign-it-asset', method = 'post';
                 fetch(url, {
@@ -143,7 +158,7 @@
                         'content-type': 'application/json'
                     }
                 }).then((response) => {
-                    //this.$parent.$parent.fetchITAsset();
+                    //this.$parent.fetchITAsset();
                     Event.$emit('updateITList');
                 })
             },

@@ -36,11 +36,17 @@ class UpdatesITAsset
         //$ITasset->staff_id = $object->getStaffId();
         $ITasset->it_asset_brand_id = $object->getItAssetBrandId();
         $ITasset->model = $object->getModel();
+        $ITasset->OS = $object->getOS();
+        $ITasset->computer_name = $object->getComputerName();
+        $ITasset->username = $object->getUsername();
+        $ITasset->office = $object->getOffice();
+        $ITasset->remark = $object->getRemark();
         $ITasset->serial_no = $object->getSerialNo();
         $ITasset->service_tag = $object->getServiceTag();
         $ITasset->year_purchased = $object->getYearPurchased();
         $ITasset->warranty_status = $object->getWarrantyStatus();
         $ITasset->warranty_period = $object->getWarrantyPeriod();
+        $ITasset->status = $object->getStatus();
 
 
         if($ITasset->save()){

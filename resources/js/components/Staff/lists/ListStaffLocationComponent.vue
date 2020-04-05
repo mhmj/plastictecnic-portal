@@ -8,14 +8,25 @@
             <div style="margin-top: 30px; justify-content: flex-end">
                 <pagination-component ref="pagination" v-on:changePage="fetchStaff($event)"></pagination-component>
             </div>
-            <!--<div>-->
+            <div>
+                <!--<delete-staff-form-component :data="staffs"></delete-staff-form-component>-->
                 <!--<delete-staff-modal-component :data="items"></delete-staff-modal-component>-->
-            <!--</div>-->
+            </div>
         </div>
     </div>
 </template>
 <script>
     export default {
+        props: {
+            'category': {
+                type: String,
+                required: true
+            },
+            'id1': {
+                type: String,
+                required: true
+            }
+        },
         data() {
             return {
                 staffs: [],
@@ -55,7 +66,7 @@
             fetchStaff(page = 1){
                 this.isLoading = true;
 
-                fetch('http://'+ this.serverurl +'/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
+                fetch('http://'+ this.serverurl +'/api/v1/staff/'+ this.id1 +'/'+ this.category +'/list-staff' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.staffs = response.data;

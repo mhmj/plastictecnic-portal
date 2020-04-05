@@ -27,6 +27,11 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/{id}/update-it-asset', 'UpdateITAssetController@update')->name('update-it-asset');
         Route::delete('/{id}/delete-it-asset', 'DeleteITAssetController@delete')->name('delete-it-asset');
         Route::post('/{id}/assign-it-asset', 'AssignITAssetController@assign')->name('assign-it-asset');
+
+        Route::get('/{id}/{category}/list-it-asset', 'ListAssetBasedOnLocationController@list')
+            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->name('list-it-asset-location');
+
     });
 
     Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
@@ -34,6 +39,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/create-staff', 'CreateStaffController@create')->name('create-staff');
         Route::post('/{id}/update-staff', 'UpdateStaffController@update')->name('update-staff');
         Route::delete('/{id}/delete-staff', 'DeleteStaffController@delete')->name('delete-staff');
+
+        Route::get('/{id}/{category}/list-staff', 'ListStaffLocationController@list')
+            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->name('list-staff-location');
     });
     Route::get('/getCompany', 'DropdownController@getCompany');
     Route::get('/getDepartment', 'DropdownController@getDepartment');

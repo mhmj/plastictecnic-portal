@@ -21,6 +21,11 @@ class CreateItAssetTable extends Migration
             $table->unsignedBigInteger('it_asset_brand_id')->nullable();
             $table->string('it_asset_no')->nullable();
             $table->string('model')->nullable();
+            $table->string('OS')->nullable();
+            $table->string('computer_name')->nullable();
+            $table->string('username')->nullable();
+            $table->string('office')->nullable();
+            $table->string('remark')->nullable();
             $table->string('serial_no')->nullable();
             $table->string('service_tag')->nullable();
             $table->string('year_purchased')->nullable();

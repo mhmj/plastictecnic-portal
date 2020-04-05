@@ -29,7 +29,7 @@ class UpdateITAssetLogic
 
     public function execute(string $ITAssetID, Request $request){
 
-        $object = new ITAssetObject($request->asset_category_id,$request->company_id,$request->it_asset_brand_id,$request->model,$request->serial_no,$request->service_tag, $request->year_purchased, $request->warranty_status, $request->warranty_period);
+        $object = new ITAssetObject($request->asset_category_id,$request->company_id,$request->it_asset_brand_id,$request->model,$request->OS,$request->computer_name,$request->username,$request->office, $request->remark,$request->serial_no,$request->service_tag, $request->year_purchased, $request->warranty_status, $request->warranty_period,$request->status);
 
         return $this->UpdatesITAsset->execute($ITAssetID,$object);
 

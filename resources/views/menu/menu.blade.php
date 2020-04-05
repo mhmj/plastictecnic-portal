@@ -24,6 +24,12 @@
                     <p class="text-bold">IT Asset Management</p>
                 </a>
             </li>
+            <li class="{{ (request()->routeIs('Staff')) ? 'active' : '' }} ">
+                <a href="{{route('Staff')}}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p class="text-bold">Staff Management</p>
+                </a>
+            </li>
             <li class="{{ (request()->routeIs('IncidentReport')) ? 'active' : '' }} ">
                 <a href="{{route('IncidentReport')}}">
                     <i class="now-ui-icons location_map-big"></i>

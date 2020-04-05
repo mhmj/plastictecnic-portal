@@ -26,11 +26,17 @@ class ITAsset extends JsonResource
             'it_asset_brand_id' => ITAssetBrandModel::where('id', $this->it_asset_brand_id)->first(),
             'it_asset_no' => $this->it_asset_no,
             'model' => $this->model,
+            'OS' => $this->OS,
+            'computer_name' => $this->computer_name,
+            'username' => $this->username,
+            'office' => $this->office,
+            'remark' => $this->remark,
             'serial_no' => $this->serial_no,
             'service_tag' => $this->service_tag,
             'year_purchased' => $this->year_purchased,
             'warranty_status' => $this->warranty_status,
             'warranty_period' => $this->warranty_period,
+            'status' => $this->status,
 
         ];
     }
