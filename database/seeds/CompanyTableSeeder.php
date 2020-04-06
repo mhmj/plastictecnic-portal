@@ -24,7 +24,7 @@ class CompanyTableSeeder extends Seeder
                 'address' => 'Lot 1 Jalan P/2A, Kawasan Perusahaan PKT 1, 43650 Bandar Baru Bangi, Selangor Darul Ehsan, Malaysia'
             ],
             [
-                'name' => 'Bangi Plastics Sdn Bhd',
+                'name' => 'Plastictecnic Sdn Bhd',
                 'phone_no' => '606-7999871',
                 'fax_no' => '606-7990016',
                 'email' => 'sales@tecnic.com.my',
@@ -44,6 +44,17 @@ class CompanyTableSeeder extends Seeder
                 'state' => 'Negeri Sembilan',
                 'post_code' => '71800',
                 'address' => 'LOT PT. 1804, Nilai Industrial Estate, 71800 Nilai'
+            ],
+            [
+                'name' => 'GOODHART MILLIONS S/B',
+                'phone_no' => '',
+                'fax_no' => '',
+                'email' => '',
+                'location' => 'Bangi Plant',
+                'base' => 'Bangi',
+                'state' => 'Selangor',
+                'post_code' => '43650',
+                'address' => 'Lot 1 Jalan P/2A, Kawasan Perusahaan PKT 1, 43650 Bandar Baru Bangi, Selangor Darul Ehsan, Malaysia'
             ]
         ];
 

@@ -13,19 +13,15 @@ class ITAssetBrandTableSeeder extends Seeder
     {
         $brand = [
             [
-                'name' => 'HP',
-                'description' => '-',
-            ],
-            [
-                'name' => 'DELL',
-                'description' => '-',
-            ],
-            [
-                'name' => 'TP-LINK',
+                'name' => 'Dell',
                 'description' => '-',
             ],
             [
                 'name' => 'LENOVO',
+                'description' => '-',
+            ],
+            [
+                'name' => 'HP',
                 'description' => '-',
             ],
             [
@@ -34,6 +30,22 @@ class ITAssetBrandTableSeeder extends Seeder
             ],
             [
                 'name' => 'ACER',
+                'description' => '-',
+            ],
+            [
+                'name' => 'LG',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Synology',
+                'description' => '-',
+            ],
+            [
+                'name' => 'FortiGate',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Others',
                 'description' => '-',
             ],
         ];

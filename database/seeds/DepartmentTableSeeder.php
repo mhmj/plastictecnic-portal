@@ -13,11 +13,63 @@ class DepartmentTableSeeder extends Seeder
     {
         $department = [
             [
-                'name' => 'Production',
+                'name' => 'Finance - Admin',
                 'description' => '-',
             ],
             [
-                'name' => 'Human Resources',
+                'name' => 'Corporate Management',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Finance (Ghm)',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Gad - Admin',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Admin',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Engineering',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Injection',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Printing',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Q.A.',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Technical',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Maintenance',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mfg - Pad Print & Spraying',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Mould',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Planning Dept',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Purchasing',
                 'description' => '-',
             ],
             [
@@ -25,11 +77,35 @@ class DepartmentTableSeeder extends Seeder
                 'description' => '-',
             ],
             [
-                'name' => 'Top Management',
+                'name' => 'T.C.D',
+                'description' => '-',
+            ],
+            [
+                'name' => 'W/H - Admin',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Supply Chain',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Quality Management System',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Corporate Management',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Managing Director',
                 'description' => '-',
             ],
             [
                 'name' => 'IT',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Others',
                 'description' => '-',
             ],
         ];

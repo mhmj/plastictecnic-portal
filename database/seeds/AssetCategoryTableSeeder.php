@@ -21,15 +21,27 @@ class AssetCategoryTableSeeder extends Seeder
                 'description' => '-',
             ],
             [
+                'name' => 'Server',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Switch',
+                'description' => '-',
+            ],
+            [
+                'name' => 'NAS Storage',
+                'description' => '-',
+            ],
+            [
+                'name' => 'Firewall',
+                'description' => '-',
+            ],
+            [
                 'name' => 'Printer',
                 'description' => '-',
             ],
             [
-                'name' => 'Access Point',
-                'description' => '-',
-            ],
-            [
-                'name' => 'Cable',
+                'name' => 'Others',
                 'description' => '-',
             ],
         ];

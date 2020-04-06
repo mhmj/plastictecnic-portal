@@ -30,6 +30,6 @@ class StaffTableSeeder extends Seeder
         foreach ($staff as $staff) {
             \App\Staff::create($staff);
         }
-        factory(App\Staff::class, 20)->create();
+        //factory(App\Staff::class, 20)->create();
     }
 }

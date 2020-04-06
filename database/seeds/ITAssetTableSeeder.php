@@ -11,6 +11,6 @@ class ITAssetTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\ITAsset::class, 20)->create();
+        //factory(App\ITAsset::class, 20)->create();
     }
 }

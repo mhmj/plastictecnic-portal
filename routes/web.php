@@ -29,3 +29,8 @@ Route::get('/ITAsset', 'HomeController@ITAsset')->name('ITAsset');
 Route::get('/Staff', 'HomeController@Staff')->name('Staff');
 Route::get('/IncidentReport', 'HomeController@IncidentReport')->name('IncidentReport');
 Route::get('/ITOperation', 'HomeController@ITOperation')->name('ITOperation');
+
+Route::get('/import-staff', 'ImportStaffController@index');
+Route::post('/uploadFile', 'ImportStaffController@uploadFile');
+Route::get('/import-it-asset', 'ImportITAssetController@index');
+Route::post('/uploadFile-it-asset', 'ImportITAssetController@uploadFile');
