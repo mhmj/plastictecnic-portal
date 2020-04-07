@@ -115,7 +115,7 @@
                                             <div class="tab-pane active" id="ITTeam" style="border-top: 2px solid #99b433; margin-top: 10px">
                                                 <div class="row" style="margin-top: 20px">
                                                     <div class="col-lg-7">
-                                                        <img style="width: 120%;height: 80%;"  src="{{asset('/images/IT operation/ITTeam/1.0.png')}}">
+                                                        <img style="width: 120%;height: 80%;"  src="{{asset('/images/IT operation/1-ITTeam/1.0.png')}}">
                                                     </div>
                                                     <div class="col-lg-5" style="">
                                                         <img style="width: 100%; margin-right: 55px" src="{{asset('/images/IT operation/1-ITTeam/1.2.png')}}">
