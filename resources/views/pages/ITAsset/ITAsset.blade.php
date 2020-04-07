@@ -159,7 +159,7 @@
             <footer class="footer">
                 <div class=" container-fluid ">
                     <div class="copyright" id="copyright">
-                        Copy Right, PlasticTecnic (M) Sdn Bhd. All Rights Reserved.
+                        Copy Right, Plastictecnic (M) Sdn Bhd. All Rights Reserved.
                     </div>
                 </div>
             </footer>

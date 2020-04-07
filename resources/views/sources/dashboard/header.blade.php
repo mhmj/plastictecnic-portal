@@ -15,6 +15,8 @@
     <link href=" {{ asset('css/now-ui-dashboard.css?v=1.5.0') }}" type="text/css" rel="stylesheet"/>
     <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
 
+    {{--<link href="{{ asset('css/material-bootstrap-wizard.css') }}" rel="stylesheet" />--}}
+
     <!--========================================= Font  =============================================-->
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
