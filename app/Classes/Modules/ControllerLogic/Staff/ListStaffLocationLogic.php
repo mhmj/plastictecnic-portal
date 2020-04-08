@@ -51,6 +51,11 @@ class ListStaffLocationLogic
 
             return $this->ListsStaffNilaiB->execute($id);
         }
+        elseif ($category === 'goodhart'){
+
+            return $this->ListsStaffNilaiB->execute($id);
+        }
+
     }
 
 

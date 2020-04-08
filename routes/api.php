@@ -41,7 +41,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::delete('/{id}/delete-staff', 'DeleteStaffController@delete')->name('delete-staff');
 
         Route::get('/{id}/{category}/list-staff', 'ListStaffLocationController@list')
-            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
             ->name('list-staff-location');
     });
     Route::get('/getCompany', 'DropdownController@getCompany');
