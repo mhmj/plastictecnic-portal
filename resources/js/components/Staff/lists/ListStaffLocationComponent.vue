@@ -34,7 +34,7 @@
                 ListDepartment:[],
                 ListDesignation:[],
                 items:[],
-                serverurl: '3.0.245.237',
+                //serverurl: '3.0.245.237',
                 isLoading: false,
 
             }
@@ -66,7 +66,8 @@
             fetchStaff(page = 1){
                 this.isLoading = true;
 
-                fetch('http://'+ this.serverurl +'/api/v1/staff/'+ this.id1 +'/'+ this.category +'/list-staff' + '?page='+ page).then(response => response.json())
+
+                fetch('/api/v1/staff/'+ this.id1 +'/'+ this.category +'/list-staff' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.staffs = response.data;
@@ -76,11 +77,6 @@
                         this.isLoading = false;
                     })
                     .catch(error => console.log(error))
-            },
-            itemClicked(item) {
-                this.items = item;
-                console.log(' Item click on X : ' + this.items.id);
-                $("#deleteStaffModal").modal('show');
             },
             getCompanies(){
                 axios.get('/api/v1/getCompany')

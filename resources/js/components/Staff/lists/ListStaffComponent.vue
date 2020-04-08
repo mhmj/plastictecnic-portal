@@ -55,7 +55,7 @@
             fetchStaff(page = 1){
                 this.isLoading = true;
 
-                fetch('http://'+ this.serverurl +'/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
+                fetch('/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.staffs = response.data;

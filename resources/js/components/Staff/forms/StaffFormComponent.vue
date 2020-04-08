@@ -141,7 +141,7 @@
             updateStaff() {
                 this.$parent.toggleEdit();
 
-                var url = 'http://'+ this.serverurl +'/api/v1/staff/'+ this.staff.id +'/update-staff', method = 'post';
+                var url = 'api/v1/staff/'+ this.staff.id +'/update-staff', method = 'post';
 
                 fetch(url, {
                     method: method,

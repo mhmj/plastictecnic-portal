@@ -220,7 +220,7 @@
             },
             createITAsset() {
 
-                var url = 'http://'+ this.serverurl +'/api/v1/ITAsset/create-it-asset', method = 'post';
+                var url = '/api/v1/ITAsset/create-it-asset', method = 'post';
 
                 fetch(url, {
                     method: method,

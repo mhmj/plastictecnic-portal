@@ -201,7 +201,7 @@
             updateITAsset() {
                 this.$parent.toggleEdit();
 
-                var url = 'http://'+ this.serverurl +'/api/v1/ITAsset/'+ this.asset.id +'/update-it-asset', method = 'post';
+                var url = '/api/v1/ITAsset/'+ this.asset.id +'/update-it-asset', method = 'post';
 
                 fetch(url, {
                     method: method,

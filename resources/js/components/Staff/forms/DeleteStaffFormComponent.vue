@@ -185,7 +185,7 @@
 
             deleteStaff(){
                 this.$parent.toggleDelete();
-                var url = 'http://'+ this.serverurl +'/api/v1/staff/'+ this.staff.id +'/delete-staff', method = 'delete';
+                var url = '/api/v1/staff/'+ this.staff.id +'/delete-staff', method = 'delete';
                 fetch(url, {
                     method: method,
                     body: JSON.stringify(),

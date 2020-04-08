@@ -145,8 +145,8 @@
 
         },
         created() {
-            if(this.data !== null){
-                //this.company = this.$parent.$parent.ListCompany;
+            if(this.data !== null)
+            {
                 this.asset = this.data;
             }
         },
@@ -154,7 +154,7 @@
 
             deleteITAsset(){
                 this.$parent.toggleDelete();
-                var url = 'http://'+ this.serverurl +'/api/v1/ITAsset/'+ this.asset.id +'/delete-it-asset', method = 'delete';
+                var url = '/api/v1/ITAsset/'+ this.asset.id +'/delete-it-asset', method = 'delete';
                 fetch(url, {
                     method: method,
                     body: JSON.stringify(),

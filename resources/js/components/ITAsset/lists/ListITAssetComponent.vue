@@ -60,7 +60,7 @@
             fetchITAsset(page = 1){
                 this.isLoading = true;
 
-                fetch('http://'+ this.serverurl +'/api/v1/ITAsset/list-it-asset' + '?page='+ page).then(response => response.json())
+                fetch('/api/v1/ITAsset/list-it-asset' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.ITassets = response.data;

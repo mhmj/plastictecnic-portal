@@ -180,8 +180,8 @@
 
         },
         created() {
-            if(this.data !== null){
-                //this.company = this.$parent.$parent.ListCompany;
+            if(this.data !== null)
+            {
                 this.asset = this.data;
             }
         },
@@ -196,7 +196,7 @@
 
             assignITAsset(){
                 this.$parent.toggleAssign();
-                var url = 'http://'+ this.serverurl +'/api/v1/ITAsset/'+ this.asset.id +'/assign-it-asset', method = 'post';
+                var url = '/api/v1/ITAsset/'+ this.asset.id +'/assign-it-asset', method = 'post';
                 fetch(url, {
                     method: method,
                     body: JSON.stringify({staff_id: this.staff_id}),
@@ -204,14 +204,10 @@
                         'content-type': 'application/json'
                     }
                 }).then((response) => {
-                    //this.$parent.fetchITAsset();
                     Event.$emit('updateITList');
                 })
 
-                //console.log('Staff ID:' + this.asset.staff_id.id);
                 if(this.asset.staff_id ==null){
-                    //console.log('Staff ID 2:' + this.staff_id);
-                    //asset.staff_id.id = this.staff_id;
                     this.$set(this.asset.staff_id, 'id', this.staff_id);
                     console.log( this.asset.staff_id.id );
 

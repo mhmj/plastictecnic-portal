@@ -31,9 +31,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
-Vue.component('delete-it-asset-modal-component', require('./components/Common/DeleteITAssetModal.vue').default);
-Vue.component('delete-staff-modal-component', require('./components/Common/DeleteStaffModal.vue').default);
-Vue.component('assign-it-asset-modal-component', require('./components/Common/AssignITAssetModal.vue').default);
 
 
 /////////////////////////////////// Login Component /////////////////////////////////////////////

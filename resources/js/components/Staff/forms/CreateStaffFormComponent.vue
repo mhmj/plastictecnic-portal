@@ -176,7 +176,7 @@
             },
             createStaff() {
 
-                var url = 'http://'+ this.serverurl +'/api/v1/staff/create-staff', method = 'post';
+                var url = '/api/v1/staff/create-staff', method = 'post';
                 fetch(url, {
                     method: method,
                     body: JSON.stringify({
@@ -203,7 +203,7 @@
             fetchStaff(page = 1){
                 this.isLoading = true;
 
-                fetch('http://'+ this.serverurl +'/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
+                fetch('/api/v1/staff/list-staff' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.staffs = response.data;
