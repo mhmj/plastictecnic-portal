@@ -9,7 +9,7 @@ class IncidentReport extends Model
     protected $table='incident_report';
 
     protected $fillable = [
-        'incident_category_id', 'asset_id', 'staff_id', 'IT_staff_id', 'company_id', 'root_cause', 'description', 'duration', 'image', 'rate', 'status'
+        'asset_id', 'staff_id', 'handle_by', 'confirm_by', 'company_id', 'root_cause', 'incident_category', 'job_start', 'job_finish', 'description', 'image', 'rate', 'status'
     ];
 
 }

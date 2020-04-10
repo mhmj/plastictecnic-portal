@@ -44,11 +44,25 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
             ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
             ->name('list-staff-location');
     });
+
+    Route::group(['prefix' => 'IncidentReport', 'as' => 'IncidentReport.', 'namespace' => 'IncidentReport'], function () {
+
+        Route::post('/create-incident-report', 'CreateIncidentReportController@create')->name('create-incident-report');
+        Route::post('/{id}/update-incident-report', 'UpdateIncidentReportController@update')->name('update-incident-report');
+        Route::delete('/{id}/delete-incident-report', 'DeleteIncidentReportController@delete')->name('delete-incident-report');
+        Route::get('/{id}/{category}/list-incident-report', 'ListIncidentReportLocationController@list')
+            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->name('list-incident-report-location');
+    });
+
     Route::get('/getCompany', 'DropdownController@getCompany');
     Route::get('/getDepartment', 'DropdownController@getDepartment');
     Route::get('/getDesignation', 'DropdownController@getDesignation');
     Route::get('/getStaff', 'DropdownController@getStaff');
+    Route::get('/getStaffDetails/{id}', 'DropdownController@getStaffDetails');
     Route::get('/getITAssetCategory', 'DropdownController@getITAssetCategory');
     Route::get('/getITAssetBrand', 'DropdownController@getITAssetBrand');
+    Route::get('/getITAsset', 'DropdownController@getITAsset');
+    Route::get('/getITAssetDetails/{id}', 'DropdownController@getITAssetDetails');
 });
 

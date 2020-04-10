@@ -61,24 +61,74 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-12">
                         <div class="card  card-tasks">
                             <div class="card-header ">
-                                <h5 class="card-category">New Incident Report</h5>
-                                <h4 class="card-title">Incident Form</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-category">List of Incident Report</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-category"><h4 class="card-title">Incident Report</h4></h5>
+                                    </div>
+                                    <div class="col-4" style="display: flex; justify-content: flex-end">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#IncidentReportModal">
+                                            New
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="nav" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
+                                                    Bangi Plant
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" style="">
+                                                <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
+                                                    Nilai Plant (Block A)
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" style="">
+                                                <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
+                                                    Nilai Plant (Block B)
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body ">
+                                <div class="tab-content text-center">
+                                    <div class="tab-pane active" id="bangi">
+                                        <list-incident-report-location-component id1="1" category="bangi"></list-incident-report-location-component>
+                                    </div>
+                                    <div class="tab-pane"  id="nilai-a">
+                                        <list-incident-report-location-component id1="2" category="nilaiA"></list-incident-report-location-component>
+                                    </div>
+                                    <div class="tab-pane" id="nilai-b">
+                                        <list-incident-report-location-component id1="3" category="nilaiB"></list-incident-report-location-component>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category">List of Incident Report</h5>
-                                <h4 class="card-title">Incident Report</h4>
-                            </div>
-                            <div class="card-body">
-                            </div>
+                </div>
+            </div>
+            <div class="modal fade" id="IncidentReportModal" tabindex="-1" role="dialog" aria-labelledby="IncidentReportModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="IncidentReportModalLabel">New Incident Report</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <create-incident-report-form-component></create-incident-report-form-component>
                         </div>
                     </div>
                 </div>

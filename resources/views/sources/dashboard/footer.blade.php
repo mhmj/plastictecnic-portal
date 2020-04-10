@@ -17,10 +17,10 @@
 <script src="{{asset('js/plugins/bootstrap-datepicker.js')}}"></script>
 
 
-<script>
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+{{--<script>--}}
+    {{--$(document).ready(function() {--}}
+        {{--// Javascript method's body can be found in assets/js/demos.js--}}
+        {{--demo.initDashboardPageCharts();--}}
 
-    });
-</script>
+    {{--});--}}
+{{--</script>--}}

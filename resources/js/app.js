@@ -75,6 +75,26 @@ Vue.component('create-staff-form-component', require('./components/Staff/forms/C
 Vue.component('delete-staff-form-component', require('./components/Staff/forms/DeleteStaffFormComponent.vue').default);
 
 
+/////////////////////////////////// Incident Report Component //////////////////////////////////////////
+
+                            /////////// Lists //////////////////
+
+Vue.component('list-incident-report-location-component', require('./components/IncidentReport/lists/ListIncidentReportLocationComponent.vue').default);
+
+                            /////////// Elements ///////////////
+
+Vue.component('incident-report-element-component', require('./components/IncidentReport/elements/IncidentReportComponent.vue').default);
+
+                            /////////// Forms //////////////////
+
+Vue.component('incident-report-form-component', require('./components/IncidentReport/forms/IncidentReportFormComponent.vue').default);
+Vue.component('user-information-form-component', require('./components/IncidentReport/forms/UserInformationFormComponent.vue').default);
+Vue.component('create-incident-report-form-component', require('./components/IncidentReport/forms/CreateIncidentReportFormComponent.vue').default);
+Vue.component('delete-incident-report-form-component', require('./components/IncidentReport/forms/DeleteIncidentReportFormComponent.vue').default);
+
+
+
+
 
 
 /**

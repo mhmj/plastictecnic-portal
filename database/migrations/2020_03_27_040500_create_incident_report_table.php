@@ -15,14 +15,16 @@ class CreateIncidentReportTable extends Migration
     {
         Schema::create('incident_report', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('incident_category_id')->nullable();
             $table->unsignedBigInteger('asset_id')->nullable();
             $table->unsignedBigInteger('staff_id')->nullable();
-            $table->unsignedBigInteger('IT_staff_id')->nullable();
+            $table->unsignedBigInteger('handle_by')->nullable();
+            $table->unsignedBigInteger('confirm_by')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
             $table->string('root_cause')->nullable();
+            $table->string('incident_category')->nullable();
+            $table->string('job_start')->nullable();
+            $table->string('job_finish')->nullable();
             $table->string('description')->nullable();
-            $table->string('duration')->nullable();
             $table->longText('image')->nullable();
             $table->string('rate')->nullable();
             $table->string('status')->nullable();
