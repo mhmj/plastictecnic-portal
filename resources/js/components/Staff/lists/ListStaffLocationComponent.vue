@@ -8,10 +8,6 @@
             <div style="margin-top: 30px; justify-content: flex-end">
                 <pagination-component ref="pagination" v-on:changePage="fetchStaff($event)"></pagination-component>
             </div>
-            <div>
-                <!--<delete-staff-form-component :data="staffs"></delete-staff-form-component>-->
-                <!--<delete-staff-modal-component :data="items"></delete-staff-modal-component>-->
-            </div>
         </div>
     </div>
 </template>
@@ -30,11 +26,7 @@
         data() {
             return {
                 staffs: [],
-                ListCompany:[],
-                ListDepartment:[],
-                ListDesignation:[],
                 items:[],
-                //serverurl: '3.0.245.237',
                 isLoading: false,
 
             }
@@ -43,58 +35,21 @@
             Event.$on('updateStaffList', () => {
                 this.fetchStaff();
             });
-
-            Event.$on('getCompanies', () => {
-                this.getCompanies();
-            });
-
-            Event.$on('getDepartments', () => {
-                this.getDepartments();
-            });
-
-            Event.$on('getDesignations', () => {
-                this.getDesignations();
-            });
         },
         created() {
             this.fetchStaff();
-            this.getCompanies();
-            this.getDepartments();
-            this.getDesignations();
         },
         methods: {
             fetchStaff(page = 1){
                 this.isLoading = true;
-
-
                 fetch('/api/v1/staff/'+ this.id1 +'/'+ this.category +'/list-staff' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.staffs = response.data;
                         this.$refs.pagination.makePagination(response.meta, response.links);
-
-                        //turn off loading animation
                         this.isLoading = false;
                     })
                     .catch(error => console.log(error))
-            },
-            getCompanies(){
-                axios.get('/api/v1/getCompany')
-                    .then(function (response) {
-                        this.ListCompany = response.data;
-                    }.bind(this));
-            },
-            getDepartments(){
-                axios.get('/api/v1/getDepartment')
-                    .then(function (response) {
-                        this.ListDepartment = response.data;
-                    }.bind(this));
-            },
-            getDesignations(){
-                axios.get('/api/v1/getDesignation')
-                    .then(function (response) {
-                        this.ListDesignation = response.data;
-                    }.bind(this));
             },
         }
     }

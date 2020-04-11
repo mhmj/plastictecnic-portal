@@ -79,25 +79,20 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row border-bottom">
                                     <div class="col">
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            {{--<li class="nav-item">--}}
-                                                {{--<button type="button" class="btn btn-sm btn-primary" href="#all" data-toggle="tab">--}}
-                                                    {{--All--}}
-                                                {{--</button>--}}
-                                            {{--</li>--}}
-                                            <li class="nav-item">
+                                        <ul class="nav" data-tabs="tabs">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="margin-left: 5px">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
                                                     Nilai Plant (Block A)
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="margin-left: 5px">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
                                                     Nilai Plant (Block B)
                                                 </button>
@@ -108,9 +103,6 @@
                             </div>
                             <div class="card-body ">
                                 <div class="tab-content text-center">
-                                    {{--<div class="tab-pane active" id="all">--}}
-                                        {{--<list-it-asset-component></list-it-asset-component>--}}
-                                    {{--</div>--}}
                                     <div class="tab-pane active" id="bangi">
                                         <list-it-asset-location-component id1="1" category="bangi"></list-it-asset-location-component>
                                     </div>

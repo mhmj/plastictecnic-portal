@@ -76,7 +76,7 @@
                                         <div>
                                             <label class="muted">Asset</label>
                                             <select v-on:change="selectedITAsset()" class="form-control" :style="[this.IncidentReport.asset_id.id ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.asset_id.id" >
-                                                <option v-for="list in this.$parent.$parent.ListITAsset" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
+                                                <option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
                                             </select>
                                             <div>
                                                 <div class="table-responsive text-left" style="border-top: 1px grey solid; margin-top: 20px">
@@ -90,9 +90,6 @@
                                                             </td>
                                                             <td class="fs-20" style="color: #007bff;">
                                                                 <span>{{IncidentReport.asset_id.computer_name}}</span><br>
-                                                                <!--<span class="fs-20" style="font-size: 14px; color: #007bff; text-align: left" v-for="listAsset in this.$parent.$parent.ListITAsset" v-if="listAsset.id === IncidentReport.asset_id.id">-->
-                                                                    <!--{{listAsset.computer_name}}-->
-                                                                <!--</span>-->
                                                             </td>
                                                         <tr>
                                                         <tr>
@@ -104,9 +101,6 @@
                                                             </td>
                                                             <td class="fs-20" style="color: #007bff;">
                                                                 <span>{{IncidentReport.asset_id.serial_no}}</span><br>
-                                                                <!--<span class="fs-20" style="font-size: 14px; color: #007bff; text-align: left" v-for="listAsset in this.$parent.$parent.ListITAsset" v-if="listAsset.id === IncidentReport.asset_id.id">-->
-                                                                    <!--{{listAsset.serial_no}}-->
-                                                                <!--</span>-->
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -152,7 +146,7 @@
                                 <div>
                                     <label class="muted">Issue By</label>
                                     <select v-on:change="selectedStaff()" :style="[this.IncidentReport.staff_id.id ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="IncidentReport.staff_id.id" >
-                                        <option v-for="list in this.$parent.$parent.ListStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
+                                        <option v-for="list in this.ListStaffByLocation" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                     </select>
                                 </div>
                                 <div>
@@ -168,10 +162,6 @@
                                                 <td class="fs-20" style="color: #007bff;">
                                                     <span>{{IncidentReport.staff_id.full_name}}</span><br>
                                                     <span>{{IncidentReport.staff_id.staff_no}}</span>
-                                                    <!--<span class="fs-20" style="font-size: 14px; color: #007bff; text-align: left" v-for="listStaff in this.$parent.$parent.ListStaff" v-if="listStaff.id === IncidentReport.staff_id.id">-->
-                                                        <!--{{listStaff.full_name}} <br> {{listStaff.staff_no}}-->
-                                                    <!--</span>-->
-
                                                 </td>
                                             <tr>
                                             <tr>
@@ -225,39 +215,63 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <label class="muted">Handle By</label>
-                                    <select v-on:change="selectedHandleBy()" :style="[this.IncidentReport.handle_by.id ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="IncidentReport.handle_by.id" >
-                                        <option v-for="list in this.$parent.$parent.ListStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <div class="table-responsive text-left" style="border-top: 1px grey solid; margin-top: 20px">
-                                        <table class="table">
-                                            <tr>
-                                                <td class="text-left">
-                                                    <label class="muted">Name</label>
-                                                </td>
-                                                <td>
-                                                    :
-                                                </td>
-                                                <td class="fs-20" style="color: #007bff;">
-                                                    <span>{{IncidentReport.handle_by.full_name}}</span>
-                                                    <!--<span class="fs-20" style="font-size: 14px; color: #007bff; text-align: left" v-for="listStaff in this.$parent.$parent.ListStaff" v-if="listStaff.id === IncidentReport.handle_by.id">-->
-                                                        <!--{{listStaff.full_name}} <br> {{listStaff.staff_no}}-->
-                                                    <!--</span>-->
-
-                                                </td>
-                                            <tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <label class="muted">Designation</label>
-                                                </td>
-                                                <td>:</td>
-                                                <td class="fs-20" style="color: #007bff;">
-                                                    <span>{{IncidentReport.handle_by.designation_id.name}}</span>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <div class="table-responsive text-left" >
+                                        <div v-if="!this.IncidentReport.handle_by">
+                                            <label class="muted">Handle By</label>
+                                            <select v-on:change="selectedHandleByTemporary()" :style="[this.IncidentReport.handle_by === null ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="TemporaryHandleByID" >
+                                                <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }} {a}</option>
+                                            </select>
+                                            <table class="table" style="border-top: 1px grey solid; margin-top: 20px">
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <label class="muted">Name</label>
+                                                    </td>
+                                                    <td>
+                                                        :
+                                                    </td>
+                                                    <td class="fs-20" style="color: #007bff;">
+                                                        <span>-</span>
+                                                    </td>
+                                                <tr>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <label class="muted">Designation</label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td class="fs-20" style="color: #007bff;">
+                                                        <span>-</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div v-if="this.IncidentReport.handle_by">
+                                            <label class="muted">Handle By</label>
+                                            <select v-on:change="selectedHandleBy()" :style="[this.IncidentReport.handle_by.id ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="IncidentReport.handle_by.id" >
+                                                <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
+                                            </select>
+                                            <table class="table" style="border-top: 1px grey solid; margin-top: 20px">
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <label class="muted">Name</label>
+                                                    </td>
+                                                    <td>
+                                                        :
+                                                    </td>
+                                                    <td class="fs-20" style="color: #007bff;">
+                                                        <span>{{IncidentReport.handle_by.full_name}}</span>
+                                                    </td>
+                                                <tr>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <label class="muted">Designation</label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td class="fs-20" style="color: #007bff;">
+                                                        <span>{{IncidentReport.handle_by.designation_id.name}}</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -289,6 +303,10 @@
         data(){
             return{
                 errors: [],
+                ListITStaff:[],
+                ListStaffByLocation:[],
+                ListITAssetByLocation:[],
+                TemporaryHandleByID:'',
                 IncidentReport: {
                     id:'',
                     asset_id:{
@@ -371,8 +389,29 @@
             if(this.data !== null){
                 this.IncidentReport = this.data;
             }
+            this.getITAssetByLocation();
+            this.getStaffByLocation();
+            this.getITStaff();
         },
         methods: {
+            getITAssetByLocation(){
+                axios.get('/api/v1/getITAssetByLocation/'+ this.$parent.$parent.id1)
+                    .then(function (response) {
+                        this.ListITAssetByLocation = response.data;
+                    }.bind(this));
+            },
+            getStaffByLocation(){
+                axios.get('/api/v1/getStaffByLocation/'+ this.$parent.$parent.id1)
+                    .then(function (response) {
+                        this.ListStaffByLocation = response.data;
+                    }.bind(this));
+            },
+            getITStaff(){
+                axios.get('/api/v1/getITStaff/3')
+                    .then(function (response) {
+                        this.ListITStaff = response.data;
+                    }.bind(this));
+            },
             updateIncidentReport(){
                 this.$parent.toggleEdit();
 
@@ -412,8 +451,16 @@
                         //console.log(this.IncidentReport.staff_id);
                     });
             },
+            async selectedHandleByTemporary()
+            {
+                    let vm = this
+                    fetch('/api/v1/getStaffDetails/'+ this.TemporaryHandleByID).then(response => response.json())
+                        .then(response => {
+                            vm.IncidentReport.handle_by = response.data;
+                            this.IncidentReport.handle_by = vm.IncidentReport.handle_by;
+                        });
+            },
             async selectedHandleBy(){
-
                 let vm = this
                 fetch('/api/v1/getStaffDetails/'+ this.IncidentReport.handle_by.id).then(response => response.json())
                     .then(response => {
@@ -421,7 +468,6 @@
                         this.IncidentReport.handle_by = vm.IncidentReport.handle_by;
                     });
             },
-
             async selectedITAsset(){
 
                 let vm = this

@@ -56,13 +56,19 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
     });
 
     Route::get('/getCompany', 'DropdownController@getCompany');
+    Route::get('/getCompanyDetails/{id}', 'DropdownController@getCompanyDetails');
     Route::get('/getDepartment', 'DropdownController@getDepartment');
+    Route::get('/getDepartmentDetails/{id}', 'DropdownController@getDepartmentDetails');
     Route::get('/getDesignation', 'DropdownController@getDesignation');
+    Route::get('/getDesignationDetails/{id}', 'DropdownController@getDesignationDetails');
     Route::get('/getStaff', 'DropdownController@getStaff');
     Route::get('/getStaffDetails/{id}', 'DropdownController@getStaffDetails');
     Route::get('/getITAssetCategory', 'DropdownController@getITAssetCategory');
     Route::get('/getITAssetBrand', 'DropdownController@getITAssetBrand');
     Route::get('/getITAsset', 'DropdownController@getITAsset');
     Route::get('/getITAssetDetails/{id}', 'DropdownController@getITAssetDetails');
+    Route::get('/getITStaff/{id}', 'DropdownController@getITStaff');
+    Route::get('/getStaffByLocation/{id}', 'DropdownController@getStaffByLocation');
+    Route::get('/getITAssetByLocation/{id}', 'DropdownController@getITAssetByLocation');
 });
 

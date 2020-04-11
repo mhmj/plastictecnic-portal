@@ -21,6 +21,11 @@ class DropdownController extends Controller
         $data = Company::get();
         return response()->json($data);
     }
+    public function getCompanyDetails($id)
+    {
+        $data = Company::find($id);
+        return response()->json($data);
+    }
 
     public function getITAssetCategory()
     {
@@ -39,10 +44,21 @@ class DropdownController extends Controller
         $data = Designation::get();
         return response()->json($data);
     }
+    public function getDesignationDetails($id)
+    {
+        $data = Designation::find($id);
+        return response()->json($data);
+    }
 
     public function getDepartment()
     {
         $data = Department::get();
+        return response()->json($data);
+    }
+
+    public function getDepartmentDetails($id)
+    {
+        $data = Department::find($id);
         return response()->json($data);
     }
 
@@ -69,5 +85,24 @@ class DropdownController extends Controller
 
     }
 
+    public function getITStaff(int $id)
+    {
+        $data = Staff::where('role_id',$id)->get();
+        return response()->json($data);
+        //return $data;
+        //return new StaffResources($data);
+    }
+
+    public function getStaffByLocation(int $id)
+    {
+        $data = Staff::where('company_id',$id)->get();
+        return response()->json($data);
+    }
+
+    public function getITAssetByLocation(int $id)
+    {
+        $data = ITAsset::where('company_id',$id)->get();
+        return response()->json($data);
+    }
 
 }

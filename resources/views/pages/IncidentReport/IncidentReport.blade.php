@@ -79,20 +79,20 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row border-bottom">
                                     <div class="col">
                                         <ul class="nav" data-tabs="tabs">
-                                            <li class="nav-item">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
                                                     Nilai Plant (Block A)
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
                                                     Nilai Plant (Block B)
                                                 </button>
@@ -128,7 +128,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <create-incident-report-form-component></create-incident-report-form-component>
+                            <create-incident-report-form-component id1="1"></create-incident-report-form-component>
                         </div>
                     </div>
                 </div>

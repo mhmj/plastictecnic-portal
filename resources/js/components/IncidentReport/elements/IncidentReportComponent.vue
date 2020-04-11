@@ -3,54 +3,65 @@
         <div class="row border-bottom" style="margin-bottom: 10px">
             <div class="col-lg-8 text-left">
                 <div class="row">
+                    <div class="col-lg-2-auto">
+                        <div :class="[{'btn-info': this.IncidentReport.asset_id.company.id === 1},{'btn-success': this.IncidentReport.asset_id.company.id === 2}, {'btn-warning': this.IncidentReport.asset_id.company.id === 3}, {'btn-info': this.IncidentReport.asset_id.company.id === 4},'card']">
+                            <div class="card-body">
+                                <div v-if="this.IncidentReport.asset_id === null  ">
+                                    <span class="fs-10 muted text-primary" style="font-size: 15px; font-weight: 600;">-</span>
+                                </div>
+                                <div v-else="this.IncidentReport.asset_id !== null ">
+                                    <span class="fs-10 muted" style="font-size: 15px;">
+                                        <span class="fs-20 text-white" style="font-size: 15px; font-weight: 600;">
+                                            {{IncidentReport.asset_id.computer_name}} - {{IncidentReport.asset_id.serial_no}}
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
-                        <div v-if="this.IncidentReport.asset_id === null  ">
-                            <span class="fs-10 muted" style="font-size: 15px;">-</span>
-                        </div>
-                        <div v-else="this.IncidentReport.asset_id !== null ">
-                            <span class="fs-10 muted" style="font-size: 15px;"> Asset :
-                                <!--<span class="fs-20" style="font-size: 14px; color: #007bff" v-for="listasset in this.$parent.ListITAsset" v-if="listasset.id == IncidentReport.asset_id.id">-->
-                                    <!--{{listasset.computer_name}} - {{listasset.serial_no}}-->
-                                <!--</span>-->
-                                <span class="fs-20" style="font-size: 14px; color: #007bff">
-                                    {{IncidentReport.asset_id.computer_name}} - {{IncidentReport.asset_id.serial_no}}
-                                </span>
-                            </span>
+                        <div>
+                            <span class="fs-10 muted" style="font-size: 14px;"> Category :</span>
+                            <span class="fs-10 muted text-primary" style="font-size: 14px;"> {{this.IncidentReport.incident_category}}</span>
                         </div>
                         <div>
-                            <span class="fs-10 muted" style="font-size: 15px;"> Category :</span>
-                            <span class="fs-10 muted" style="font-size: 15px; color: #da532c"> {{this.IncidentReport.incident_category}}</span>
+                            <span class="fs-10 muted" style="font-size: 14px;"> Root Cause :</span>
+                            <span class="fs-10 muted text-primary" style="font-size: 15px;"> {{this.IncidentReport.root_cause}}</span>
                         </div>
                         <div>
-                            <span class="fs-10 muted" style="font-size: 15px;"> Root Cause :</span>
-                            <span class="fs-10 muted" style="font-size: 15px; color: #da532c"> {{this.IncidentReport.root_cause}}</span>
+                            <span class="fs-10 muted" style="font-size: 14px;"> Company :</span>
+                            <span class="fs-18 text-primary" style="font-size: 14px;">
+                            {{IncidentReport.asset_id.company.name}} - {{IncidentReport.asset_id.company.base}}
+                        </span><br>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div v-if="this.IncidentReport.staff_id === null  ">
-                            <span class="fs-10 muted" style="font-size: 15px;"> Issue By : - </span>
+                            <span class="fs-10 muted" style="font-size: 14px;"> Issue By : - </span>
                         </div>
                         <div v-else="this.IncidentReport.staff_id !== null ">
-                            <span class="fs-10 muted" style="font-size: 15px;"> Issue By :
-                                <span class="fs-20" style="font-size: 14px; color: #da532c">
+                            <span class="fs-10 muted" style="font-size: 14px;"> Issue By :
+                                <span class="fs-20 text-primary" style="font-size: 14px;">
                                     {{IncidentReport.staff_id.full_name}} ( {{IncidentReport.staff_id.staff_no}} )
                                 </span>
                             </span>
                         </div>
                         <div v-if="this.IncidentReport.handle_by === null  ">
-                            <span class="fs-10 muted" style="font-size: 15px;"> Handle By : - </span>
+                            <span class="fs-10 muted" style="font-size: 14px;"> Handle By : - </span>
                         </div>
                         <div v-else="this.IncidentReport.handle_by !== null ">
-                            <span class="fs-10 muted" style="font-size: 15px;"> Handle By :
-                                <span class="fs-20 text-success" style="font-size: 14px; color: #da532c">
+                            <span class="fs-10 muted" style="font-size: 14px;"> Handle By :
+                                <span class="fs-20 text-primary" style="font-size: 14px;">
                                     {{IncidentReport.handle_by.full_name}} ( {{IncidentReport.handle_by.staff_no}} )
                                 </span>
                             </span>
                         </div>
                         <div>
-                            <span class="fs-10 muted" style="font-size: 15px;"> Status :</span>
-                            <span class="fs-10 muted" style="font-size: 15px;">
-                                <span :class="[{'text-success': IncidentReport.status === 'Fixed'}, {'text-warning': IncidentReport.status === 'On Process'} ]" style="font-size: 15px;">
+                            <span class="fs-10 muted" style="font-size: 14px;"> Status :</span>
+                            <span class="fs-10 muted" style="font-size: 14px;">
+                                <span :class="[{'text-success': IncidentReport.status === 'Fixed'}, {'text-warning': IncidentReport.status === 'On Process'} ]" style="font-size: 14px;">
                                     {{this.IncidentReport.status}}
                                 </span>
                             </span>
@@ -58,11 +69,7 @@
                     </div>
                 </div>
                 <div class="row" style=" margin-bottom: 10px; ">
-                    <div class="col">
-                        <span class="fs-18" style="font-size: 12px;">
-                            {{IncidentReport.asset_id.company.name}} {{IncidentReport.asset_id.company.location}} - {{IncidentReport.asset_id.company.base}}
-                        </span><br>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-4 text-right" style="margin-bottom: 10px; margin-top: -10px">
@@ -92,7 +99,12 @@
 </template>
 <script>
     export default {
-        props: ['data'],
+        props:
+            ['data'],
+            'id1': {
+                type: String,
+                required: true
+            },
         data() {
             return {
                 IncidentReport: this.data,
@@ -113,6 +125,7 @@
 
         },
         created(){
+
         },
         methods:{
             toggleEdit(){

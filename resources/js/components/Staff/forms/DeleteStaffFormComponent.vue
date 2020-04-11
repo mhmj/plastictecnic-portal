@@ -2,134 +2,118 @@
     <div style="margin-bottom: 10px">
         <form method="post" @submit.prevent="deleteStaff">
             <div class="col-lg-12">
-                <div class="row" style="margin-bottom: 10px">
-                    <div class="col-12" style="display: flex; justify-content: center">
-                        <h5 class="text-danger">Are you sure want to delete this record?</h5>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="border-bottom: dashed;"></div>
-                <div class="row justify-content-center" style="margin-top: 20px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Staff No
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.staff_no }}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Username
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.username }}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Full Name
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.full_name }}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Company
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                         <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start" v-for="list in this.$parent.$parent.ListCompany" v-if="list.id == staff.company_id.id">
-                             {{list.name}} ({{list.base}})
-                         </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Department
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                         <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start" v-for="department in this.$parent.$parent.ListDepartment" v-if="department.id == staff.department_id.id">
-                             {{department.name}}
-                         </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Designation
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start" v-for="designation in this.$parent.$parent.ListDesignation" v-if="designation.id == staff.designation_id.id">
-                            {{designation.name}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Email
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.email }}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Phone No
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.telephone_no }}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Contact No
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start">
-                            {{ staff.phone_no }}
-                        </span>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 text-left">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="text-primary muted"><h5>Are you sure want to delete this record?</h5></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <div class="table-responsive text-left" style="margin-top: 10px">
+                                                <table class="table" style="font-size: 15px;">
+                                                    <tr >
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Staff No</label>
+                                                        </td>
+                                                        <td>
+                                                            :
+                                                        </td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.staff_no}}</span>
+                                                        </td>
+                                                    <tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Username</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.username}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Full Name</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.full_name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Email</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.email}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Phone No</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.phone}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Contact No</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.telephone_no}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Designation</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.designation_id.name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Department</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.department_id.name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Company</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{staff.company_id.name}} {{staff.company_id.base}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row border-top" style="margin-top: 10px" >
                     <div class="col-12" style=" margin-top: 10px; display: flex; justify-content: center">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <a @click="deleteStaff()" class="btn btn-danger" style="margin-right: 20px">Yes</a>
-                            <a @click="$parent.toggleDelete()" class="btn btn-default" >Cancel</a>
+                            <a @click="deleteStaff()" class="btn btn-danger text-white" style="margin-right: 20px">Submit</a>
+                            <a @click="$parent.toggleDelete()" class="btn btn-default text-white" >Cancel</a>
                         </div>
                     </div>
                 </div>

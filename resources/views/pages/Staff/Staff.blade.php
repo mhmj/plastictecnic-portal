@@ -61,30 +61,6 @@
             </div>
             <div class="content">
                 <div class="row">
-                    {{--<div class="col-md-12">--}}
-                        {{--<div class="card  card-tasks">--}}
-                            {{--<div class="card-header ">--}}
-                                {{--<div class="row">--}}
-                                    {{--<div class="col">--}}
-                                        {{--<h5 class="card-category">List of IT Asset</h5>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="row">--}}
-                                    {{--<div class="col">--}}
-                                        {{--<h5 class="card-category"><h4 class="card-title">IT Asset</h4></h5>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col" style="display: flex; justify-content: flex-end">--}}
-                                        {{--<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">--}}
-                                            {{--New--}}
-                                        {{--</button>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="card-body ">--}}
-                                {{--<list-it-asset-component></list-it-asset-component>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -103,25 +79,25 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row border-bottom">
                                     <div class="col">
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
+                                        <ul class="nav" data-tabs="tabs">
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="margin-left: 5px">
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
                                                     Nilai Plant (Block A)
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="margin-left: 5px">
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
                                                     Nilai Plant (Block B)
                                                 </button>
                                             </li>
-                                            <li class="nav-item" style="margin-left: 5px">
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-sm btn-info" href="#goodhart" data-toggle="tab">
                                                     GOODHART MILLIONS S/B (Bangi Plant)
                                                 </button>

@@ -18,7 +18,7 @@
                                             <span style="color: red">*</span>
                                             <div class="row" v-if="('category' in errors)">
                                                 <div class="col">
-                                                    <span class="text-danger">{{errors['category']}}</span>
+                                                    <label class="text-danger">{{errors['category']}}</label>
                                                 </div>
                                             </div>
                                             <select class="form-control"  :style="[this.IncidentReport.incident_category ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.incident_category">
@@ -47,7 +47,7 @@
                                             <span style="color: red">*</span>
                                             <div class="row" v-if="('root_cause' in errors)">
                                                 <div class="col">
-                                                    <span class="text-danger">{{errors['root_cause']}}</span>
+                                                    <label class="text-danger">{{errors['root_cause']}}</label>
                                                 </div>
                                             </div>
                                             <select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.root_cause">
@@ -72,6 +72,24 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Location</label>
+                                            <div class="row" v-if="('company_id' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['company_id']}}</label>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" v-on:change="getITAssetandStaff()"  :style="[this.company_id ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="company_id">
+                                                <option value="1">Bangi Plant</option>
+                                                <option value="2">Nilai Block A</option>
+                                                <option value="3">Nilai Block B</option>
+                                                <option value="4">GOODHART MILLIONS (Bangi Plant)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,11 +108,16 @@
                                             <span style="color: red">*</span>
                                             <div class="row" v-if="('asset' in errors)">
                                                 <div class="col">
-                                                    <span class="text-danger">{{errors['asset']}}</span>
+                                                    <label class="text-danger">{{errors['asset']}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="row" v-if="('notmatch' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['notmatch']}}</label>
                                                 </div>
                                             </div>
                                             <select v-on:change="selectedITAsset()" class="form-control" :style="[this.IncidentReport.asset_id.id ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.asset_id.id" >
-                                                <option v-for="list in this.ListITAsset" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
+                                                <option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
                                             </select>
                                             <div>
                                                 <div class="table-responsive text-left" style="border-top: 1px grey solid; margin-top: 20px">
@@ -162,11 +185,16 @@
                                     <span style="color: red">*</span>
                                     <div class="row" v-if="('issue_by' in errors)">
                                         <div class="col">
-                                            <span class="text-danger">{{errors['issue_by']}}</span>
+                                            <label class="text-danger">{{errors['issue_by']}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" v-if="('notmatch' in errors)">
+                                        <div class="col">
+                                            <label class="text-danger">{{errors['notmatch']}}</label>
                                         </div>
                                     </div>
                                     <select v-on:change="selectedStaff()" class="form-control" :style="[this.IncidentReport.staff_id.id ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.staff_id.id" >
-                                        <option v-for="list in this.ListStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
+                                        <option v-for="list in this.ListStaffByLocation" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                     </select>
                                 </div>
                                 <div>
@@ -236,11 +264,11 @@
                                     <span style="color: red">*</span>
                                     <div class="row" v-if="('handle_by' in errors)">
                                         <div class="col">
-                                            <span class="text-danger">{{errors['handle_by']}}</span>
+                                            <label class="text-danger">{{errors['handle_by']}}</label>
                                         </div>
                                     </div>
                                     <select v-on:change="selectedHandleBy()" class="form-control" :style="[this.IncidentReport.handle_by.id ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.handle_by.id" >
-                                        <option v-for="list in this.ListStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
+                                        <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                     </select>
                                 </div>
                                 <div>
@@ -288,14 +316,22 @@
 </template>
 <script>
     export default {
-        props: {},
+        props: {
+            'id1': {
+                type: String,
+                required: true
+            },
+        },
         data(){
             return{
                 errors: [],
+                company_id:'',
+                ListITStaff:[],
+                ListStaffByLocation:[],
+                ListITAssetByLocation:[],
+
                 ListStaff:[],
                 ListITAsset:[],
-                ListDepartment:[],
-                ListDesignation:[],
                 IncidentReport: {
                     id:'',
                     asset_id:{
@@ -377,33 +413,36 @@
         },
         created() {
             this.getStaff();
-            this.getITAsset();
-            this.getDepartments();
-            this.getDesignations();
+            this.getITStaff();
         },
         methods: {
+            getITAssetandStaff(){
+                this.getStaffByLocation();
+                this.getITAssetByLocation();
+            },
+            getITAssetByLocation(){
+                axios.get('/api/v1/getITAssetByLocation/'+ this.company_id)
+                    .then(function (response) {
+                        this.ListITAssetByLocation = response.data;
+                    }.bind(this));
+            },
+            getStaffByLocation(){
+                axios.get('/api/v1/getStaffByLocation/'+ this.company_id)
+                    .then(function (response) {
+                        this.ListStaffByLocation = response.data;
+                    }.bind(this));
+            },
+            getITStaff(){
+                axios.get('/api/v1/getITStaff/3')
+                    .then(function (response) {
+                        this.ListITStaff = response.data;
+                    }.bind(this));
+            },
             getStaff(){
+
                 axios.get('/api/v1/getStaff')
                     .then(function (response) {
                         this.ListStaff = response.data;
-                    }.bind(this));
-            },
-            getITAsset(){
-                axios.get('/api/v1/getITAsset')
-                    .then(function (response) {
-                        this.ListITAsset = response.data;
-                    }.bind(this));
-            },
-            getDepartments(){
-                axios.get('/api/v1/getDepartment')
-                    .then(function (response) {
-                        this.ListDepartment = response.data;
-                    }.bind(this));
-            },
-            getDesignations(){
-                axios.get('/api/v1/getDesignation')
-                    .then(function (response) {
-                        this.ListDesignation = response.data;
                     }.bind(this));
             },
             async selectedStaff(){
@@ -413,7 +452,7 @@
                     .then(response => {
                         vm.IncidentReport.staff_id = response.data;
                         this.IncidentReport.staff_id = vm.IncidentReport.staff_id;
-                        //console.log(this.IncidentReport.staff_id);
+                        console.log(this.IncidentReport.staff_id);
                     });
             },
             async selectedHandleBy(){
@@ -433,6 +472,7 @@
                     .then(response => {
                         vm.IncidentReport.asset_id = response.data;
                         this.IncidentReport.asset_id = vm.IncidentReport.asset_id;
+                        console.log(this.IncidentReport.asset_id);
                     });
             },
 
@@ -444,6 +484,7 @@
                     this.createIncidentReport();
 
                 }
+
                 if(!this.IncidentReport.incident_category)
                 {
                     this.errors['category'] = "Choose the Incident Category"
@@ -463,6 +504,15 @@
                 if(!this.IncidentReport.handle_by.id)
                 {
                     this.errors['handle_by'] = "Choose the Staff"
+                }
+                if(!this.company_id)
+                {
+                    this.errors['company_id'] = "Choose the location"
+                }
+                if(this.IncidentReport.asset_id.company.id !== this.IncidentReport.staff_id.company_id.id)
+                {
+                    console.log("yep not match")
+                    this.errors['notmatch'] = "The information not match between asset and staff"
                 }
             },
             createIncidentReport() {

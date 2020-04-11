@@ -226,31 +226,56 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive text-left" style="margin-top: 10px">
-                                            <table class="table">
-                                                <tr>
-                                                    <td>
-                                                        <label class="muted">Name</label>
-                                                    </td>
-                                                    <td>
-                                                        :
-                                                    </td>
-                                                    <td class="fs-20" style="color: #007bff;">
-                                                        <span>{{IncidentReport.handle_by.full_name}}</span><br>
-                                                        <span>{{IncidentReport.handle_by.staff_no}}</span>
-                                                    </td>
-                                                <tr>
-                                                <tr>
-                                                    <td class="text-left">
-                                                        <label class="muted">Designation</label>
-                                                    </td>
-                                                    <td>
-                                                        :
-                                                    </td>
-                                                    <td class="fs-20" style="color: #007bff;">
-                                                        <span>{{IncidentReport.handle_by.designation_id.name}}</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                            <div v-if="this.IncidentReport.handle_by === null  ">
+                                                <label class="muted">Handle By</label>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted">Name</label>
+                                                        </td>
+                                                        <td>
+                                                            :
+                                                        </td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>-</span>
+                                                        </td>
+                                                    <tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted">Designation</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>-</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div v-if="this.IncidentReport.handle_by !== null  ">
+                                                <label class="muted">Handle By</label>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted">Name</label>
+                                                        </td>
+                                                        <td>
+                                                            :
+                                                        </td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{IncidentReport.handle_by.full_name}}</span>
+                                                        </td>
+                                                    <tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted">Designation</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{IncidentReport.handle_by.designation_id.name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
