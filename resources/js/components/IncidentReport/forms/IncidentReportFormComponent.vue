@@ -219,7 +219,7 @@
                                         <div v-if="!this.IncidentReport.handle_by">
                                             <label class="muted">Handle By</label>
                                             <select v-on:change="selectedHandleByTemporary()" :style="[this.IncidentReport.handle_by === null ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="TemporaryHandleByID" >
-                                                <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }} {a}</option>
+                                                <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                             </select>
                                             <table class="table" style="border-top: 1px grey solid; margin-top: 20px">
                                                 <tr>
@@ -284,8 +284,8 @@
                     </div>
                     <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <a @click="$parent.toggleEdit()" class="btn btn-default" style="margin-right: 10px">Cancel</a>
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary" style="margin-right: 10px">Submit</button>
+                            <a @click="$parent.toggleEdit()" class="btn btn-default text-white">Cancel</a>
                         </div>
                     </div>
                 </div>

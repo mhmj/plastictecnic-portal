@@ -2,93 +2,96 @@
     <div style="margin-bottom: 10px">
         <form method="post" @submit.prevent="deleteITAsset">
             <div class="col-lg-12">
-                <div class="row" style="margin-bottom: 10px">
-                    <div class="col-12" style="display: flex; justify-content: center">
-                        <h5 class="text-danger">Are you sure want to delete this record?</h5>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 text-left">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="text-primary muted"><h5>Are you sure want to delete this record?</h5></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <div class="table-responsive text-left" style="margin-top: 10px">
+                                                <table class="table" style="font-size: 15px;">
+                                                    <tr >
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Name</label>
+                                                        </td>
+                                                        <td>
+                                                            :
+                                                        </td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.computer_name}}</span>
+                                                        </td>
+                                                    <tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Category</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.asset_category_id.name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Brand</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.it_asset_brand_id.name}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Model</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.model}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Serial No</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.serial_no}}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Company</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="color: #007bff;">
+                                                            <span>{{asset.company.name}} {{asset.company.base}}</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row justify-content-center" style="border-bottom: dashed;"></div>
-                <div class="row justify-content-center" style="margin-top: 20px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Computer Name
+                <div class="row border-top" >
+                    <div class="col-6">
+                        <div class="form-group form-group-default">
+                        </div>
                     </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span style="color: #007bff">{{asset.computer_name}}</span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Category
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff;" v-for="category in this.$parent.$parent.ITAssetCategory" v-if="category.id == asset.asset_category_id.id">
-                                {{category.name}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Brand
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff;" v-for="brand in this.$parent.$parent.ITAssetBrand" v-if="brand.id == asset.it_asset_brand_id.id">
-                                {{brand.name}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Model
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff;">
-                                {{asset.model}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Serial No
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff;">
-                                {{asset.serial_no}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 5px">
-                    <div class="col-5" style="display: flex; justify-content: flex-end">
-                        Company
-                    </div>
-                    <div class="col-2" style="display: flex; justify-content: center">
-                        :
-                    </div>
-                    <div class="col-5" style="display: flex; justify-content: flex-start">
-                        <span class="fs-15" style="font-size: 15px; color: #007bff; justify-content: flex-start" v-for="list in this.$parent.$parent.ListCompany" v-if="list.id == asset.company.id">
-                                {{list.name}} ({{list.base}})
-                            </span>
-                    </div>
-                </div>
-                <div class="row border-top" style="margin-top: 10px" >
-                    <div class="col-12" style=" margin-top: 10px; display: flex; justify-content: center">
+                    <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <a @click="deleteITAsset()" class="btn btn-danger" style="margin-right: 20px">Yes</a>
-                            <a @click="$parent.toggleDelete()" class="btn btn-default" >Cancel</a>
+                            <button type="submit" class="btn btn-danger" style="margin-right: 10px">Submit</button>
+                            <button type="button" @click="$parent.toggleDelete()" class="btn btn-default text-white" >Cancel</button>
+
                         </div>
                     </div>
                 </div>
@@ -162,7 +165,6 @@
                         'content-type': 'application/json'
                     }
                 }).then((response) => {
-                    //this.$parent.$parent.fetchITAsset();
                     Event.$emit('updateITList');
                 })
             },

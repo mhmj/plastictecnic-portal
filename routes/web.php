@@ -34,3 +34,9 @@ Route::get('/import-staff', 'ImportStaffController@index');
 Route::post('/uploadFile', 'ImportStaffController@uploadFile');
 Route::get('/import-it-asset', 'ImportITAssetController@index');
 Route::post('/uploadFile-it-asset', 'ImportITAssetController@uploadFile');
+
+Route::group(['prefix' => 'portal', 'middleware' => 'auth', 'role:client'], function(){
+
+        Route::get('/home', 'ClientDashboardController@index')->name('home');
+
+    });

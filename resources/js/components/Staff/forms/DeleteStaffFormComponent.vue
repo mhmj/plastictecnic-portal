@@ -61,7 +61,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td class="fs-20" style="color: #007bff;">
-                                                            <span>{{staff.phone}}</span>
+                                                            <span>{{staff.telephone_no}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -70,7 +70,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td class="fs-20" style="color: #007bff;">
-                                                            <span>{{staff.telephone_no}}</span>
+                                                            <span>{{staff.phone_no}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -110,7 +110,8 @@
                     </div>
                 </div>
                 <div class="row border-top" style="margin-top: 10px" >
-                    <div class="col-12" style=" margin-top: 10px; display: flex; justify-content: center">
+                    <div class="col-6"></div>
+                    <div class="col-6" style=" margin-top: 10px;">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
                             <a @click="deleteStaff()" class="btn btn-danger text-white" style="margin-right: 20px">Submit</a>
                             <a @click="$parent.toggleDelete()" class="btn btn-default text-white" >Cancel</a>

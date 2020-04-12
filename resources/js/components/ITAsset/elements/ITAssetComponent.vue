@@ -1,51 +1,93 @@
 <template>
     <div>
         <div class="row border-bottom" style="margin-bottom: 10px">
-            <div class="col text-left">
+            <div class="col-lg-8 text-left">
                 <div class="row">
-                    <div class="col">
-                        <span class="fs-10 muted" style="font-size: 15px; color: #007bff"> {{this.asset.computer_name}}</span>
-                        <!--<span class="fs-15" style="font-size: 15px; color: #007bff" v-for="category in this.$parent.ITAssetCategory" v-if="category.id == asset.asset_category_id.id">-->
-                        <!--{{category.name}}-->
-                        <!--</span>-->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div v-if="this.asset.staff_id === null  ">
-                            <span class="fs-10 muted" style="font-size: 15px; color: #007bff"> PIC :
-                            <span class="fs-20" style="font-size: 14px; color: #003976" v-for="listStaff in this.$parent.ListStaff" v-if="listStaff.id == staff_id">
-                                    {{listStaff.full_name}} ( {{listStaff.staff_no}} )
-                                </span>
-                            </span>
-                        </div>
-                        <div v-else="this.asset.staff_id !== null ">
-                            <span class="fs-10 muted" style="font-size: 15px; color: #007bff"> PIC :
-                                <span class="fs-20" style="font-size: 14px; color: #003976" v-for="listStaff in this.$parent.ListStaff" v-if="listStaff.id == asset.staff_id.id">
-                                    {{listStaff.full_name}} ( {{listStaff.staff_no}} )
-                                </span>
-                            </span>
+                    <div class="col-lg-2-auto">
+                        <div :class="[{'btn-info': this.asset.company.id === 1},{'btn-success': this.asset.company.id === 2}, {'btn-warning': this.asset.company.id === 3}, {'btn-info': this.asset.company.id === 4},'card']">
+                            <div class="card-body">
+                                <div v-if="this.asset.computer_name !== ''  ">
+                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
+                                        {{this.asset.computer_name}}
+                                    </span>
+                                </div>
+                                <div v-if="this.asset.computer_name === ''  ">
+                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
+                                        -
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <span class="fs-20" style="font-size: 14px; color: #003976" v-for="brand in this.$parent.ITAssetBrand" v-if="brand.id == asset.it_asset_brand_id.id">
-                            {{brand.name}}
-                        </span>
-                        <span class="fs-10 muted" style="font-size: 14px; "> - </span>
-                        <span class="fs-10 muted" style="font-size: 14px; color: #003976"> {{this.asset.model}}</span>
+                    <div class="col-lg-2-auto" style="margin-left: 10px">
+                        <div class="card" v-bind:style= "[this.asset.company.id === 1 ? {'background-color': '#72c5ff'} : this.asset.company.id === 2 ? {'background-color': '#55f24d'} : this.asset.company.id === 3 ? {'background-color': '#ffc15d'}: {'background-color': '#72c5ff'}]">
+                            <div class="card-body">
+                                <div v-if="this.asset.staff_id !== null  ">
+                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
+                                        {{this.asset.staff_id.username}}
+                                    </span>
+                                </div>
+                                <div v-if="this.asset.staff_id === null  ">
+                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
+                                        -
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row" style=" margin-bottom: 10px; ">
-                    <div class="col">
-                        <span class="fs-18" style="font-size: 12px; color: #f96332" v-for="companies in this.$parent.ListCompany" v-if="companies.id == asset.company.id">
-                            {{companies.name}} {{companies.location}} - {{companies.base}}
-                        </span><br>
-                        <!--<span class="fs-18" style="font-size: 12px; color: #f96332" v-for="companies in this.$parent.ListCompany" v-if="companies.id == asset.company.id">-->
-                        <!--{{companies.location}} - {{companies.base}}-->
-                        <!--</span>-->
-
+                <div class="row" style="padding-bottom: 10px">
+                    <div class="col-lg-6" style="margin-bottom: 10px">
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Model :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.model}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Category :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.asset_category_id.name}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Brand :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.it_asset_brand_id.name}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Serial No :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.serial_no}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Username :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.username}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">MS Office :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.office}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">OS :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.OS}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;">Company :</span>
+                            <span class="fs-20 text-primary" style="font-size: 13px;">
+                                {{asset.company.name}} {{asset.company.base}}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

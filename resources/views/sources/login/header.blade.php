@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="http://dev.plastictecnic.com/favicon.ico">
 
 
     <title>Plastictecnic Sdn. Bhd.</title>
@@ -30,6 +29,6 @@
 
     <!--========================================= Icon  =============================================-->
 
-    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('images/icons/plastictecnic-icon.jpg') }}"/>
 
 </head>

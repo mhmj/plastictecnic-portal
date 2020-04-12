@@ -64,8 +64,8 @@
                     <div class="col-md-12">
                         <div class="card  card-tasks">
                             <div class="card-header ">
-                                <h5 class="card-category">List IT Operation</h5>
-                                <h4 class="card-title">IT Operation</h4>
+                                <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List IT Operation</h5>
+                                <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">IT Operation</h4>
                             </div>
                             <div class="card-body ">
                                 <div class="row">

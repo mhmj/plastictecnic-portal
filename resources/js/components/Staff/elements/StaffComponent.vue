@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="row" style="padding-bottom: 10px">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="padding-bottom: 10px">
                         <div>
                             <span class="m-l-5 m-r-5" style="font-size: 13px;">Name :</span>
                             <span class="fs-20 text-primary" style="font-size: 13px;">

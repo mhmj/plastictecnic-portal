@@ -66,12 +66,14 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category">List of Staff</h5>
+                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of Staff</h5>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category"><h4 class="card-title">Staff</h4></h5>
+                                        <h5 class="card-category">
+                                            <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Staff</h4>
+                                        </h5>
                                     </div>
                                     <div class="col" style="display: flex; justify-content: flex-end">
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staffModal">

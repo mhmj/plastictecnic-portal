@@ -12,7 +12,7 @@
                                 <div v-else="this.IncidentReport.asset_id !== null ">
                                     <span class="fs-10 muted" style="font-size: 15px;">
                                         <span class="fs-20 text-white" style="font-size: 15px; font-weight: 600;">
-                                            {{IncidentReport.asset_id.computer_name}} - {{IncidentReport.asset_id.serial_no}}
+                                            {{IncidentReport.asset_id.computer_name}}
                                         </span>
                                     </span>
                                 </div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="padding-bottom: 10px">
                         <div>
                             <span class="fs-10 muted" style="font-size: 14px;"> Category :</span>
                             <span class="fs-10 muted text-primary" style="font-size: 14px;"> {{this.IncidentReport.incident_category}}</span>

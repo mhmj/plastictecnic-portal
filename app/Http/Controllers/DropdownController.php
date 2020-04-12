@@ -27,17 +27,37 @@ class DropdownController extends Controller
         return response()->json($data);
     }
 
+/////////////////////////////////////////////////////////////////////////
+
+
     public function getITAssetCategory()
     {
         $data = AssetCategory::get();
         return response()->json($data);
     }
 
+    public function getITAssetCategoryDetails($id)
+    {
+        $data = AssetCategory::find($id);
+        return response()->json($data);
+    }
+
+/////////////////////////////////////////////////////////////////////////
+
     public function getITAssetBrand()
     {
         $data = ITAssetBrand::get();
         return response()->json($data);
     }
+
+    public function getITAssetBrandDetails($id)
+    {
+        $data = ITAssetBrand::find($id);
+        return response()->json($data);
+    }
+
+/////////////////////////////////////////////////////////////////////////
+
 
     public function getDesignation()
     {
@@ -49,6 +69,8 @@ class DropdownController extends Controller
         $data = Designation::find($id);
         return response()->json($data);
     }
+
+/////////////////////////////////////////////////////////////////////////
 
     public function getDepartment()
     {
@@ -62,27 +84,12 @@ class DropdownController extends Controller
         return response()->json($data);
     }
 
+/////////////////////////////////////////////////////////////////////////
+
     public function getStaff()
     {
         $data = Staff::get();
         return response()->json($data);
-    }
-
-    public function getStaffDetails(int $id)
-    {
-        return new StaffResources(Staff::find($id));
-    }
-
-    public function getITAsset()
-    {
-        $data = ITAsset::get();
-        return response()->json($data);
-    }
-
-    public function getITAssetDetails(int $id)
-    {
-        return new ITAssetResources(ITAsset::find($id));
-
     }
 
     public function getITStaff(int $id)
@@ -99,10 +106,28 @@ class DropdownController extends Controller
         return response()->json($data);
     }
 
+    public function getStaffDetails(int $id)
+    {
+        return new StaffResources(Staff::find($id));
+    }
+
+/////////////////////////////////////////////////////////////////////////
+
+    public function getITAsset()
+    {
+        $data = ITAsset::get();
+        return response()->json($data);
+    }
+
     public function getITAssetByLocation(int $id)
     {
         $data = ITAsset::where('company_id',$id)->get();
         return response()->json($data);
     }
 
+    public function getITAssetDetails(int $id)
+    {
+        return new ITAssetResources(ITAsset::find($id));
+
+    }
 }

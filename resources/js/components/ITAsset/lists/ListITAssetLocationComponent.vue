@@ -8,12 +8,6 @@
             <div style="margin-top: 30px; justify-content: flex-end">
                 <pagination-component ref="pagination" v-on:changePage="fetchITAsset($event)"></pagination-component>
             </div>
-            <div>
-                <delete-it-asset-modal-component :data="items"></delete-it-asset-modal-component>
-            </div>
-            <!--<div>-->
-                <!--<assign-it-asset-modal-component></assign-it-asset-modal-component>-->
-            <!--</div>-->
         </div>
     </div>
 </template>
@@ -32,10 +26,6 @@
         data() {
             return {
                 ITassets: [],
-                ListCompany:[],
-                ListStaff:[],
-                ITAssetCategory:[],
-                ITAssetBrand:[],
                 items:[],
                 serverurl: '3.0.245.237',
                 isLoading: false,
@@ -46,25 +36,10 @@
             Event.$on('updateITList', () => {
                 this.fetchITAsset();
             });
-            Event.$on('getCompanies', () => {
-                this.getCompanies();
-            });
-            Event.$on('getITAssetCategories', () => {
-                this.getITAssetCategories();
-            });
-            Event.$on('getITAssetBrands', () => {
-                this.getITAssetBrands();
-            });
-            Event.$on('getStaff', () => {
-                this.getStaff();
-            });
         },
         created() {
             this.fetchITAsset();
-            this.getCompanies();
-            this.getITAssetCategories();
-            this.getITAssetBrands();
-            this.getStaff();
+
         },
         methods: {
             fetchITAsset(page = 1){
@@ -89,30 +64,7 @@
                 this.items = item;
                 $("#assignModal").modal('show');
             },
-            getCompanies(){
-                axios.get('/api/v1/getCompany')
-                    .then(function (response) {
-                        this.ListCompany = response.data;
-                    }.bind(this));
-            },
-            getITAssetCategories(){
-                axios.get('/api/v1/getITAssetCategory')
-                    .then(function (response) {
-                        this.ITAssetCategory = response.data;
-                    }.bind(this));
-            },
-            getITAssetBrands(){
-                axios.get('/api/v1/getITAssetBrand')
-                    .then(function (response) {
-                        this.ITAssetBrand = response.data;
-                    }.bind(this));
-            },
-            getStaff(){
-                axios.get('/api/v1/getStaff')
-                    .then(function (response) {
-                        this.ListStaff = response.data;
-                    }.bind(this));
-            },
+
         }
     }
 </script>

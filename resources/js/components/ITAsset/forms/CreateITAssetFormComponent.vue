@@ -3,128 +3,175 @@
         <form method="post" @submit.prevent="ITAssetChecked">
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Computer Name</label>
-                            <input class="form-control" v-model="asset.computer_name">
+                    <div class="col-lg-6 text-left">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="text-primary muted"><h5>Asset Information</h5></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Computer Name</label>
+                                            <input class="form-control" :style="[this.asset.computer_name ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.computer_name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Model</label>
+                                            <label class="text-danger">*</label>
+                                            <div class="row" v-if="('model' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['model']}}</label>
+                                                </div>
+                                            </div>
+                                            <input class="form-control" :style="[this.asset.model ? {'border-color': 'green'} :{'border-color': 'red'} ]" v-model="asset.model">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Category</label>
+                                            <label class="text-danger">*</label>
+                                            <div class="row" v-if="('category' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['category']}}</label>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" :style="[this.asset.asset_category_id.id ? {'border-color': 'green'} :{'border-color': 'red'} ]" v-model="asset.asset_category_id.id">
+                                                <option v-for="category in this.ListITAssetCategory" :value="category.id">{{ category.name }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Brand</label>
+                                            <label class="text-danger">*</label>
+                                            <div class="row" v-if="('brand' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['brand']}}</label>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" :style="[this.asset.it_asset_brand_id.id ? {'border-color': 'green'} :{'border-color': 'red'} ]" v-model="asset.it_asset_brand_id.id">
+                                                <option v-for="brand in this.ListITAssetBrand" :value="brand.id">{{ brand.name }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Serial No</label>
+                                            <input class="form-control" :style="[this.asset.serial_no ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.serial_no">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Username</label>
+                                            <input class="form-control" :style="[this.asset.username ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Operating System</label>
+                                            <input class="form-control" :style="[this.asset.OS ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.OS">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">MS Office</label>
+                                            <input class="form-control" :style="[this.asset.office ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.office">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Category</label>
-                            <select class="form-control" v-model="asset.asset_category_id.id">
-                                <option v-for="category in this.ITAssetCategory" :value="category.id" v-bind:selected="category.id == asset.asset_category_id.id">{{ category.name }}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Brand</label>
-                            <select class="form-control" v-model="asset.it_asset_brand_id.id">
-                                <option v-for="brand in this.ITAssetBrand" :value="brand.id" v-bind:selected="brand.id == asset.it_asset_brand_id.id">{{ brand.name }}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row muted" style="border-bottom: dashed; border-bottom-color: #ff9e9e">
-                    <div class="col-lg-6">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Operating System</label>
-                            <input class="form-control" v-model="asset.OS">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Model</label>
-                            <input class="form-control" v-model="asset.model">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Serial No</label>
-                            <input class="form-control" v-model="asset.serial_no">
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 10px">
-                    <div class="col-lg-5">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Company</label>
-                            <select class="form-control" v-model="asset.company.id">
-                                <option v-for="list in this.ListCompany" :value="list.id" v-bind:selected="list.id == asset.company.id">{{ list.name }} - {{ list.location }} ({{ list.base }})</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-1">
-
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Username</label>
-                            <input class="form-control" v-model="asset.username">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Office</label>
-                            <input class="form-control" v-model="asset.office">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Date Purchased</label>
-                            <input class="form-control" placeholder="DD/MM/YYYY" v-model="asset.year_purchased">
-                        </div>
-                    </div>
-                    <div class="col-lg-1">
-
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Warranty Status</label>
-                            <select class="form-control" v-model="asset.warranty_status">
-                                <option value="0" disabled>Select Status</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Warranty Period</label>
-                            <input class="form-control" v-model="asset.warranty_period">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Remark</label>
-                            <input class="form-control" v-model="asset.remark">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group form-group-default required">
-                            <label class="muted">Asset Status</label>
-                            <select class="form-control" v-model="asset.status">
-                                <option value="Running">Running</option>
-                                <option value="Failure">Failure</option>
-                                <option value="Repair">Repair</option>
-                            </select>
-                            <!--<input class="form-control" v-model="asset.status">-->
+                    <div class="col-lg-6 text-left">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="text-primary muted"><h5>General Information</h5></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Company</label>
+                                            <label class="text-danger">*</label>
+                                            <div class="row" v-if="('company' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['company']}}</label>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" :style="[this.asset.company.id ? {'border-color': 'green'} :{'border-color': 'red'} ]" v-model="asset.company.id">
+                                                <option value="0" disabled>Select Company</option>
+                                                <option v-for="list in this.ListCompany" :value="list.id" v-bind:selected="list.id == asset.company.id">{{ list.name }} - {{ list.location }} ({{ list.base }})</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Date Purchased</label>
+                                            <input class="form-control" placeholder="DD/MM/YYYY" :style="[this.asset.year_purchased ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.year_purchased">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Asset Status</label>
+                                            <select class="form-control" :style="[this.asset.status ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.status">
+                                                <option value="0" disabled>Select Status</option>
+                                                <option v-bind:selected="asset.status == 'Running'" value="Running">Running</option>
+                                                <option v-bind:selected="asset.status == 'Failure'" value="Failure">Failure</option>
+                                                <option v-bind:selected="asset.status == 'Repair'" value="Repair">Repair</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Warranty Status</label>
+                                            <select class="form-control" :style="[this.asset.warranty_status ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.warranty_status">
+                                                <option value="0" disabled>Select Status</option>
+                                                <option v-bind:selected="asset.warranty_status == 'Yes'" value="Yes">Yes</option>
+                                                <option v-bind:selected="asset.warranty_status == 'No'" value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Warranty Period</label>
+                                            <input class="form-control" placeholder="DD/MM/YYYY" :style="[this.asset.warranty_period ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.warranty_period">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Remark</label>
+                                            <input class="form-control" :style="[this.asset.remark ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="asset.remark">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button @click="ITAssetChecked" class="btn btn-primary" data-dismiss="modal" style="margin-right: 20px">Save changes</button>
+                    <button type="submit" class="btn btn-primary" style="margin-right: 20px">Submit</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
                 </div>
             </div>
@@ -136,10 +183,10 @@
         props: {},
         data(){
             return{
-                serverurl: '3.0.245.237',
+                errors: [],
                 ListCompany:[],
-                ITAssetCategory:[],
-                ITAssetBrand:[],
+                ListITAssetCategory:[],
+                ListITAssetBrand:[],
                 asset: {
                     model: '',
                     serial_no: '',
@@ -192,31 +239,42 @@
             getITAssetCategories(){
                 axios.get('/api/v1/getITAssetCategory')
                     .then(function (response) {
-                        this.ITAssetCategory = response.data;
+                        this.ListITAssetCategory = response.data;
                     }.bind(this));
             },
             getITAssetBrands(){
                 axios.get('/api/v1/getITAssetBrand')
                     .then(function (response) {
-                        this.ITAssetBrand = response.data;
+                        this.ListITAssetBrand = response.data;
                     }.bind(this));
             },
 
             ITAssetChecked()
             {
-                if(this.asset.company.id =="") {
-                    this.asset.company.id = 1;
-                }
-                if(this.asset.it_asset_brand_id.id =="")
+                this.errors = [];
+                if(this.asset.model && this.asset.company.id && this.asset.it_asset_brand_id.id && this.asset.asset_category_id.id )
                 {
-                    this.asset.it_asset_brand_id.id = 1;
+                    $("#ITAssetModal").modal('hide');
+                    this.createITAsset();
                 }
-                if(this.asset.asset_category_id.id =="")
-                {
-                    this.asset.asset_category_id.id = 1;
 
+                if(!this.asset.model)
+                {
+                    this.errors['model'] = "Fill the Model"
                 }
-                this.createITAsset();
+                if(!this.asset.company.id)
+                {
+                    this.errors['company'] = "Choose the company"
+                }
+                if(!this.asset.it_asset_brand_id.id)
+                {
+                    this.errors['brand'] = "Choose the Brand"
+                }
+                if(!this.asset.asset_category_id.id)
+                {
+                    this.errors['category'] = "Choose the Category"
+                }
+
             },
             createITAsset() {
 

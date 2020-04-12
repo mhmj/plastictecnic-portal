@@ -305,8 +305,8 @@
                     </div>
                     <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <button type="button" class="btn btn-secondary" style="margin-right: 20px" data-dismiss="modal" >Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" style="margin-right: 20px">Submit</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
                         </div>
                     </div>
                 </div>
@@ -452,7 +452,6 @@
                     .then(response => {
                         vm.IncidentReport.staff_id = response.data;
                         this.IncidentReport.staff_id = vm.IncidentReport.staff_id;
-                        console.log(this.IncidentReport.staff_id);
                     });
             },
             async selectedHandleBy(){
@@ -472,7 +471,6 @@
                     .then(response => {
                         vm.IncidentReport.asset_id = response.data;
                         this.IncidentReport.asset_id = vm.IncidentReport.asset_id;
-                        console.log(this.IncidentReport.asset_id);
                     });
             },
 

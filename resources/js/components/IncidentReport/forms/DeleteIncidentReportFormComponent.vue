@@ -289,8 +289,8 @@
                     </div>
                     <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                            <a @click="$parent.toggleDelete()" class="btn btn-default" style="margin-right: 10px">Cancel</a>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-danger" style="margin-right: 10px">Delete</button>
+                            <a @click="$parent.toggleDelete()" class="btn btn-default text-white">Cancel</a>
                         </div>
                     </div>
                 </div>
