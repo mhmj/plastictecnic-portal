@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand" href="#pablo">
-                            <h4 class="card-title">Incident</h4>
+                            <h4 class="card-title">IT Asset</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +23,6 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,35 +56,25 @@
                             <div class="card-header ">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of Incident Report</h5>
+                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of IT Asset</h5>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Incident Report</h4></h5>
-                                    </div>
-                                    <div class="col-4" style="display: flex; justify-content: flex-end">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#IncidentReportModal">
-                                            New
-                                        </button>
+                                    <div class="col">
+                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">IT Asset</h4></h5>
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col">
                                         <ul class="nav" data-tabs="tabs">
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
-                                                    Bangi Plant
+                                                <button type="button" class="btn btn-sm btn-info" href="#ITAsset" data-toggle="tab">
+                                                    IT Asset
                                                 </button>
                                             </li>
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
-                                                    Nilai Plant (Block A)
-                                                </button>
-                                            </li>
-                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
-                                                    Nilai Plant (Block B)
+                                                <button type="button" class="btn btn-sm btn-success" href="#IncidentReport" data-toggle="tab">
+                                                    Incident Report
                                                 </button>
                                             </li>
                                         </ul>
@@ -103,32 +83,14 @@
                             </div>
                             <div class="card-body ">
                                 <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="bangi">
-                                        <list-incident-report-location-component id1="1" category="bangi"></list-incident-report-location-component>
+                                    <div class="tab-pane active" id="ITAsset">
+                                        <list-staff-it-asset-location-component id1="{{Auth::user()->id}}" category="bangi"></list-staff-it-asset-location-component>
                                     </div>
-                                    <div class="tab-pane"  id="nilai-a">
-                                        <list-incident-report-location-component id1="2" category="nilaiA"></list-incident-report-location-component>
-                                    </div>
-                                    <div class="tab-pane" id="nilai-b">
-                                        <list-incident-report-location-component id1="3" category="nilaiB"></list-incident-report-location-component>
+                                    <div class="tab-pane" id="IncidentReport">
+                                        <staff-list-incident-report-component id1="{{Auth::user()->id}}" id2="{{Auth::user()->company_id}}"></staff-list-incident-report-component>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="IncidentReportModal" tabindex="-1" role="dialog" aria-labelledby="IncidentReportModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="IncidentReportModalLabel">New Incident Report</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <create-incident-report-form-component id1="1"></create-incident-report-form-component>
                         </div>
                     </div>
                 </div>

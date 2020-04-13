@@ -4,7 +4,7 @@
             <div class="col-lg-8 text-left">
                 <div class="row">
                     <div class="col-lg-2-auto">
-                        <div :class="[{'btn-info': this.IncidentReport.asset_id.company.id === 1},{'btn-success': this.IncidentReport.asset_id.company.id === 2}, {'btn-warning': this.IncidentReport.asset_id.company.id === 3}, {'btn-info': this.IncidentReport.asset_id.company.id === 4},'card']">
+                        <div :class="['btn-success','card']">
                             <div class="card-body">
                                 <div v-if="this.IncidentReport.asset_id === null  ">
                                     <span class="fs-10 muted text-primary" style="font-size: 15px; font-weight: 600;">-</span>
@@ -84,14 +84,14 @@
         <div class="row">
             <div class="table" v-show="isEditing">
                 <div class="card card-body" >
-                    <incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></incident-report-form-component>
+                    <staff-incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></staff-incident-report-form-component>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="table" v-show="isDeleting">
                 <div class="card card-body" >
-                    <delete-incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></delete-incident-report-form-component>
+                    <staff-delete-incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></staff-delete-incident-report-form-component>
                 </div>
             </div>
         </div>
@@ -101,10 +101,10 @@
     export default {
         props:
             ['data'],
-            'id1': {
-                type: String,
-                required: true
-            },
+        'id1': {
+            type: String,
+            required: true
+        },
         data() {
             return {
                 IncidentReport: this.data,

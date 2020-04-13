@@ -1,6 +1,6 @@
 <template>
     <div style="margin-bottom: 10px" class="text-left">
-        <form method="post" @submit.prevent="updateIncidentReport">
+        <form method="post" @submit.prevent="checkIncidentReport">
             <div class="col-lg-12">
                 <div class="row" style="margin-bottom: 30px">
                     <div class="col-lg-6">
@@ -218,6 +218,11 @@
                                     <div class="table-responsive text-left" >
                                         <div v-if="!this.IncidentReport.handle_by">
                                             <label class="muted">Handle By</label>
+                                            <div class="row" v-if="('handle_by' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['handle_by']}}</label>
+                                                </div>
+                                            </div>
                                             <select v-on:change="selectedHandleByTemporary()" :style="[this.IncidentReport.handle_by === null ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="TemporaryHandleByID" >
                                                 <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                             </select>
@@ -246,6 +251,11 @@
                                         </div>
                                         <div v-if="this.IncidentReport.handle_by">
                                             <label class="muted">Handle By</label>
+                                            <div class="row" v-if="('handle_by' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['handle_by']}}</label>
+                                                </div>
+                                            </div>
                                             <select v-on:change="selectedHandleBy()" :style="[this.IncidentReport.handle_by.id ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" class="form-control" v-model="IncidentReport.handle_by.id" >
                                                 <option v-for="list in this.ListITStaff" :value="list.id" >{{ list.staff_no }} -{{ list.full_name }}</option>
                                             </select>
@@ -411,6 +421,19 @@
                     .then(function (response) {
                         this.ListITStaff = response.data;
                     }.bind(this));
+            },
+            checkIncidentReport(){
+                this.errors = [];
+                if(this.IncidentReport.handle_by)
+                {
+                    this.updateIncidentReport();
+
+                }
+                if(!this.IncidentReport.handle_by)
+                {
+                    this.errors['handle_by'] = "Choose the Staff"
+                }
+
             },
             updateIncidentReport(){
                 this.$parent.toggleEdit();

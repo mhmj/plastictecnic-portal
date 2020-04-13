@@ -9,7 +9,7 @@ use Session;
 class ImportStaffController extends Controller
 {
     public function index(){
-        return view('pages.Staff.ImportStaffcsv');
+        return view('pages.ITStaff.ImportExport.ImportStaffcsv');
     }
 
     public function uploadFile(Request $request){

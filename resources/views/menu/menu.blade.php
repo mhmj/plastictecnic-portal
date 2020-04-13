@@ -18,24 +18,35 @@
                     <p class="bold">Dashboard</p>
                 </a>
             </li>
-            <li class="{{ (request()->routeIs('ITAsset')) ? 'active' : '' }} ">
-                <a href="{{route('ITAsset')}}">
-                    <i class="now-ui-icons design_bullet-list-67"></i>
-                    <p class="text-bold">IT Asset Management</p>
-                </a>
-            </li>
-            <li class="{{ (request()->routeIs('Staff')) ? 'active' : '' }} ">
-                <a href="{{route('Staff')}}">
-                    <i class="now-ui-icons users_single-02"></i>
-                    <p class="text-bold">Staff Management</p>
-                </a>
-            </li>
-            <li class="{{ (request()->routeIs('IncidentReport')) ? 'active' : '' }} ">
-                <a href="{{route('IncidentReport')}}">
-                    <i class="now-ui-icons location_map-big"></i>
-                    <p>Incident Report</p>
-                </a>
-            </li>
+            @if(Auth::user()->role_id == '2')
+                <li class="{{ (request()->routeIs('Staff-ITAsset')) ? 'active' : '' }} ">
+                    <a href="{{route('Staff-ITAsset')}}">
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <p class="text-bold">IT Asset Management</p>
+                    </a>
+                </li>
+            @endif
+
+            @if(Auth::user()->role_id == '3')
+                <li class="{{ (request()->routeIs('IT-ITAsset')) ? 'active' : '' }} ">
+                    <a href="{{route('IT-ITAsset')}}">
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <p class="text-bold">IT Asset Management</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->routeIs('IT-Staff')) ? 'active' : '' }} ">
+                    <a href="{{route('IT-Staff')}}">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p class="text-bold">Staff Management</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->routeIs('IT-IncidentReport')) ? 'active' : '' }} ">
+                    <a href="{{route('IT-IncidentReport')}}">
+                        <i class="now-ui-icons location_map-big"></i>
+                        <p>Incident Report</p>
+                    </a>
+                </li>
+            @endif
             <li class="{{ (request()->routeIs('ITOperation')) ? 'active' : '' }} ">
                 <a href="{{route('ITOperation')}}">
                     <i class="now-ui-icons education_atom"></i>

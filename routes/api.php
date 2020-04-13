@@ -32,6 +32,13 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
             ->where('category', 'bangi|nilaiA|nilaiB')
             ->name('list-it-asset-location');
 
+
+        Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
+            Route::get('/staff-list-it-asset/{id}', 'ListITAssetController@record')->name('staff-list-it-asset');
+
+        });
+
+
     });
 
     Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
@@ -50,9 +57,15 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/create-incident-report', 'CreateIncidentReportController@create')->name('create-incident-report');
         Route::post('/{id}/update-incident-report', 'UpdateIncidentReportController@update')->name('update-incident-report');
         Route::delete('/{id}/delete-incident-report', 'DeleteIncidentReportController@delete')->name('delete-incident-report');
+
         Route::get('/{id}/{category}/list-incident-report', 'ListIncidentReportLocationController@list')
             ->where('category', 'bangi|nilaiA|nilaiB')
             ->name('list-incident-report-location');
+
+        Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
+            Route::get('/staff-list-incident-report/{id}', 'ListIncidentReportController@record')->name('staff-list-incident-report');
+
+        });
     });
 
     Route::get('/getCompany', 'DropdownController@getCompany');

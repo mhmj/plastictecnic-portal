@@ -1,23 +1,9 @@
 <template>
     <div>
-        <!--<div class="row">-->
-            <!--<div class="col-12" style=" display: flex; justify-content: flex-end">-->
-                <!--<form>-->
-                    <!--<div class="input-group no-border">-->
-                        <!--<input type="text" value="" class="form-control" placeholder="Search...">-->
-                        <!--<div class="input-group-append">-->
-                            <!--<div class="input-group-text">-->
-                                <!--<i class="now-ui-icons ui-1_zoom-bold"></i>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</form>-->
-            <!--</div>-->
-        <!--</div>-->
         <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
         <div>
             <div class="table">
-                <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
+                <staff-it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></staff-it-asset-element-component>
             </div>
             <div style="margin-top: 30px; justify-content: flex-end">
                 <pagination-component ref="pagination" v-on:changePage="fetchITAsset($event)"></pagination-component>
@@ -59,7 +45,7 @@
             fetchITAsset(page = 1){
                 this.isLoading = true;
 
-                fetch('/api/v1/ITAsset/'+ this.id1 +'/'+ this.category +'/list-it-asset' + '?page='+ page).then(response => response.json())
+                fetch('/api/v1/ITAsset/staff/staff-list-it-asset/'+ this.id1 + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.ITassets = response.data;

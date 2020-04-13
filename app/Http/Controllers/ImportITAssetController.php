@@ -10,7 +10,7 @@ class ImportITAssetController extends Controller
 {
     public function index()
     {
-        return view('pages.ITAsset.ImportITAssetcsv');
+        return view('pages.ITStaff.ImportExport.ImportITAssetcsv');
     }
 
     public function uploadFile(Request $request){

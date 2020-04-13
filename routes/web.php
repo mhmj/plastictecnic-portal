@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('login');
 
 //Route::get('/dashboard', function() {
 //    return view('pages.dashboard');
@@ -23,20 +23,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-Route::get('/ITAsset', 'HomeController@ITAsset')->name('ITAsset');
-Route::get('/Staff', 'HomeController@Staff')->name('Staff');
-Route::get('/IncidentReport', 'HomeController@IncidentReport')->name('IncidentReport');
 Route::get('/ITOperation', 'HomeController@ITOperation')->name('ITOperation');
+Route::group(['middleware' => 'Staff'], function(){
 
-Route::get('/import-staff', 'ImportStaffController@index');
-Route::post('/uploadFile', 'ImportStaffController@uploadFile');
-Route::get('/import-it-asset', 'ImportITAssetController@index');
-Route::post('/uploadFile-it-asset', 'ImportITAssetController@uploadFile');
+    Route::get('/Staff-ITAsset', 'StaffPageController@StaffITAsset')->name('Staff-ITAsset');
 
-Route::group(['prefix' => 'portal', 'middleware' => 'auth', 'role:client'], function(){
+});
 
-        Route::get('/home', 'ClientDashboardController@index')->name('home');
+Route::group(['middleware' => 'ITStaff'], function(){
 
-    });
+    Route::get('/IT-ITAsset', 'ITStaffPageController@ITStaffITAsset')->name('IT-ITAsset');
+    Route::get('/IT-Staff', 'ITStaffPageController@ITStaffStaff')->name('IT-Staff');
+    Route::get('/IT-IncidentReport', 'ITStaffPageController@ITStaffIncidentReport')->name('IT-IncidentReport');
+
+    Route::get('/import-staff', 'ImportStaffController@index');
+    Route::post('/uploadFile', 'ImportStaffController@uploadFile');
+    Route::get('/import-it-asset', 'ImportITAssetController@index');
+    Route::post('/uploadFile-it-asset', 'ImportITAssetController@uploadFile');
+
+});
