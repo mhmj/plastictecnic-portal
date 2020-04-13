@@ -232,6 +232,7 @@
         created() {
             this.getITAssetByLocation();
             this.selectedStaff();
+            console.log(this.staffID);
         },
         methods: {
             getITAssetByLocation(){

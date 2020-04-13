@@ -10,7 +10,7 @@
         <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
         <div>
             <div class="table" v-if="isCreating">
-                <staff-create-incident-report-form-component :companyID="this.id2"></staff-create-incident-report-form-component>
+                <staff-create-incident-report-form-component :companyID="this.id2" :staffID="this.id1"></staff-create-incident-report-form-component>
             </div>
             <div class="table">
                 <staff-incident-report-element-component v-for="IncidentReport in IncidentReports " v-bind:key="IncidentReport.id" :data="IncidentReport"></staff-incident-report-element-component>
@@ -51,7 +51,6 @@
         },
         created() {
             this.fetchIncidentReport();
-            console.log(this.id2)
         },
         methods: {
             isCreatingButton(){
