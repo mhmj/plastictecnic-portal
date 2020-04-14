@@ -27,6 +27,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/{id}/update-it-asset', 'UpdateITAssetController@update')->name('update-it-asset');
         Route::delete('/{id}/delete-it-asset', 'DeleteITAssetController@delete')->name('delete-it-asset');
         Route::post('/{id}/assign-it-asset', 'AssignITAssetController@assign')->name('assign-it-asset');
+        Route::get('/{id}/{query}/search-it-asset', 'SearchITAssetController@search')->name('search-it-asset');
 
         Route::get('/{id}/{category}/list-it-asset', 'ListAssetBasedOnLocationController@list')
             ->where('category', 'bangi|nilaiA|nilaiB')
@@ -46,6 +47,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/create-staff', 'CreateStaffController@create')->name('create-staff');
         Route::post('/{id}/update-staff', 'UpdateStaffController@update')->name('update-staff');
         Route::delete('/{id}/delete-staff', 'DeleteStaffController@delete')->name('delete-staff');
+        Route::get('/{id}/{query}/search-staff', 'SearchStaffController@search')->name('search-staff');
+
 
         Route::get('/{id}/{category}/list-staff', 'ListStaffLocationController@list')
             ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
@@ -68,8 +71,18 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         });
     });
 
+    Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Common'], function () {
+
+        Route::get('/{id}', 'ProfileDetailsController@profile')->name('profile');
+        Route::get('/{id}/{new_password}/change-password', 'ProfileDetailsController@changePassword')->name('change-password-profile');
+
+    });
+
+    Route::get('/check-password/{id}/{password}','DropdownController@checkpassword');
+    Route::get('/getCompany', 'DropdownController@getCompany');
     Route::get('/getCompany', 'DropdownController@getCompany');
     Route::get('/getCompanyDetails/{id}', 'DropdownController@getCompanyDetails');
+
 
     Route::get('/getDepartment', 'DropdownController@getDepartment');
     Route::get('/getDepartmentDetails/{id}', 'DropdownController@getDepartmentDetails');

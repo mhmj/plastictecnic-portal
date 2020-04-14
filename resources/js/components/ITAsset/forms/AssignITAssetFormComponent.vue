@@ -225,7 +225,14 @@
                             'content-type': 'application/json'
                         }
                     }).then((response) => {
-                        Event.$emit('updateITList');
+                        if(this.$parent.$parent.isSearching === false)
+                        {
+                            Event.$emit('updateITList');
+                        }
+                        if(this.$parent.$parent.isSearching === true)
+                        {
+                            Event.$emit('updateSearchITList');
+                        }
                     })
                 }
 

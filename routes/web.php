@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/ITOperation', 'HomeController@ITOperation')->name('ITOperation');
+Route::get('/profile', 'HomeController@profile')->name('profile');
+
 Route::group(['middleware' => 'Staff'], function(){
 
     Route::get('/Staff-ITAsset', 'StaffPageController@StaffITAsset')->name('Staff-ITAsset');

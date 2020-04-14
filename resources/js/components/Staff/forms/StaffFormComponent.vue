@@ -109,7 +109,7 @@
                     <div class="col-6" style="margin-top: 10px">
                         <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
                             <button class="btn btn-primary" style="margin-right: 15px">Submit</button>
-                            <a @click="$parent.toggleEdit()" class="btn btn-default text-white" >Cancel</a>
+                            <a @submit.prevent="searchStaff" @click="$parent.toggleEdit()" class="btn btn-default text-white" >Cancel</a>
                         </div>
                     </div>
                 </div>
@@ -227,7 +227,15 @@
                         'content-type': 'application/json'
                     }
                 }).then((response) => {
-                    Event.$emit('updateStaffList');
+
+                    if(this.$parent.$parent.isSearching === false)
+                    {
+                        Event.$emit('updateStaffList');
+                    }
+                    if(this.$parent.$parent.isSearching === true)
+                    {
+                        Event.$emit('updateSearchStaff');
+                    }
                 })
             },
         }

@@ -6,7 +6,7 @@
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
             PT
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{route('profile')}}" class="simple-text logo-normal">
             {{ Auth::user()->username }}
         </a>
     </div>

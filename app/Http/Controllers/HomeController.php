@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('pages.ITOperation');
     }
+
+    public function profile()
+    {
+        return view('pages.profile');
+    }
 }

@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand" href="#pablo">
-                            <h4 class="card-title">Dashboard</h4>
+                            <h4 class="card-title">Profile</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -53,38 +54,14 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-chart">
-                            <div class="card-body">
-                                <slider-component></slider-component>
+                    <div class="col-md-12">
+                        <div class="card  card-tasks">
+                            <div class="card-header ">
+                                <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">Edit Profile</h5>
+                                <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Profile</h4>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h5 class="card-category">List Annoucement</h5>
-                                <h4 class="card-title">Annoucement</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="barChartSimpleGradientsNumbers"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h5 class="card-category">List Summary Asset</h5>
-                                <h4 class="card-title">Summary</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="barChartSimpleGradientsNumbers"></canvas>
-                                </div>
+                            <div class="card-body ">
+                                <profile-component id1="{{Auth::user()->id}}"></profile-component>
                             </div>
                         </div>
                     </div>
@@ -99,5 +76,4 @@
             </footer>
         </div>
     </div>
-
 @endsection

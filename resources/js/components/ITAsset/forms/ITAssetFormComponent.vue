@@ -291,8 +291,14 @@
                         'content-type': 'application/json'
                     }
                 }).then((response) => {
-                    //this.$parent.$parent.fetchITAsset();
-                    Event.$emit('updateITList');
+                    if(this.$parent.$parent.isSearching === false)
+                    {
+                        Event.$emit('updateITList');
+                    }
+                    if(this.$parent.$parent.isSearching === true)
+                    {
+                        Event.$emit('updateSearchITList');
+                    }
                 })
             },
         }

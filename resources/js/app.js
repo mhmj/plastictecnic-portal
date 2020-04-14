@@ -32,6 +32,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
+Vue.component('profile-component', require('./components/Common/ProfileComponent.vue').default);
 
 
 

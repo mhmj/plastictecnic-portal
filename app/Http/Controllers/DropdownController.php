@@ -13,6 +13,7 @@ use App\Http\Resources\Staff as StaffResources;
 use App\Http\Resources\ITAsset as ITAssetResources;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DropdownController extends Controller
 {
@@ -129,5 +130,19 @@ class DropdownController extends Controller
     {
         return new ITAssetResources(ITAsset::find($id));
 
+    }
+
+    public function checkpassword($id,$password)
+    {
+        $profile = Staff::find($id);
+
+        if(Hash::check( $password, $profile->password))
+        {
+            return with('same');
+        }
+        else
+        {
+            return with('not');
+        }
     }
 }
