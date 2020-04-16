@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand">
-                            <h4 class="card-title">IT Asset</h4>
+                            <h4 class="card-title">License</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
                             <div class="card-header ">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">IT Asset</h4></h5>
+                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">License</h4></h5>
                                     </div>
                                     <div class="col" style="display: flex; justify-content: flex-end">
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ITAssetModal">
@@ -100,13 +100,13 @@
                             <div class="card-body ">
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active" id="bangi">
-                                        <list-it-asset-location-component id1="1" category="bangi"></list-it-asset-location-component>
+                                        <list-license-location-component id1="1" category="bangi"></list-license-location-component>
                                     </div>
                                     <div class="tab-pane"  id="nilai-a">
-                                        <list-it-asset-location-component id1="2" category="nilaiA"></list-it-asset-location-component>
+                                        <list-license-location-component id1="2" category="nilaiA"></list-license-location-component>
                                     </div>
                                     <div class="tab-pane" id="nilai-b">
-                                        <list-it-asset-location-component id1="3" category="nilaiB"></list-it-asset-location-component>
+                                        <list-license-location-component id1="3" category="nilaiB"></list-license-location-component>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <create-it-asset-form-component></create-it-asset-form-component>
+                            {{--<create-it-asset-form-component></create-it-asset-form-component>--}}
                         </div>
                     </div>
                 </div>

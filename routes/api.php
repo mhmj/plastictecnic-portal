@@ -38,8 +38,18 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
             Route::get('/staff-list-it-asset/{id}', 'ListITAssetController@record')->name('staff-list-it-asset');
 
         });
+    });
+
+    Route::group(['prefix' => 'license', 'as' => 'license.', 'namespace' => 'Licensing'], function () {
+        Route::post('/create-license', 'CreateLicensingController@create')->name('create-license');
+        Route::post('/{id}/update-license', 'UpdateLicensingController@update')->name('update-license');
+        Route::delete('/{id}/delete-license', 'DeleteLicensingController@delete')->name('delete-license');
+        Route::get('/{id}/{query}/search-license', 'SearchLicensingController@search')->name('search-license');
 
 
+        Route::get('/{id}/{category}/list-license', 'ListLicensingBasedOnLocationController@list')
+            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->name('list-license-location');
     });
 
     Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {

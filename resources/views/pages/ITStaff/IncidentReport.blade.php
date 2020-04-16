@@ -13,7 +13,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">
+                        <a class="navbar-brand">
                             <h4 class="card-title">Incident</h4>
                         </a>
                     </div>
@@ -58,11 +58,6 @@
                         <div class="card  card-tasks">
                             <div class="card-header ">
                                 <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of Incident Report</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-8">
                                         <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Incident Report</h4></h5>
                                     </div>
@@ -76,17 +71,17 @@
                                     <div class="col">
                                         <ul class="nav" data-tabs="tabs">
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
+                                                <button type="button" class="btn btn-md btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
                                                 </button>
                                             </li>
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
+                                                <button type="button" class="btn btn-md btn-success" href="#nilai-a" data-toggle="tab">
                                                     Nilai Plant (Block A)
                                                 </button>
                                             </li>
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
+                                                <button type="button" class="btn btn-md btn-warning" href="#nilai-b" data-toggle="tab">
                                                     Nilai Plant (Block B)
                                                 </button>
                                             </li>
@@ -94,6 +89,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card  card-tasks">
+                            <div class="card-header "></div>
                             <div class="card-body ">
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active" id="bangi">

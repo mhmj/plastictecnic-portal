@@ -34,6 +34,12 @@
                         <p class="text-bold">IT Asset Management</p>
                     </a>
                 </li>
+                <li class="{{ (request()->routeIs('IT-License')) ? 'active' : '' }} ">
+                    <a href="{{route('IT-License')}}">
+                        <i class="now-ui-icons education_paper"></i>
+                        <p class="text-bold">License Management</p>
+                    </a>
+                </li>
                 <li class="{{ (request()->routeIs('IT-Staff')) ? 'active' : '' }} ">
                     <a href="{{route('IT-Staff')}}">
                         <i class="now-ui-icons users_single-02"></i>

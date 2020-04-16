@@ -13,7 +13,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">
+                        <a class="navbar-brand">
                             <h4 class="card-title">Dashboard</h4>
                         </a>
                     </div>

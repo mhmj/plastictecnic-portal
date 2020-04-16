@@ -38,6 +38,7 @@ Route::group(['middleware' => 'ITStaff'], function(){
     Route::get('/IT-ITAsset', 'ITStaffPageController@ITStaffITAsset')->name('IT-ITAsset');
     Route::get('/IT-Staff', 'ITStaffPageController@ITStaffStaff')->name('IT-Staff');
     Route::get('/IT-IncidentReport', 'ITStaffPageController@ITStaffIncidentReport')->name('IT-IncidentReport');
+    Route::get('/IT-License', 'ITStaffPageController@ITStaffLicense')->name('IT-License');
 
     Route::get('/import-staff', 'ImportStaffController@index');
     Route::post('/uploadFile', 'ImportStaffController@uploadFile');

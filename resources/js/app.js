@@ -71,6 +71,21 @@ Vue.component('assign-it-asset-form-component', require('./components/ITAsset/fo
 
 
 
+/////////////////////////////////// License Component //////////////////////////////////////////
+
+                                    /////////// Lists //////////////////
+
+Vue.component('list-license-location-component', require('./components/License/lists/ListLicensedLocationComponent.vue').default);
+
+                                    /////////// Elements ///////////////
+
+Vue.component('license-element-component', require('./components/License/elements/LicenseComponent.vue').default);
+
+                                    /////////// Forms //////////////////
+
+
+
+
 
 /////////////////////////////////// Staff Component //////////////////////////////////////////
 

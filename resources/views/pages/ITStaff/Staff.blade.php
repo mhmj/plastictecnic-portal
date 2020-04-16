@@ -13,7 +13,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">
+                        <a class="navbar-brand">
                             <h4 class="card-title">Staff</h4>
                         </a>
                     </div>
@@ -59,11 +59,6 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of Staff</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
                                         <h5 class="card-category">
                                             <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Staff</h4>
                                         </h5>
@@ -101,6 +96,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"></div>
                             <div class="card-body">
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active" id="bangi">

@@ -30,4 +30,9 @@ class ITStaffPageController extends Controller
     {
         return view('pages.ITStaff.IncidentReport');
     }
+
+    public function ITStaffLicense()
+    {
+        return view('pages.ITStaff.License');
+    }
 }

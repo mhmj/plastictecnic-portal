@@ -13,7 +13,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">
+                        <a class="navbar-brand">
                             <h4 class="card-title">Profile</h4>
                         </a>
                     </div>
@@ -57,7 +57,6 @@
                     <div class="col-md-12">
                         <div class="card  card-tasks">
                             <div class="card-header ">
-                                <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">Edit Profile</h5>
                                 <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Profile</h4>
                             </div>
                             <div class="card-body ">

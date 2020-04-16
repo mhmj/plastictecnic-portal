@@ -2,6 +2,22 @@
     <div style="margin-bottom: 10px">
         <form method="post" @submit.prevent="updateITAsset">
             <div class="col-lg-12">
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-lg-12-auto">
+                        <ul class="nav" data-tabs="tabs">
+                            <li class="nav-item col-lg-6-auto" style="padding-left: 10px; padding-right: 0px">
+                                <button type="button" class="btn btn-md btn-info" href="#bangi" data-toggle="tab" style="margin-bottom: 10px">
+                                    Asset Information
+                                </button>
+                            </li>
+                            <li class="nav-item col-lg-6-auto" style="padding-left: 10px; padding-right: 0px">
+                                <button type="button" class="btn btn-md btn-success" href="#nilai-a" data-toggle="tab">
+                                    Licensing Information
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 text-left">
                         <div class="card">
