@@ -19,22 +19,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2-auto" style="margin-left: 10px">
-                        <div class="card" v-bind:style= "[this.license.company_id.id === 1 ? {'background-color': '#72c5ff'} : this.license.company_id.id === 2 ? {'background-color': '#55f24d'} : this.license.company_id.id === 3 ? {'background-color': '#ffc15d'}: {'background-color': '#72c5ff'}]">
-                            <div class="card-body">
-                                <div v-if="this.license.it_asset_id !== null  ">
-                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
-                                        {{this.license.it_asset_id.computer_name}}
-                                    </span>
-                                </div>
-                                <div v-if="this.license.it_asset_id === null  ">
-                                    <span class="text-white" style="font-size: 15px; font-weight: 600;">
-                                         -
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row" style="padding-bottom: 10px">
                     <div class="col-lg-6" style="margin-bottom: 10px">
@@ -83,35 +67,25 @@
                 <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-pencil-alt text-dark"></i>
                 </a>
-                <a @click="" data-toggle="modal" @click="toggleAssign()" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="fas fa-user-tag text-black"></i>
-                </a>
                 <a @click="toggleDelete()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-trash text-danger"></i>
                 </a>
             </div>
         </div>
-        <!--<div class="row">-->
-            <!--<div class="table" v-show="isEditing">-->
-                <!--<div class="card card-body" >-->
-                    <!--<it-asset-form-component v-bind:key="asset.id" :data="asset"></it-asset-form-component>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="table" v-show="isDeleting">-->
-                <!--<div class="card card-body" >-->
-                    <!--<delete-it-asset-form-component v-bind:key="asset.id" :data="asset"></delete-it-asset-form-component>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="table" v-show="isAssigning">-->
-                <!--<div class="card card-body" >-->
-                    <!--<assign-it-asset-form-component v-bind:key="asset.id" :data="asset"></assign-it-asset-form-component>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="row">
+            <div class="table" v-show="isEditing">
+                <div class="card card-body" >
+                    <license-form-component v-bind:key="license.id" :data="license"></license-form-component>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table" v-show="isDeleting">
+                <div class="card card-body" >
+                    <delete-license-form-component v-bind:key="license.id" :data="license"></delete-license-form-component>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -124,7 +98,6 @@
                 license: this.data,
                 isEditing: false,
                 isDeleting: false,
-                isAssigning: false,
             }
         },
         mounted(){
@@ -141,9 +114,6 @@
             },
             toggleDelete(){
                 this.isDeleting = !this.isDeleting;
-            },
-            toggleAssign(){
-                this.isAssigning = !this.isAssigning;
             },
         }
     }

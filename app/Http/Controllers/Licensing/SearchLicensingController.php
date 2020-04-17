@@ -9,7 +9,12 @@
 namespace App\Http\Controllers\Licensing;
 
 
+use App\Classes\Modules\ControllerLogic\Licensing\SearchLicensingLogic;
+
 class SearchLicensingController
 {
-
+    public function search($id, $query, SearchLicensingLogic $logic)
+    {
+        return $logic->execute($id, $query);
+    }
 }

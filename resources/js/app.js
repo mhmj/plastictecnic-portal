@@ -83,6 +83,10 @@ Vue.component('license-element-component', require('./components/License/element
 
                                     /////////// Forms //////////////////
 
+Vue.component('license-form-component', require('./components/License/forms/LicenseFormComponent.vue').default);
+Vue.component('create-license-form-component', require('./components/License/forms/CreateLicenseFormComponent.vue').default);
+Vue.component('delete-license-form-component', require('./components/License/forms/DeleteLicenseFormComponent.vue').default);
+
 
 
 

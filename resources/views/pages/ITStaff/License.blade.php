@@ -62,7 +62,7 @@
                                         <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">License</h4></h5>
                                     </div>
                                     <div class="col" style="display: flex; justify-content: flex-end">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ITAssetModal">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#LicenseModal">
                                             New
                                         </button>
                                     </div>
@@ -114,17 +114,17 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="ITAssetModal" tabindex="-1" role="dialog" aria-labelledby="ITAssetModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+            <div class="modal fade" id="LicenseModal" tabindex="-1" role="dialog" aria-labelledby="LicenseModalModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ITAssetModalLabel">New IT Asset</h5>
+                            <h5 class="modal-title" id="LicenseModalModalLabel">New License</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            {{--<create-it-asset-form-component></create-it-asset-form-component>--}}
+                            <create-license-form-component></create-license-form-component>
                         </div>
                     </div>
                 </div>
