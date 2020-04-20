@@ -30,6 +30,8 @@ Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::group(['middleware' => 'Staff'], function(){
 
     Route::get('/Staff-ITAsset', 'StaffPageController@StaffITAsset')->name('Staff-ITAsset');
+    Route::get('/Staff-Incident-Report', 'StaffPageController@StaffIncidentReport')->name('Staff-Incident-Report');
+    Route::get('/Staff-List-Staff', 'StaffPageController@StaffListStaff')->name('Staff-List-Staff');
 
 });
 

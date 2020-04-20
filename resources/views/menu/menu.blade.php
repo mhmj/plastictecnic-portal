@@ -25,6 +25,18 @@
                         <p class="text-bold">IT Asset Management</p>
                     </a>
                 </li>
+                <li class="{{ (request()->routeIs('Staff-Incident-Report')) ? 'active' : '' }} ">
+                    <a href="{{route('Staff-Incident-Report')}}">
+                        <i class="now-ui-icons location_map-big"></i>
+                        <p class="text-bold">IT Incident Management</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->routeIs('Staff-List-Staff')) ? 'active' : '' }} ">
+                    <a href="{{route('Staff-List-Staff')}}">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p class="text-bold">Staff List</p>
+                    </a>
+                </li>
             @endif
 
             @if(Auth::user()->role_id == '3')

@@ -28,6 +28,25 @@ class CreatesIncidentReport
 
     public function execute(Request $request)
     {
+
+//        $fileName = time().'.'.$request->file->getClientOriginalExtension();
+//        $request->file->storeAs('public/IncidentReport', $fileName);
+
+        if($request->hasFile('file')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file->storeAs('public/IncidentReport', $fileNameToStore);
+        } else {
+            $fileNameToStore = '';
+        }
+
         $model = $this->repository->create([
             'asset_id' => $request->input('asset_id'),
             'staff_id' => $request->input('staff_id'),
@@ -39,7 +58,7 @@ class CreatesIncidentReport
             'job_start' => $request->input('job_start'),
             'job_finish' => $request->input('job_finish'),
             'description' => $request->input('description'),
-            'image' => $request->input('image'),
+            'image' => $fileNameToStore,
             'rate' => $request->input('rate'),
             'status' => $request->input('status'),
         ]);

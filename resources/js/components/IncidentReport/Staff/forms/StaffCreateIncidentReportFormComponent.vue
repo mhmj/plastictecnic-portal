@@ -1,6 +1,6 @@
 <template>
-    <div style="margin-bottom: 10px">
-        <form method="post" @submit.prevent="checkIncidentReport">
+    <div style="margin-bottom: 10px" class="text-left">
+        <form method="post" @submit.prevent="checkIncidentReport" enctype="multipart/form-data">
             <div class="col-lg-12">
                 <div class="row" style="margin-bottom: 30px">
                     <div class="col-lg-6">
@@ -42,22 +42,36 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="form-group form-group-default required">
-                                            <label class="muted">Root Cause </label>
-                                            <span style="color: red">*</span>
-                                            <div class="row" v-if="('root_cause' in errors)">
-                                                <div class="col">
-                                                    <label class="text-danger">{{errors['root_cause']}}</label>
-                                                </div>
-                                            </div>
-                                            <select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.root_cause">
-                                                <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>
-                                                <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>
-                                                <option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>
-                                            </select>
+                                        <div class="form-group form-group-default required" data-provides="fileinput">
+                                            <label class="muted">Incident Image</label>
+                                        </div>
+                                        <div class=" fileinput fileinput-new text-left" >
+                                        <div>
+                                            <span class="form-control">
+                                                <input type="file" v-on:change="onFileChange"/>
+                                            </span>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-12">-->
+                                        <!--<div class="form-group form-group-default required">-->
+                                            <!--<label class="muted">Root Cause </label>-->
+                                            <!--<span style="color: red">*</span>-->
+                                            <!--<div class="row" v-if="('root_cause' in errors)">-->
+                                                <!--<div class="col">-->
+                                                    <!--<label class="text-danger">{{errors['root_cause']}}</label>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.root_cause">-->
+                                                <!--<option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>-->
+                                                <!--<option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>-->
+                                                <!--<option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>
@@ -150,6 +164,8 @@
                 errors: [],
                 company_id: this.companyID,
                 ListITAssetByLocation:[],
+                file:'',
+                incident_report_image:'',
                 IncidentReport: {
                     id:'',
                     asset_id:{
@@ -232,9 +248,11 @@
         created() {
             this.getITAssetByLocation();
             this.selectedStaff();
-            console.log(this.staffID);
         },
         methods: {
+            onFileChange(e){
+                this.file = e.target.files[0];
+            },
             getITAssetByLocation(){
                 axios.get('/api/v1/getITAssetByLocation/'+ this.company_id)
                     .then(function (response) {
@@ -249,7 +267,6 @@
                     .then(response => {
                         vm.IncidentReport.staff_id = response.data;
                         this.IncidentReport.staff_id = vm.IncidentReport.staff_id;
-                        console.log(this.IncidentReport.staff_id);
                     });
             },
 
@@ -260,13 +277,12 @@
                     .then(response => {
                         vm.IncidentReport.asset_id = response.data;
                         this.IncidentReport.asset_id = vm.IncidentReport.asset_id;
-                        console.log(this.IncidentReport.asset_id);
                     });
             },
 
             checkIncidentReport(){
                 this.errors = [];
-                if(this.IncidentReport.incident_category && this.IncidentReport.root_cause && this.IncidentReport.asset_id.id)
+                if(this.IncidentReport.incident_category && this.IncidentReport.asset_id.id)
                 {
                     this.createIncidentReport();
 
@@ -275,10 +291,6 @@
                 if(!this.IncidentReport.incident_category)
                 {
                     this.errors['category'] = "Choose the Incident Category"
-                }
-                if(!this.IncidentReport.root_cause)
-                {
-                    this.errors['root_cause'] = "Choose the Root Cause"
                 }
                 if(!this.IncidentReport.asset_id.id)
                 {
@@ -290,31 +302,61 @@
                 this.$parent.isCreatingButton();
                 var url = '/api/v1/IncidentReport/create-incident-report', method = 'post';
 
-                fetch(url, {
-                    method: method,
-                    body: JSON.stringify({
-                        asset_id: this.IncidentReport.asset_id.id,
-                        staff_id: this.IncidentReport.staff_id.id,
-                        handle_by: this.IncidentReport.handle_by.id,
-                        confirm_by: this.IncidentReport.staff_id.id,
-                        company_id: this.IncidentReport.asset_id.company.id,
-                        root_cause: this.IncidentReport.root_cause,
-                        incident_category: this.IncidentReport.incident_category,
-                        job_start: this.IncidentReport.job_start,
-                        job_finish: this.IncidentReport.job_finish,
-                        description: this.IncidentReport.description,
-                        image: this.IncidentReport.image,
-                        rate: this.IncidentReport.rate,
-                        status: "Received",
-                    }),
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                }).then((response) => {
-                    //this.clearForm();
-                    Event.$emit('updateIncidentReport');
+                let currentObj = this;
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
 
-                })
+                let formData = new FormData();
+                formData.append("asset_id", this.IncidentReport.asset_id.id);
+                formData.append("staff_id", this.IncidentReport.staff_id.id);
+                formData.append("handle_by",  this.IncidentReport.handle_by.id);
+                formData.append("confirm_by", this.IncidentReport.staff_id.id);
+                formData.append("company_id", this.IncidentReport.asset_id.company.id);
+                formData.append("root_cause", this.IncidentReport.root_cause);
+                formData.append("incident_category", this.IncidentReport.incident_category);
+                formData.append("job_start", this.IncidentReport.job_start);
+                formData.append("job_finish", this.IncidentReport.job_finish);
+                formData.append("description", this.IncidentReport.description);
+                formData.append("file", this.file);
+                formData.append("rate",this.IncidentReport.rate);
+                formData.append("status", "Received");
+
+
+                axios.post('/api/v1/IncidentReport/create-incident-report', formData, config)
+                    .then(function (response) {
+                        Event.$emit('updateIncidentReport');
+                    })
+                    .catch(function (error) {
+                        currentObj.output = error;
+                    });
+
+
+//                fetch(url, {
+//                    method: method,
+//                    body: JSON.stringify({
+//                        asset_id: this.IncidentReport.staff_id.id,
+//                        staff_id: this.IncidentReport.staff_id.id,
+//                        handle_by: this.IncidentReport.handle_by.id,
+//                        confirm_by: this.IncidentReport.staff_id.id,
+//                        company_id: this.IncidentReport.asset_id.company.id,
+//                        root_cause: this.IncidentReport.root_cause,
+//                        incident_category: this.IncidentReport.incident_category,
+//                        job_start: this.IncidentReport.job_start,
+//                        job_finish: this.IncidentReport.job_finish,
+//                        description: this.IncidentReport.description,
+//                        image: this.IncidentReport.image,
+//                        rate: this.IncidentReport.rate,
+//                        status: "Received",
+//                    }),
+//                    headers: {
+//                        'content-type': 'application/json'
+//                    }
+//                }).then((response) => {
+//                    //this.clearForm();
+//                    Event.$emit('updateIncidentReport');
+//
+//                })
             },
         }
     }

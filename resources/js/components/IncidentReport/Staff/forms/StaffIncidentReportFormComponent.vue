@@ -34,15 +34,80 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" v-if="this.IncidentReport.image">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group form-group-default required">
+                                                    <label class="muted">Incident Image</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class=" fileinput fileinput-new text-left" >
+                                                    <div>
+                                                <span class="form-control">
+                                                    <input type="file" v-on:change="onFileChange" />
+                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px;" v-if="this.previewImage === false">
+                                            <div class="col-md-4">
+                                                <div class="card card-user">
+                                                    <div class="image">
+                                                        <a v-on:click="preview">
+                                                            <img class="btn btn-outline-primary" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ; "  :src="image_source +  this.IncidentReport.image" >
+                                                            <!--:src="image_source +'/'+ this.IncidentReport.image"-->
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-4">-->
+                                                <!--<div class="card card-user">-->
+                                                    <!--<div class="image" style=" margin-bottom: 10px; width: auto ;max-width: 100% ;height: auto ;">-->
+                                                        <!--<a type="button" v-on:click="preview">-->
+                                                            <!--<img style="padding: 5px;"  :src="image_source +  this.IncidentReport.image" >-->
+                                                            <!--&lt;!&ndash;:src="image_source +'/'+ this.IncidentReport.image"&ndash;&gt;-->
+                                                        <!--</a>-->
+                                                    <!--</div>-->
+
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                        <div class="row" style="margin-top: 10px" v-if="this.previewImage === true">
+                                            <div class="col-lg-12">
+                                                <div class="card" >
+                                                    <div class="card-header">
+                                                        <div style="display: flex;justify-content: flex-end; font-weight: bold; color: red">
+                                                            <a class="btn btn-outline-primary"  v-on:click="preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body" >
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <img style="height: 100%; width: 100%;"  :src="image_source +  this.IncidentReport.image" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="!this.IncidentReport.image">
                                     <div class="col-lg-12">
                                         <div class="form-group form-group-default required">
-                                            <label class="muted">Root Cause</label>
-                                            <select class="form-control" :style="[this.IncidentReport.root_cause ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.root_cause">
-                                                <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>
-                                                <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>
-                                                <option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>
-                                            </select>
+                                            <label class="muted">Incident Image</label>
+                                        </div>
+                                        <div class=" fileinput fileinput-new text-left" >
+                                            <div>
+                                                <span class="form-control">
+                                                    <input type="file" v-on:change="onFileChange" />
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,9 +279,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-
-                </div>
                 <div class="row border-top" >
                     <div class="col-6">
                         <div class="form-group form-group-default"></div>
@@ -242,6 +304,9 @@
         data(){
             return{
                 errors: [],
+                image_source: 'storage/IncidentReport/',
+                previewImage: false,
+                file:'',
                 IncidentReport: {
                     id:'',
                     asset_id:{
@@ -326,61 +391,115 @@
             }
         },
         methods: {
+            preview(){
+              this.previewImage = !this.previewImage;
+            },
+            onFileChange(e){
+                this.file = e.target.files[0];
+            },
+
             updateIncidentReport(){
                 this.$parent.toggleEdit();
+
                 if(!this.IncidentReport.handle_by){
                     var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
+                    let currentObj = this;
+                    const config = {
+                        headers: { 'content-type': 'multipart/form-data' }
+                    }
+                    if(!this.file){
+                        this.file = this.IncidentReport.image;
+                    }
+                    let formData = new FormData();
 
-                    fetch(url, {
-                        method: method,
-                        body: JSON.stringify({
-                            asset_id: this.IncidentReport.asset_id.id,
-                            staff_id: this.IncidentReport.staff_id.id,
-                            //handle_by: this.IncidentReport.handle_by.id,
-                            confirm_by: this.IncidentReport.staff_id.id,
-                            company_id: this.IncidentReport.asset_id.company.id,
-                            root_cause: this.IncidentReport.root_cause,
-                            incident_category: this.IncidentReport.incident_category,
-                            job_start: this.IncidentReport.job_start,
-                            job_finish: this.IncidentReport.job_finish,
-                            description: this.IncidentReport.description,
-                            image: this.IncidentReport.image,
-                            rate: this.IncidentReport.rate,
-                            status: this.IncidentReport.status,
-                        }),
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    }).then((response) => {
-                        Event.$emit('updateIncidentReport');
-                    })
+                    formData.append("asset_id", this.IncidentReport.asset_id.id);
+                    formData.append("staff_id", this.IncidentReport.staff_id.id);
+                    formData.append("confirm_by", this.IncidentReport.staff_id.id);
+                    formData.append("company_id", this.IncidentReport.asset_id.company.id);
+                    formData.append("root_cause", this.IncidentReport.root_cause);
+                    formData.append("incident_category", this.IncidentReport.incident_category);
+                    formData.append("job_start", this.IncidentReport.job_start);
+                    formData.append("job_finish", this.IncidentReport.job_finish);
+                    formData.append("description", this.IncidentReport.description);
+                    formData.append("file", this.file);
+                    formData.append("rate",this.IncidentReport.rate);
+                    formData.append("status", this.IncidentReport.status);
+
+                    let vm= this;
+                    axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
+                        .then(function (data) {
+                            vm.IncidentReport.image = data.data.data.image;
+                            Event.$emit('updateIncidentReport');
+
+                        })
+                        .catch(function (error) {
+                            currentObj.output = error;
+                        });
+                    this.IncidentReport.image = vm.IncidentReport.image;
                 }
                 else{
-                    var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
 
-                    fetch(url, {
-                        method: method,
-                        body: JSON.stringify({
-                            asset_id: this.IncidentReport.asset_id.id,
-                            staff_id: this.IncidentReport.staff_id.id,
-                            handle_by: this.IncidentReport.handle_by.id,
-                            confirm_by: this.IncidentReport.staff_id.id,
-                            company_id: this.IncidentReport.asset_id.company.id,
-                            root_cause: this.IncidentReport.root_cause,
-                            incident_category: this.IncidentReport.incident_category,
-                            job_start: this.IncidentReport.job_start,
-                            job_finish: this.IncidentReport.job_finish,
-                            description: this.IncidentReport.description,
-                            image: this.IncidentReport.image,
-                            rate: this.IncidentReport.rate,
-                            status: this.IncidentReport.status,
-                        }),
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    }).then((response) => {
-                        Event.$emit('updateIncidentReport');
-                    })
+                    let currentObj = this;
+                    const config = {
+                        headers: { 'content-type': 'multipart/form-data' }
+                    }
+
+                    if(!this.file){
+                        this.file = this.IncidentReport.image;
+                    }
+
+                    let formData = new FormData();
+                    formData.append("asset_id", this.IncidentReport.asset_id.id);
+                    formData.append("staff_id", this.IncidentReport.staff_id.id);
+                    formData.append("handle_by", this.IncidentReport.handle_by.id);
+                    formData.append("confirm_by", this.IncidentReport.staff_id.id);
+                    formData.append("company_id", this.IncidentReport.asset_id.company.id);
+                    formData.append("root_cause", this.IncidentReport.root_cause);
+                    formData.append("incident_category", this.IncidentReport.incident_category);
+                    formData.append("job_start", this.IncidentReport.job_start);
+                    formData.append("job_finish", this.IncidentReport.job_finish);
+                    formData.append("description", this.IncidentReport.description);
+                    formData.append("file", this.file);
+                    formData.append("rate",this.IncidentReport.rate);
+                    formData.append("status", this.IncidentReport.status);
+
+                    let vm= this;
+                    axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
+                        .then(function (data) {
+                            vm.IncidentReport.image = data.data.data.image;
+                            Event.$emit('updateIncidentReport');
+
+                        })
+                        .catch(function (error) {
+                            currentObj.output = error;
+                        });
+                    this.IncidentReport.image = vm.IncidentReport.image;
+
+//                    var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
+//
+//                    fetch(url, {
+//                        method: method,
+//                        body: JSON.stringify({
+//                            asset_id: this.IncidentReport.asset_id.id,
+//                            staff_id: this.IncidentReport.staff_id.id,
+//                            handle_by: this.IncidentReport.handle_by.id,
+//                            confirm_by: this.IncidentReport.staff_id.id,
+//                            company_id: this.IncidentReport.asset_id.company.id,
+//                            root_cause: this.IncidentReport.root_cause,
+//                            incident_category: this.IncidentReport.incident_category,
+//                            job_start: this.IncidentReport.job_start,
+//                            job_finish: this.IncidentReport.job_finish,
+//                            description: this.IncidentReport.description,
+//                            image: this.IncidentReport.image,
+//                            rate: this.IncidentReport.rate,
+//                            status: this.IncidentReport.status,
+//                        }),
+//                        headers: {
+//                            'content-type': 'application/json'
+//                        }
+//                    }).then((response) => {
+//                        Event.$emit('updateIncidentReport');
+//                    })
                 }
             },
         }

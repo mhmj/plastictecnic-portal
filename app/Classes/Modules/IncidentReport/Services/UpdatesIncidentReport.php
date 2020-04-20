@@ -29,6 +29,22 @@ class UpdatesIncidentReport
 
     public function execute(int $id, Request $request)
     {
+        if($request->hasFile('file')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file->storeAs('public/IncidentReport', $fileNameToStore);
+        } else {
+            $fileNameToStore = $request->file;
+        }
+
+
         $incident_report = $this->repository->findOrFail($id);
         $incident_report->asset_id = $request->input('asset_id');
         $incident_report->staff_id = $request->input('staff_id');
@@ -40,13 +56,12 @@ class UpdatesIncidentReport
         $incident_report->job_start = $request->input('job_start');
         $incident_report->job_finish = $request->input('job_finish');
         $incident_report->description = $request->input('description');
-        $incident_report->image = $request->input('image');
+        $incident_report->image =$fileNameToStore;
         $incident_report->rate = $request->input('rate');
         $incident_report->status = $request->input('status');
 
 
         if($incident_report->save()){
-            return $incident_report;
             return new IncidentReportResources($incident_report);
         }
     }

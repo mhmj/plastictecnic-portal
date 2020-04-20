@@ -59,20 +59,35 @@
                             <div class="card-header ">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of IT Asset</h5>
+                                        <h5 class="card-category" style="padding-left: 10px; padding-right: 0px">List of Staff</h5>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">IT Asset</h4></h5>
+                                        <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Staff</h4></h5>
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col">
                                         <ul class="nav" data-tabs="tabs">
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
-                                                <button type="button" class="btn btn-sm btn-info" href="#ITAsset" data-toggle="tab">
-                                                    IT Asset
+                                                <button type="button" class="btn btn-sm btn-info" href="#bangi" data-toggle="tab">
+                                                    Bangi Plant
+                                                </button>
+                                            </li>
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
+                                                <button type="button" class="btn btn-sm btn-success" href="#nilai-a" data-toggle="tab">
+                                                    Nilai Plant (Block A)
+                                                </button>
+                                            </li>
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
+                                                <button type="button" class="btn btn-sm btn-warning" href="#nilai-b" data-toggle="tab">
+                                                    Nilai Plant (Block B)
+                                                </button>
+                                            </li>
+                                            <li class="nav-item col-lg-auto" style=" padding-left: 10px; padding-right: 0px">
+                                                <button type="button" class="btn btn-sm btn-info" href="#goodhart" data-toggle="tab">
+                                                    GOODHART MILLIONS S/B (Bangi Plant)
                                                 </button>
                                             </li>
                                         </ul>
@@ -81,8 +96,17 @@
                             </div>
                             <div class="card-body ">
                                 <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="ITAsset">
-                                        <list-staff-it-asset-location-component id1="{{Auth::user()->id}}" category="bangi"></list-staff-it-asset-location-component>
+                                    <div class="tab-pane active" id="bangi">
+                                        <staff-list-staff-location-component id1="1" category="bangi"></staff-list-staff-location-component>
+                                    </div>
+                                    <div class="tab-pane"  id="nilai-a">
+                                        <staff-list-staff-location-component id1="2" category="nilaiA"></staff-list-staff-location-component>
+                                    </div>
+                                    <div class="tab-pane" id="nilai-b">
+                                        <staff-list-staff-location-component id1="3" category="nilaiB"></staff-list-staff-location-component>
+                                    </div>
+                                    <div class="tab-pane" id="goodhart">
+                                        <staff-list-staff-location-component id1="4" category="goodhart"></staff-list-staff-location-component>
                                     </div>
                                 </div>
                             </div>

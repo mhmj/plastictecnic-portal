@@ -60,6 +60,61 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row" v-if="this.IncidentReport.image">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group form-group-default required">
+                                                    <label class="muted">Incident Image</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" v-if="this.previewImage === false">
+                                            <div class="col-md-4">
+                                                <div class="card card-user">
+                                                    <div class="image">
+                                                        <a v-on:click="preview">
+                                                            <img class="btn btn-outline-primary" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ; "  :src="image_source +  this.IncidentReport.image" >
+                                                            <!--:src="image_source +'/'+ this.IncidentReport.image"-->
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px" v-if="this.previewImage === true">
+                                            <div class="col-lg-12">
+                                                <div class="card" >
+                                                    <div class="card-header">
+                                                        <div style="display: flex;justify-content: flex-end; font-weight: bold; color: red">
+                                                            <a class="btn btn-outline-primary"  v-on:click="preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body" >
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <img style="height: 100%; width: 100%;"  :src="image_source +  this.IncidentReport.image" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="!this.IncidentReport.image">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-group-default required">
+                                            <label class="muted">Incident Image</label>
+                                        </div>
+                                        <div class=" fileinput fileinput-new text-left" >
+                                            <div>
+                                                <span class="form-control">
+                                                     -
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,6 +372,8 @@
                 ListStaffByLocation:[],
                 ListITAssetByLocation:[],
                 TemporaryHandleByID:'',
+                image_source: 'storage/IncidentReport/',
+                previewImage: false,
                 IncidentReport: {
                     id:'',
                     asset_id:{
@@ -404,6 +461,9 @@
             this.getITStaff();
         },
         methods: {
+            preview(){
+                this.previewImage = !this.previewImage;
+            },
             getITAssetByLocation(){
                 axios.get('/api/v1/getITAssetByLocation/'+ this.$parent.$parent.id1)
                     .then(function (response) {
@@ -438,31 +498,63 @@
             updateIncidentReport(){
                 this.$parent.toggleEdit();
 
-                var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
+                let currentObj = this;
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
 
-                fetch(url, {
-                    method: method,
-                    body: JSON.stringify({
-                        asset_id: this.IncidentReport.asset_id.id,
-                        staff_id: this.IncidentReport.staff_id.id,
-                        handle_by: this.IncidentReport.handle_by.id,
-                        confirm_by: this.IncidentReport.staff_id.id,
-                        company_id: this.IncidentReport.asset_id.company.id,
-                        root_cause: this.IncidentReport.root_cause,
-                        incident_category: this.IncidentReport.incident_category,
-                        job_start: this.IncidentReport.job_start,
-                        job_finish: this.IncidentReport.job_finish,
-                        description: this.IncidentReport.description,
-                        image: this.IncidentReport.image,
-                        rate: this.IncidentReport.rate,
-                        status: this.IncidentReport.status,
-                    }),
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                }).then((response) => {
-                    Event.$emit('updateIncidentReport');
-                })
+                let formData = new FormData();
+
+
+                formData.append("asset_id", this.IncidentReport.asset_id.id);
+                formData.append("staff_id", this.IncidentReport.staff_id.id);
+                formData.append("handle_by", this.IncidentReport.handle_by.id);
+                formData.append("confirm_by", this.IncidentReport.staff_id.id);
+                formData.append("company_id", this.IncidentReport.asset_id.company.id);
+                formData.append("root_cause", this.IncidentReport.root_cause);
+                formData.append("incident_category", this.IncidentReport.incident_category);
+                formData.append("job_start", this.IncidentReport.job_start);
+                formData.append("job_finish", this.IncidentReport.job_finish);
+                formData.append("description", this.IncidentReport.description);
+                formData.append("file", this.IncidentReport.image);
+                formData.append("rate",this.IncidentReport.rate);
+                formData.append("status", this.IncidentReport.status);
+
+                let vm= this;
+                axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
+                    .then(function (data) {
+                        Event.$emit('updateIncidentReport');
+
+                    })
+                    .catch(function (error) {
+                        currentObj.output = error;
+                    });
+
+//                var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
+//
+//                fetch(url, {
+//                    method: method,
+//                    body: JSON.stringify({
+//                        asset_id: this.IncidentReport.asset_id.id,
+//                        staff_id: this.IncidentReport.staff_id.id,
+//                        handle_by: this.IncidentReport.handle_by.id,
+//                        confirm_by: this.IncidentReport.staff_id.id,
+//                        company_id: this.IncidentReport.asset_id.company.id,
+//                        root_cause: this.IncidentReport.root_cause,
+//                        incident_category: this.IncidentReport.incident_category,
+//                        job_start: this.IncidentReport.job_start,
+//                        job_finish: this.IncidentReport.job_finish,
+//                        description: this.IncidentReport.description,
+//                        image: this.IncidentReport.image,
+//                        rate: this.IncidentReport.rate,
+//                        status: this.IncidentReport.status,
+//                    }),
+//                    headers: {
+//                        'content-type': 'application/json'
+//                    }
+//                }).then((response) => {
+//                    Event.$emit('updateIncidentReport');
+//                })
             },
             async selectedStaff(){
 
@@ -471,7 +563,6 @@
                     .then(response => {
                         vm.IncidentReport.staff_id = response.data;
                         this.IncidentReport.staff_id = vm.IncidentReport.staff_id;
-                        //console.log(this.IncidentReport.staff_id);
                     });
             },
             async selectedHandleByTemporary()

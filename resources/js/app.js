@@ -98,15 +98,21 @@ Vue.component('delete-license-form-component', require('./components/License/for
 Vue.component('list-staff-component', require('./components/Staff/lists/ListStaffComponent.vue').default);
 Vue.component('list-staff-location-component', require('./components/Staff/lists/ListStaffLocationComponent.vue').default);
 
+Vue.component('staff-list-staff-location-component', require('./components/Staff/Staff/lists/StaffListStaffLocationComponent.vue').default);
+
                             /////////// Elements ///////////////
 
 Vue.component('staff-element-component', require('./components/Staff/elements/StaffComponent.vue').default);
+
+Vue.component('staff-list-summary-component', require('./components/Staff/Staff/elements/StaffListStaffSummaryComponent.vue').default);
 
                             /////////// Forms //////////////////
 
 Vue.component('staff-form-component', require('./components/Staff/forms/StaffFormComponent.vue').default);
 Vue.component('create-staff-form-component', require('./components/Staff/forms/CreateStaffFormComponent.vue').default);
 Vue.component('delete-staff-form-component', require('./components/Staff/forms/DeleteStaffFormComponent.vue').default);
+
+Vue.component('staff-list-details-component', require('./components/Staff/Staff/forms/StaffListStaffDetailsComponent.vue').default);
 
 
 
