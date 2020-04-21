@@ -44,6 +44,24 @@ Vue.component('slider-component', require('./components/auth/SliderComponent.vue
 
 
 
+/////////////////////////////////// Dashboard Component //////////////////////////////////////////
+
+                                    /////////// Lists //////////////////
+
+Vue.component('it-staff-dashboard-component', require('./components/Dashboard/ITStaff/lists/dashboard.vue').default);
+Vue.component('staff-dashboard-component', require('./components/Dashboard/Staff/lists/dashboard.vue').default);
+
+                                    /////////// Elements ///////////////
+
+Vue.component('announcement-element-component', require('./components/Dashboard/ITStaff/elements/AnnouncementComponent.vue').default);
+Vue.component('news-element-component', require('./components/Dashboard/ITStaff/elements/NewsComponent.vue').default);
+
+
+                                    /////////// Forms //////////////////
+
+
+
+
 
 
 /////////////////////////////////// IT Asset Component //////////////////////////////////////////

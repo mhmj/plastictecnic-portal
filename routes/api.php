@@ -20,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function () {
 
+
+    // Staff Routes
+    Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Dashboard'], function () {
+        Route::get('/list-announcement', 'ListAnnouncementController@list')->name('list-announcement');
+        Route::get('/list-news', 'ListNewsController@list')->name('list-news');
+    });
+
+
     // Staff Routes
     Route::group(['prefix' => 'ITAsset', 'as' => 'ITAsset.', 'namespace' => 'ITAsset'], function () {
         Route::get('/list-it-asset', 'ListITAssetController@record')->name('list-it-asset');

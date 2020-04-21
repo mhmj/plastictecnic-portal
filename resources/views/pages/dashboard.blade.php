@@ -51,45 +51,12 @@
             </nav>
             <div class="panel-header panel-header-sm">
             </div>
-            <div class="content">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-chart">
-                            <div class="card-body">
-                                <slider-component></slider-component>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h5 class="card-category">List Annoucement</h5>
-                                <h4 class="card-title">Annoucement</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="barChartSimpleGradientsNumbers"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h5 class="card-category">List Summary Asset</h5>
-                                <h4 class="card-title">Summary</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="barChartSimpleGradientsNumbers"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @if(Auth::user()->role_id == '2')
+                <staff-dashboard-component></staff-dashboard-component>
+            @endif
+            @if(Auth::user()->role_id == '3')
+                <it-staff-dashboard-component></it-staff-dashboard-component>
+            @endif
             <footer class="footer">
                 <div class=" container-fluid ">
                     <div class="copyright" id="copyright">
