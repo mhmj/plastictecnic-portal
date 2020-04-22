@@ -25,6 +25,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
     Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Dashboard'], function () {
         Route::get('/list-announcement', 'ListAnnouncementController@list')->name('list-announcement');
         Route::get('/list-news', 'ListNewsController@list')->name('list-news');
+
+        Route::get('{id}/announcement-details', 'AnnouncementDetailsController@details')->name('announcement-details');
+        Route::post('create-announcement', 'CreateAnnouncementController@create')->name('create-announcement');
+        Route::post('{id}/update-announcement', 'UpdateAnnouncementController@update')->name('update-announcement');
     });
 
 

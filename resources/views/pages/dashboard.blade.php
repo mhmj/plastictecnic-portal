@@ -55,7 +55,7 @@
                 <staff-dashboard-component></staff-dashboard-component>
             @endif
             @if(Auth::user()->role_id == '3')
-                <it-staff-dashboard-component></it-staff-dashboard-component>
+                <it-staff-dashboard-component id1="{{Auth::user()->id}}"></it-staff-dashboard-component>
             @endif
             <footer class="footer">
                 <div class=" container-fluid ">

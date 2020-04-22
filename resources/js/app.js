@@ -59,6 +59,9 @@ Vue.component('news-element-component', require('./components/Dashboard/ITStaff/
 
                                     /////////// Forms //////////////////
 
+Vue.component('announcement-form-component', require('./components/Dashboard/ITStaff/forms/UpdateAnnouncementFormComponent.vue').default);
+Vue.component('create-announcement-form-component', require('./components/Dashboard/ITStaff/forms/CreateAnnouncementFormComponent.vue').default);
+
 
 
 

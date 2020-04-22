@@ -75,7 +75,6 @@
                                                     <div class="image">
                                                         <a v-on:click="preview">
                                                             <img class="btn btn-outline-primary" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ; "  :src="image_source +  this.IncidentReport.image" >
-                                                            <!--:src="image_source +'/'+ this.IncidentReport.image"-->
                                                         </a>
                                                     </div>
                                                 </div>
@@ -529,32 +528,6 @@
                     .catch(function (error) {
                         currentObj.output = error;
                     });
-
-//                var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', method = 'post';
-//
-//                fetch(url, {
-//                    method: method,
-//                    body: JSON.stringify({
-//                        asset_id: this.IncidentReport.asset_id.id,
-//                        staff_id: this.IncidentReport.staff_id.id,
-//                        handle_by: this.IncidentReport.handle_by.id,
-//                        confirm_by: this.IncidentReport.staff_id.id,
-//                        company_id: this.IncidentReport.asset_id.company.id,
-//                        root_cause: this.IncidentReport.root_cause,
-//                        incident_category: this.IncidentReport.incident_category,
-//                        job_start: this.IncidentReport.job_start,
-//                        job_finish: this.IncidentReport.job_finish,
-//                        description: this.IncidentReport.description,
-//                        image: this.IncidentReport.image,
-//                        rate: this.IncidentReport.rate,
-//                        status: this.IncidentReport.status,
-//                    }),
-//                    headers: {
-//                        'content-type': 'application/json'
-//                    }
-//                }).then((response) => {
-//                    Event.$emit('updateIncidentReport');
-//                })
             },
             async selectedStaff(){
 

@@ -36,7 +36,7 @@
                             <div v-if="this.announcement.file">
                                 <span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">File : </span>
                                 <span class="fs-20 text-primary" style="font-size: 13px;">
-                                    {{announcement.file}}
+                                    <a :href="file_source + announcement.file " target="_blank">{{announcement.file}}</a>
                                 </span>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="col-lg-2 text-right" style="margin-bottom: 10px; margin-top: -10px">
-                <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                <a v-on:click="$parent.AnnouncementEdit(announcement.id)" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-pencil-alt text-dark"></i>
                 </a>
                 <button data-toggle="modal" @click="toggleDelete()" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
@@ -80,6 +80,7 @@
         data() {
             return {
                 announcement: this.data,
+                file_source: 'storage/Announcement/',
                 isEditing: false,
                 isDeleting: false,
             }
