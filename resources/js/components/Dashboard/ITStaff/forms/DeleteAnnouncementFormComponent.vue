@@ -1,14 +1,14 @@
 <template>
     <div class="col-lg-12">
-        <form method="post" @submit.prevent="EditAnnouncement" enctype="multipart/form-data">
+        <form method="post" @submit.prevent="DeleteAnnouncement" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <div class="card card-chart">
                         <div class="card-header">
-                            <h4 class="card-title text-primary">Announcement Information</h4>
+                            <h4 class="card-title text-danger">Are You sure want to delete this information?</h4>
                             <div class="dropdown">
-                                <button v-on:click="$parent.AnnouncementEdit" type="button" class="btn btn-round btn-outline-default btn-simple btn-icon no-caret">
+                                <button v-on:click="$parent.AnnouncementDelete" type="button" class="btn btn-round btn-outline-default btn-simple btn-icon no-caret">
                                     <i class="now-ui-icons ui-1_simple-remove"></i>
                                 </button>
                             </div>
@@ -19,47 +19,45 @@
                                     <loading-component v-show="isAnnouncementDetailsLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: 10px">
                                 <div class="col-lg-12">
-                                    <label class="muted" style="font-size: 20px">Title</label>
-                                    <input class="form-control" :style="[this.announcementDetails.title ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="announcementDetails.title">
+                                    <label class="muted text-primary" style="font-size: 20px">Title</label><br>
+                                    {{announcementDetails.title}}
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 20px">
                                 <div class="col-lg-12">
-                                    <label class="muted"  style="font-size: 20px">Description</label>
-                                    <textarea rows="4" cols="200" class="form-control" :style="[this.announcementDetails.description ? {'border-color': 'green'} :{'border-color': 'lightgray'}]" v-model="announcementDetails.description" ></textarea>
+                                    <label class="muted text-primary" style="font-size: 20px">Description</label><br>
+                                    {{announcementDetails.description}}
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 20px" v-if="this.announcementDetails.file">
                                 <div class="col-lg-12">
                                     <div class="form-group form-group-default required">
-                                        <label class="muted" style="font-size: 20px">File :</label> <br>
+                                        <label class="muted text-primary" style="font-size: 20px">File</label> <br>
                                         <label class="muted text-info" style="font-size: 15px; text-decoration: underline;">
                                             <a :href="file_source + announcementDetails.file " target="_blank">{{this.announcementDetails.file}}</a>
                                         </label>
-                                    </div>
-                                    <div class=" fileinput fileinput-new text-left" >
-                                        <div>
-                                        <span class="form-control">
-                                            <input type="file" v-on:change="onFileChange" />
-                                        </span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 20px" v-if="!this.announcementDetails.file">
                                 <div class="col-lg-12">
                                     <div class="form-group form-group-default required">
-                                        <label class="muted" style="font-size: 20px">File</label>
+                                        <label class="muted text-primary" style="font-size: 20px">File</label>
                                     </div>
-                                    <div class=" fileinput fileinput-new text-left" >
-                                        <div>
-                                        <span class="form-control">
-                                            <input type="file" v-on:change="onFileChange" />
-                                        </span>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px">
+                                <div class="col-lg-4">
+                                        <i class="now-ui-icons users_single-02" style="margin-right: 2px"></i>
+                                        <span class="text-info">{{staff_name}}</span>
+                                        <br>
+                                </div>
+                                <div class="col-lg-4">
+                                        <i class="now-ui-icons ui-2_time-alarm" style="margin-right: 2px"></i>
+                                        <span class="text-info">{{announcementDetails.created_at}}</span>
+                                        <br>
                                 </div>
                             </div>
                             <div class="row border-top" style="margin-top: 20px">
@@ -68,8 +66,8 @@
                                 </div>
                                 <div class="col-6" style="margin-top: 5px">
                                     <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                                        <button type="submit" class="btn btn-primary" style="margin-right: 10px">Submit</button>
-                                        <a v-on:click="$parent.AnnouncementEdit" class="btn btn-default text-white">Cancel</a>
+                                        <button type="submit" class="btn btn-danger" style="margin-right: 10px">Delete</button>
+                                        <a v-on:click="$parent.AnnouncementDelete" class="btn btn-default text-white">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +93,7 @@
                 id:'',
                 file:'',
                 fileTemp:'',
+                staff_name:'',
                 file_source: 'storage/Announcement/',
                 announcementDetails: [],
                 staff_id: '',
@@ -119,39 +118,24 @@
                     .then(response => {
 
                         this.announcementDetails = response.data;
+                        this.staff_name = this.announcementDetails.staff_id.full_name;
                         this.isAnnouncementDetailsLoading = false;
                     })
                     .catch(error => console.log(error))
             },
-            EditAnnouncement()
+            DeleteAnnouncement()
             {
-                this.$parent.AnnouncementEdit();
-                if(!this.file){
-                    this.file = this.announcementDetails.file;
-                }
-                let currentObj = this;
-                const config = {
-                    headers: { 'content-type': 'multipart/form-data' }
-                }
-
-                let formData = new FormData();
-                formData.append("staff_id", this.staff_id);
-                formData.append("title", this.announcementDetails.title);
-                formData.append("description",  this.announcementDetails.description);
-                formData.append("category", this.announcementDetails.category);
-                formData.append("remark", this.announcementDetails.remark);
-                formData.append("file", this.file);
-
-
-                axios.post('/api/v1/dashboard/'+ this.announcementDetails.id +'/update-announcement', formData, config)
-                    .then(function (response) {
-                        Event.$emit('updateAnnouncement');
-                        //location.reload();
-                    })
-                    .catch(function (error) {
-                        currentObj.output = error;
-                    });
-
+                var url = '/api/v1/dashboard/'+ this.id +'/delete-announcement', method = 'delete';
+                fetch(url, {
+                    method: method,
+                    body: JSON.stringify(),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    this.$parent.AnnouncementDelete();
+                    Event.$emit('updateAnnouncement');
+                })
             }
         }
     }

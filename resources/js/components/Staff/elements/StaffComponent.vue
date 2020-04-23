@@ -74,9 +74,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="table" v-show="isEditing">
+            <div class="table" v-show-slide="isEditing" >
                 <div class="card card-body" >
-                    <staff-form-component v-bind:id="staff.id" :data="staff"></staff-form-component>
+                    <staff-form-component  v-bind:id="staff.id" :data="staff"></staff-form-component>
                 </div>
             </div>
         </div>

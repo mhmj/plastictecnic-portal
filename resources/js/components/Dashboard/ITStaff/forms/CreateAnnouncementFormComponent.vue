@@ -133,7 +133,7 @@
                         .catch(function (error) {
                             currentObj.output = error;
                         });
-
+                    this.announcementDetails = [];
 
                 }
 

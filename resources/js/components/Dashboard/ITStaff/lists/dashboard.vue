@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div class="row" v-show="this.isSlider">
+        <div class="row" v-show-slide="this.isSlider">
             <div class="col-lg-12">
                 <div class="card card-chart">
                     <div class="card-body">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-body">
                         <loading-component v-show="isAnnouncementLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-                        <div class="table" v-show="isLoadData">
+                        <div class="table" v-if="isLoadData">
                             <announcement-element-component v-for="announcement in announcements" v-bind:key="announcement.id" :data="announcement"></announcement-element-component>
                         </div>
                         <div style="margin-top: 30px; justify-content: flex-end">
@@ -53,12 +53,17 @@
         <div class="row" v-if="this.isAnnouncementEditing">
             <announcement-form-component :id1="staff_id" :data="announcements_id"></announcement-form-component>
         </div>
+        <div class="row" v-if="this.isAnnouncementDeleting">
+            <delete-announcement-form-component :id1="staff_id" :data="announcements_id"></delete-announcement-form-component>
+        </div>
         <div class="row" v-show="this.isAnnouncementCreating">
             <create-announcement-form-component :id1="staff_id"></create-announcement-form-component>
         </div>
     </div>
 </template>
 <script>
+    import VShowSlide from 'v-show-slide';
+    Vue.use(VShowSlide);
     export default{
         props: {
             'id1': {
@@ -77,6 +82,7 @@
                 isSlider: true,
                 isAnnouncementAndNews: true,
                 isAnnouncementEditing: false,
+                isAnnouncementDeleting: false,
                 isLoadData: false,
                 announcements_id:'',
             }
@@ -104,12 +110,20 @@
                 this.isSlider = !this.isSlider;
                 this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
                 this.isAnnouncementEditing = !this.isAnnouncementEditing;
+                //this.isAnnouncementDeleting = !this.isAnnouncementDeleting;
             },
-            AnnouncementCloseEdit(){
-                this.isAnnouncementEditing = !this.isAnnouncementEditing;
+            AnnouncementDelete(item){
+                this.announcements_id = item;
                 this.isSlider = !this.isSlider;
                 this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+                //this.isAnnouncementEditing = !this.isAnnouncementEditing;
+                this.isAnnouncementDeleting = !this.isAnnouncementDeleting;
             },
+//            AnnouncementCloseEdit(){
+//                this.isAnnouncementEditing = !this.isAnnouncementEditing;
+//                this.isSlider = !this.isSlider;
+//                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+//            },
             fetchAnnouncement(page = 1){
                 this.isAnnouncementLoading = true;
 

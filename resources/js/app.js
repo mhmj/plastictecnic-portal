@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require ('v-show-slide');
+
 window.Vue = require('vue');
 window.Event = new Vue();
 
@@ -56,11 +58,19 @@ Vue.component('staff-dashboard-component', require('./components/Dashboard/Staff
 Vue.component('announcement-element-component', require('./components/Dashboard/ITStaff/elements/AnnouncementComponent.vue').default);
 Vue.component('news-element-component', require('./components/Dashboard/ITStaff/elements/NewsComponent.vue').default);
 
+Vue.component('staff-announcement-element-component', require('./components/Dashboard/Staff/elements/StaffAnnouncementComponent.vue').default);
+Vue.component('staff-news-element-component', require('./components/Dashboard/Staff/elements/StaffNewsComponent.vue').default);
+
+
 
                                     /////////// Forms //////////////////
 
 Vue.component('announcement-form-component', require('./components/Dashboard/ITStaff/forms/UpdateAnnouncementFormComponent.vue').default);
 Vue.component('create-announcement-form-component', require('./components/Dashboard/ITStaff/forms/CreateAnnouncementFormComponent.vue').default);
+Vue.component('delete-announcement-form-component', require('./components/Dashboard/ITStaff/forms/DeleteAnnouncementFormComponent.vue').default);
+
+
+Vue.component('staff-announcement-form-component', require('./components/Dashboard/Staff/forms/AnnouncementFormComponent.vue').default);
 
 
 

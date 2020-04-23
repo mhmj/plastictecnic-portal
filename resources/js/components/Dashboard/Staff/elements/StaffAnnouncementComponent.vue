@@ -4,15 +4,17 @@
             <div class="col-lg-10 text-left">
                 <div class="row">
                     <div class="col-lg-12-auto">
+                        <a v-on:click="$parent.AnnouncementView(announcement.id)">
                         <div :class="['btn-primary','card']">
                             <div class="card-body">
                                 <div>
-                                    <span class="text-white" style="font-size: 14px; font-weight: 600;">
+                                    <span class="text-white" style="font-size: 14px; font-weight: 600; text-decoration: underline">
                                         {{announcement.title}}
                                     </span>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -56,12 +58,9 @@
                 </div>
             </div>
             <div class="col-lg-2 text-right" style="margin-bottom: 10px; margin-top: -10px">
-                <a v-on:click="$parent.AnnouncementEdit(announcement.id)" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="fas fa-pencil-alt text-dark"></i>
-                </a>
-                <button v-on:click="$parent.AnnouncementDelete(announcement.id)" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
-                    <i class="fas fa-trash"></i>
-                </button>
+                <!--<a v-on:click="$parent.AnnouncementView(announcement.id)" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">-->
+                    <!--<i class="fas fa-search text-dark"></i>-->
+                <!--</a>-->
             </div>
         </div>
     </div>

@@ -29,6 +29,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::get('{id}/announcement-details', 'AnnouncementDetailsController@details')->name('announcement-details');
         Route::post('create-announcement', 'CreateAnnouncementController@create')->name('create-announcement');
         Route::post('{id}/update-announcement', 'UpdateAnnouncementController@update')->name('update-announcement');
+        Route::delete('{id}/delete-announcement', 'DeleteAnnouncementController@delete')->name('delete-announcement');
     });
 
 
