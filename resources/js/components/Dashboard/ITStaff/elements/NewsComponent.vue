@@ -21,77 +21,70 @@
                 <div class="row" style="">
                     <div class="col-lg-12" style="padding-bottom: 10px">
                         <div class="row">
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;">
-                                    <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100%;" :src="image_source +  this.news.image_1">
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_1 && this.news.image_1 !== nullText">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_1"
+                                        >
+                                </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;  margin-left: -20px">
-                                <a>
-                                    <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ;" :src="image_source +  this.news.image_2">
-                                </a>
+                            <div class="col-3" style="margin-left:15px; height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_2 && this.news.image_2 !== nullText">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_2"
+                                        >
+                                </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: -20px">
-                                <a>
-                                    <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ;" :src="image_source +  this.news.image_3">
-                                </a>
+                            <div class="col-3" style="margin-left:15px; height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_3 && this.news.image_3 !== nullText">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_3"
+                                        >
+                                </el-image>
                             </div>
                         </div>
-                        <!--<div>-->
-                            <!--<div v-if="!this.announcement.file">-->
-                                <!--<span class="m-l-5 m-r-5" style="font-size: 13px; font-weight: bold">File : </span>-->
-                                <!--<span class="fs-20" style="font-size: 13px; font-weight: bold">-->
-                                    <!-- - -->
-                                <!--</span>-->
-                            <!--</div>-->
-                            <!--<div v-if="this.announcement.file">-->
-                                <!--<span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">File : </span>-->
-                                <!--<span class="fs-20 text-primary" style="font-size: 13px;">-->
-                                    <!--{{announcement.file}}-->
-                                <!--</span>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <div>
+                        <div style="margin-top: 10px">
                             <span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">Date :</span>
                             <span class="fs-20" style="font-size: 13px;">
                                 {{news.created_at}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">By :</span>
+                            <span class="fs-20" style="font-size: 13px;">
+                                {{news.staff_id.full_name}}
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 text-right" style="margin-bottom: 10px; margin-top: -10px">
-                <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                <a v-on:click="$parent.NewsEdit(news.id)" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-pencil-alt text-dark"></i>
                 </a>
-                <button data-toggle="modal" @click="toggleDelete()" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
+                <button v-on:click="$parent.NewsDelete(news.id)" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
         </div>
-        <!--<div class="row">-->
-        <!--<div class="table" v-show="isEditing">-->
-        <!--<div class="card card-body" >-->
-        <!--<staff-form-component v-bind:id="staff.id" :data="staff"></staff-form-component>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="table" v-show="isDeleting">-->
-        <!--<div class="card card-body" >-->
-        <!--<delete-staff-form-component v-bind:key="staff.id" :data="staff"></delete-staff-form-component>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
     </div>
 </template>
 <script>
+
     export default {
         props: ['data'],
         data() {
             return {
                 news: this.data,
-                image_source: 'storage/IncidentReport/',
+                image_source: 'storage/News/',
                 isEditing: false,
                 isDeleting: false,
+                nullText: 'null',
+            }
+        },
+        watch: {
+            'data': function() {
+                this.news = this.data;
             }
         },
         mounted(){

@@ -14,7 +14,7 @@
                             </button>
                         </div>
                         <a class="navbar-brand">
-                            <h4 class="card-title">Dashboard</h4>
+                            <h4 class="card-title">Home</h4>
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

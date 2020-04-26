@@ -6,6 +6,10 @@
     <link rel="icon" type="image/png" href="{{ asset('images/icons/plastictecnic-icon.jpg') }}"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    {{--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">--}}
+    {{--<link rel="stylesheet" href="{{'../../../../node_modules/element-ui/lib/theme-chalk/index.css'}}">--}}
+    <link href="{{ asset('element-ui/lib/theme-chalk/index.css') }}" type="text/css" rel="stylesheet" />
+
 
 
     <title>Plastictecnic Sdn. Bhd.</title>

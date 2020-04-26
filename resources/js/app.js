@@ -11,6 +11,8 @@ require ('v-show-slide');
 window.Vue = require('vue');
 window.Event = new Vue();
 
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -62,12 +64,15 @@ Vue.component('staff-announcement-element-component', require('./components/Dash
 Vue.component('staff-news-element-component', require('./components/Dashboard/Staff/elements/StaffNewsComponent.vue').default);
 
 
-
                                     /////////// Forms //////////////////
 
 Vue.component('announcement-form-component', require('./components/Dashboard/ITStaff/forms/UpdateAnnouncementFormComponent.vue').default);
 Vue.component('create-announcement-form-component', require('./components/Dashboard/ITStaff/forms/CreateAnnouncementFormComponent.vue').default);
 Vue.component('delete-announcement-form-component', require('./components/Dashboard/ITStaff/forms/DeleteAnnouncementFormComponent.vue').default);
+
+Vue.component('create-news-form-component', require('./components/Dashboard/ITStaff/forms/CreateNewsFormComponent.vue').default);
+Vue.component('news-form-component', require('./components/Dashboard/ITStaff/forms/UpdateNewsFormComponent.vue').default);
+Vue.component('delete-news-form-component', require('./components/Dashboard/ITStaff/forms/DeleteNewsFormComponent.vue').default);
 
 
 Vue.component('staff-announcement-form-component', require('./components/Dashboard/Staff/forms/AnnouncementFormComponent.vue').default);

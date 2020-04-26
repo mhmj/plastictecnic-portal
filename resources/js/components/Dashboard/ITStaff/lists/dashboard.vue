@@ -36,7 +36,7 @@
                     <div class="card-header">
                         <h5 class="card-title text-info">News</h5>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-round btn-outline-default btn-simple btn-icon no-caret">
+                            <button v-on:click="newNews" type="button" class="btn btn-round btn-outline-default btn-simple btn-icon no-caret">
                                 <i class="now-ui-icons ui-1_simple-add"></i>
                             </button>
                         </div>
@@ -59,6 +59,15 @@
         <div class="row" v-show="this.isAnnouncementCreating">
             <create-announcement-form-component :id1="staff_id"></create-announcement-form-component>
         </div>
+        <div class="row" v-show="this.isNewsCreating">
+            <create-news-form-component :id1="staff_id"></create-news-form-component>
+        </div>
+        <div class="row" v-if="this.isNewsEditing">
+            <news-form-component :id1="staff_id" :data="news_id"></news-form-component>
+        </div>
+        <div class="row" v-if="this.isNewsDeleting">
+            <delete-news-form-component :id1="staff_id" :data="news_id"></delete-news-form-component>
+        </div>
     </div>
 </template>
 <script>
@@ -74,22 +83,30 @@
         data(){
             return {
                 announcements : [],
-                staff_id: '',
                 ListNews : [],
-                isAnnouncementLoading: false,
-                isNewsLoading: false,
-                isAnnouncementCreating: false,
+                staff_id: '',
+                announcements_id:'',
+                news_id:'',
                 isSlider: true,
+                isLoadData: false,
                 isAnnouncementAndNews: true,
+                isAnnouncementLoading: false,
+                isAnnouncementCreating: false,
                 isAnnouncementEditing: false,
                 isAnnouncementDeleting: false,
-                isLoadData: false,
-                announcements_id:'',
+                isNewsLoading: false,
+                isNewsCreating: false,
+                isNewsEditing: false,
+                isNewsDeleting: false,
+
             }
         },
         mounted() {
             Event.$on('updateAnnouncement', () => {
                 this.fetchAnnouncement();
+            });
+            Event.$on('updateNews', () => {
+                this.fetchNews();
             });
 
         },
@@ -105,6 +122,11 @@
               this.isAnnouncementCreating = !this.isAnnouncementCreating;
               this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
             },
+            newNews(){
+                this.isSlider = !this.isSlider;
+                this.isNewsCreating = !this.isNewsCreating;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+            },
             AnnouncementEdit(item){
                 this.announcements_id = item;
                 this.isSlider = !this.isSlider;
@@ -112,18 +134,26 @@
                 this.isAnnouncementEditing = !this.isAnnouncementEditing;
                 //this.isAnnouncementDeleting = !this.isAnnouncementDeleting;
             },
+
+            NewsEdit(item){
+                this.news_id = item;
+                this.isSlider = !this.isSlider;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+                this.isNewsEditing = !this.isNewsEditing;
+            },
             AnnouncementDelete(item){
                 this.announcements_id = item;
                 this.isSlider = !this.isSlider;
                 this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
-                //this.isAnnouncementEditing = !this.isAnnouncementEditing;
                 this.isAnnouncementDeleting = !this.isAnnouncementDeleting;
             },
-//            AnnouncementCloseEdit(){
-//                this.isAnnouncementEditing = !this.isAnnouncementEditing;
-//                this.isSlider = !this.isSlider;
-//                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
-//            },
+            NewsDelete(item){
+                this.news_id = item;
+                this.isSlider = !this.isSlider;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+                this.isNewsDeleting = !this.isNewsDeleting;
+            },
+
             fetchAnnouncement(page = 1){
                 this.isAnnouncementLoading = true;
 

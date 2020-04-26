@@ -15,7 +15,7 @@
             <li class="{{ (request()->routeIs('dashboard')) ? 'active' : '' }} ">
                 <a href="{{route('dashboard')}}">
                     <i class="now-ui-icons design_app"></i>
-                    <p class="bold">Dashboard</p>
+                    <p class="bold">Home</p>
                 </a>
             </li>
             @if(Auth::user()->role_id == '2')

@@ -30,6 +30,14 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('create-announcement', 'CreateAnnouncementController@create')->name('create-announcement');
         Route::post('{id}/update-announcement', 'UpdateAnnouncementController@update')->name('update-announcement');
         Route::delete('{id}/delete-announcement', 'DeleteAnnouncementController@delete')->name('delete-announcement');
+
+        Route::get('{id}/news-details', 'NewsDetailsController@details')->name('news-details');
+        Route::post('create-news', 'CreateNewsController@create')->name('create-news');
+        Route::post('{id}/update-news', 'UpdateNewsController@update')->name('update-news');
+        Route::delete('{id}/delete-news', 'DeleteNewsController@delete')->name('delete-news');
+        Route::post('{id}/update-image-news', 'UpdateNewsImageController@updateNewsImage')->name('update-image-news');
+
+
     });
 
 

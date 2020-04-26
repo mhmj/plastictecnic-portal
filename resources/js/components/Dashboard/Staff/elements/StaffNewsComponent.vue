@@ -21,18 +21,35 @@
                 <div class="row" style="">
                     <div class="col-lg-12" style="padding-bottom: 10px">
                         <div class="row">
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;">
-                                <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100%;" :src="image_source +  this.news.image_1">
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_1">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_1"
+                                >
+                                </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;  margin-left: -20px">
-                                <a>
-                                    <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ;" :src="image_source +  this.news.image_2">
-                                </a>
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_1">
+
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: -20px">
-                                <a>
-                                    <img class="btn btn-outline-default" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ;" :src="image_source +  this.news.image_3">
-                                </a>
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: 10px" v-if="this.news.image_2">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_2"
+                                >
+                                </el-image>
+                            </div>
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_2">
+
+                            </div>
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: 10px" v-if="this.news.image_3">
+                                <el-image
+                                        style="width: 80px; height: 80px"
+                                        :src="image_source +  this.news.image_3"
+                                >
+                                </el-image>
+                            </div>
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_3">
+
                             </div>
                         </div>
                         <div>
@@ -58,7 +75,7 @@
         data() {
             return {
                 news: this.data,
-                image_source: 'storage/IncidentReport/',
+                image_source: 'storage/News/',
                 isEditing: false,
                 isDeleting: false,
             }

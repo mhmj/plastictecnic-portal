@@ -105,6 +105,7 @@
         methods: {
             onFileChange(e){
                 this.file = e.target.files[0];
+                console.log(this.file);
             },
             NewAnnouncement() {
                 this.errors = [];

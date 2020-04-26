@@ -65,17 +65,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--<div class="col-md-4">-->
-                                                <!--<div class="card card-user">-->
-                                                    <!--<div class="image" style=" margin-bottom: 10px; width: auto ;max-width: 100% ;height: auto ;">-->
-                                                        <!--<a type="button" v-on:click="preview">-->
-                                                            <!--<img style="padding: 5px;"  :src="image_source +  this.IncidentReport.image" >-->
-                                                            <!--&lt;!&ndash;:src="image_source +'/'+ this.IncidentReport.image"&ndash;&gt;-->
-                                                        <!--</a>-->
-                                                    <!--</div>-->
-
-                                                <!--</div>-->
-                                            <!--</div>-->
                                         </div>
                                         <div class="row" style="margin-top: 10px" v-if="this.previewImage === true">
                                             <div class="col-lg-12">
