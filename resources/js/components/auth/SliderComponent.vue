@@ -25,6 +25,18 @@
         </el-carousel>
     </div>
 </template>
+<script>
+    import {
+        Pagination,
+        Carousel,
+        CarouselItem,
+    } from 'element-ui';
+
+    Vue.use(Pagination);
+    Vue.use(Carousel);
+    Vue.use(CarouselItem);
+
+</script>
 <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">-->
 <!--<div class="carousel-inner">-->
 <!--<div class="carousel-item active" >-->
