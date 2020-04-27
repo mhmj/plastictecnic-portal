@@ -76,6 +76,7 @@ Vue.component('delete-news-form-component', require('./components/Dashboard/ITSt
 
 
 Vue.component('staff-announcement-form-component', require('./components/Dashboard/Staff/forms/AnnouncementFormComponent.vue').default);
+Vue.component('staff-news-form-component', require('./components/Dashboard/Staff/forms/NewsFormComponent.vue').default);
 
 
 

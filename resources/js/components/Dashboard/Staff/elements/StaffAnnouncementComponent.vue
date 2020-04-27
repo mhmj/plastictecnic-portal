@@ -5,15 +5,15 @@
                 <div class="row">
                     <div class="col-lg-12-auto">
                         <a v-on:click="$parent.AnnouncementView(announcement.id)">
-                        <div :class="['btn-primary','card']">
-                            <div class="card-body">
+                        <button :class="['btn-primary','card']">
+                            <div class="card-body" style="padding: 8px;">
                                 <div>
-                                    <span class="text-white" style="font-size: 14px; font-weight: 600; text-decoration: underline">
+                                    <span class="text-white" style="font-size: 14px; padding: 0;">
                                         {{announcement.title}}
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                         </a>
                     </div>
                 </div>

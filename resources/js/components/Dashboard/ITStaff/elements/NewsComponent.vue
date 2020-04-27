@@ -4,9 +4,11 @@
             <div class="col-lg-10 text-left">
                 <div class="row" style="margin-bottom: 15px;">
                     <div class="col-lg-12">
-                        <span class="text-info text-capitalize" style="font-size: 15px; text-decoration: underline; font-weight: bold">
-                            {{news.title}}
-                        </span>
+                        <button v-on:click="$parent.NewsView(news.id)" style="padding-left:0px; border: none; background-color: white">
+                            <span class="text-info text-capitalize" style="font-size: 14px; text-decoration: underline; font-weight: bold">
+                                {{news.title}}
+                            </span>
+                        </button>
                     </div>
                 </div>
                 <div class="row">

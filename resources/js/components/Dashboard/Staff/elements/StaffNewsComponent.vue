@@ -2,11 +2,13 @@
     <div>
         <div class="row border-bottom" style="margin-bottom: 10px">
             <div class="col-lg-10 text-left">
-                <div class="row" style="margin-bottom: 15px;">
+                <div class="row" style="margin-bottom: 10px;">
                     <div class="col-lg-12">
-                        <span class="text-info text-capitalize" style="font-size: 15px; text-decoration: underline; font-weight: bold">
-                           {{news.title}}
-                        </span>
+                        <button v-on:click="$parent.NewsView(news.id)" style="padding-left:0px; border: none; background-color: white">
+                            <span class="text-info text-capitalize" style="font-size: 14px; text-decoration: underline; font-weight: bold">
+                                {{news.title}}
+                            </span>
+                        </button>
                     </div>
                 </div>
                 <div class="row">
@@ -21,41 +23,38 @@
                 <div class="row" style="">
                     <div class="col-lg-12" style="padding-bottom: 10px">
                         <div class="row">
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_1">
+                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_1 && this.news.image_1 !== nullText">
                                 <el-image
                                         style="width: 80px; height: 80px"
                                         :src="image_source +  this.news.image_1"
                                 >
                                 </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_1">
-
-                            </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: 10px" v-if="this.news.image_2">
+                            <div class="col-3" style="margin-left:15px; height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_2 && this.news.image_2 !== nullText">
                                 <el-image
                                         style="width: 80px; height: 80px"
                                         :src="image_source +  this.news.image_2"
                                 >
                                 </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_2">
-
-                            </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%; margin-left: 10px" v-if="this.news.image_3">
+                            <div class="col-3" style="margin-left:15px; height: 100%; width: 100%; max-height: 100%;" v-if="this.news.image_3 && this.news.image_3 !== nullText">
                                 <el-image
                                         style="width: 80px; height: 80px"
                                         :src="image_source +  this.news.image_3"
                                 >
                                 </el-image>
                             </div>
-                            <div class="col-3" style="height: 100%; width: 100%; max-height: 100%;" v-if="!this.news.image_3">
-
-                            </div>
                         </div>
-                        <div>
+                        <div style="margin-top: 10px">
                             <span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">Date :</span>
                             <span class="fs-20" style="font-size: 13px;">
                                 {{news.created_at}}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="m-l-5 m-r-5" style="font-size: 13px;  font-weight: bold">By :</span>
+                            <span class="fs-20" style="font-size: 13px;">
+                                {{news.staff_id.full_name}}
                             </span>
                         </div>
                     </div>
@@ -78,6 +77,7 @@
                 image_source: 'storage/News/',
                 isEditing: false,
                 isDeleting: false,
+                nullText: 'null',
             }
         },
         mounted(){

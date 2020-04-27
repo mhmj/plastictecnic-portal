@@ -59,6 +59,9 @@
         <div class="row" v-show="this.isAnnouncementCreating">
             <create-announcement-form-component :id1="staff_id"></create-announcement-form-component>
         </div>
+        <div class="row" v-if="this.isAnnouncementViewing">
+            <staff-announcement-form-component :data="announcements_id"></staff-announcement-form-component>
+        </div>
         <div class="row" v-show="this.isNewsCreating">
             <create-news-form-component :id1="staff_id"></create-news-form-component>
         </div>
@@ -67,6 +70,9 @@
         </div>
         <div class="row" v-if="this.isNewsDeleting">
             <delete-news-form-component :id1="staff_id" :data="news_id"></delete-news-form-component>
+        </div>
+        <div class="row" v-if="this.isNewsViewing">
+            <staff-news-form-component :data="announcements_id"></staff-news-form-component>
         </div>
     </div>
 </template>
@@ -94,10 +100,12 @@
                 isAnnouncementCreating: false,
                 isAnnouncementEditing: false,
                 isAnnouncementDeleting: false,
+                isAnnouncementViewing: false,
                 isNewsLoading: false,
                 isNewsCreating: false,
                 isNewsEditing: false,
                 isNewsDeleting: false,
+                isNewsViewing: false,
 
             }
         },
@@ -152,6 +160,18 @@
                 this.isSlider = !this.isSlider;
                 this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
                 this.isNewsDeleting = !this.isNewsDeleting;
+            },
+            AnnouncementView(item){
+                this.announcements_id = item;
+                this.isSlider = !this.isSlider;
+                this.isAnnouncementViewing = !this.isAnnouncementViewing;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+            },
+            NewsView(item){
+                this.announcements_id = item;
+                this.isSlider = !this.isSlider;
+                this.isNewsViewing = !this.isNewsViewing;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
             },
 
             fetchAnnouncement(page = 1){

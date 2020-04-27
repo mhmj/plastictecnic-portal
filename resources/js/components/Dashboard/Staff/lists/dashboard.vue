@@ -43,6 +43,9 @@
         <div class="row" v-if="this.isAnnouncementViewing">
             <staff-announcement-form-component :data="announcements_id"></staff-announcement-form-component>
         </div>
+        <div class="row" v-if="this.isNewsViewing">
+            <staff-news-form-component :data="announcements_id"></staff-news-form-component>
+        </div>
     </div>
 </template>
 <script>
@@ -61,6 +64,7 @@
                 isSlider: true,
                 isAnnouncementAndNews: true,
                 isAnnouncementViewing: false,
+                isNewsViewing: false,
                 isLoadData: false,
                 announcements_id:'',
             }
@@ -86,6 +90,12 @@
                 this.announcements_id = item;
                 this.isSlider = !this.isSlider;
                 this.isAnnouncementViewing = !this.isAnnouncementViewing;
+                this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
+            },
+            NewsView(item){
+                this.announcements_id = item;
+                this.isSlider = !this.isSlider;
+                this.isNewsViewing = !this.isNewsViewing;
                 this.isAnnouncementAndNews = !this.isAnnouncementAndNews;
             },
             fetchAnnouncement(page = 1){

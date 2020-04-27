@@ -4,15 +4,17 @@
             <div class="col-lg-10 text-left">
                 <div class="row">
                     <div class="col-lg-12-auto">
-                        <div :class="['btn-primary','card']">
-                            <div class="card-body">
-                                <div>
-                                    <span class="text-white" style="font-size: 14px; font-weight: 600;">
+                        <a v-on:click="$parent.AnnouncementView(announcement.id)">
+                            <button :class="['btn-primary','card']">
+                                <div class="card-body" style="padding: 8px;">
+                                    <div>
+                                    <span class="text-white" style="font-size: 14px; padding: 0;">
                                         {{announcement.title}}
                                     </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
