@@ -35,7 +35,9 @@
     Vue.use(Pagination);
     Vue.use(Carousel);
     Vue.use(CarouselItem);
-
+    export default{
+        
+    }
 </script>
 <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">-->
 <!--<div class="carousel-inner">-->

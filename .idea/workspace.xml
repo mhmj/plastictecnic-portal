@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46995b44-0a81-434e-8695-331f21c07fba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/auth/SliderComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/auth/SliderComponent.vue" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/resources/js/components/auth/SliderComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="424">
-              <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#el-image#0;n#el-carousel-item#0;n#el-carousel#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-image#0;n#el-carousel-item#1;n#el-carousel#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -579,12 +578,12 @@
       <workItem from="1587745233558" duration="15834000" />
       <workItem from="1587827961643" duration="14329000" />
       <workItem from="1587902094004" duration="24139000" />
-      <workItem from="1587989212129" duration="12155000" />
+      <workItem from="1587989212129" duration="12432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="743685000" />
+    <option name="totallyTimeSpent" value="743962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1037,7 +1036,7 @@
         <state relative-caret-position="204">
           <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
           <folding>
-            <element signature="e#2834#2856#0#HTML" expanded="true" />
+            <element signature="e#2834#2856#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1071,7 +1070,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1121,7 +1120,7 @@
     <entry file="file://$PROJECT_DIR$/resources/js/components/auth/SliderComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
-          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#el-image#0;n#el-carousel-item#0;n#el-carousel#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-image#0;n#el-carousel-item#1;n#el-carousel#0;n#div#0;n#template#0;n#!!top" expanded="true" />
