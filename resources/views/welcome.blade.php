@@ -52,17 +52,13 @@
                             <span class="text-danger" style="font-size: 14px">{{ $message }}</span>
                         @enderror
                         <div class="flex-sb-m w-full p-b-30">
-                            {{--<div class="contact100-form-checkbox">--}}
-                                {{--<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">--}}
-                                {{--<label class="label-checkbox100" for="ckb1">--}}
-                                    {{--Remember me--}}
-                                {{--</label>--}}
-                            {{--</div>--}}
-                            {{--<div>--}}
-                                {{--<a href="#" class="txt1">--}}
-                                    {{--Forgot Password?--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
+                            <div class="contact100-form-checkbox">
+                            </div>
+                            @if (Route::has('password.request'))
+                                <a class="txt1" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Password?') }}
+                                </a>
+                            @endif
                         </div>
                         <div class="container-login100-form-btn" >
                             <div class="flex-sb-m w-full p-b-30">
