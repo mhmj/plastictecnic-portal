@@ -15,6 +15,7 @@ class CreateIncidentReportTable extends Migration
     {
         Schema::create('incident_report', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('ticket_no')->nullable();
             $table->unsignedBigInteger('asset_id')->nullable();
             $table->unsignedBigInteger('staff_id')->nullable();
             $table->unsignedBigInteger('handle_by')->nullable();
@@ -28,6 +29,8 @@ class CreateIncidentReportTable extends Migration
             $table->longText('image')->nullable();
             $table->string('rate')->nullable();
             $table->string('status')->nullable();
+            $table->string('solution')->nullable();
+            $table->string('remark')->nullable();
             $table->timestamps();
         });
     }

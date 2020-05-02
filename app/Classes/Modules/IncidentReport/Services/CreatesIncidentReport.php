@@ -46,8 +46,9 @@ class CreatesIncidentReport
         } else {
             $fileNameToStore = '';
         }
-
+        $ticket_no = date("Ymd").rand(1, 999999);
         $model = $this->repository->create([
+            'ticket_no' => $ticket_no,
             'asset_id' => $request->input('asset_id'),
             'staff_id' => $request->input('staff_id'),
             'handle_by' => $request->input('handle_by'),
@@ -60,6 +61,8 @@ class CreatesIncidentReport
             'description' => $request->input('description'),
             'image' => $fileNameToStore,
             'rate' => $request->input('rate'),
+            'solution' => $request->input('solution'),
+            'remark' => $request->input('remark'),
             'status' => $request->input('status'),
         ]);
 

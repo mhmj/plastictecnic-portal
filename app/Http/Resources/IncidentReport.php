@@ -21,6 +21,7 @@ class IncidentReport extends JsonResource
     {
         return [
             'id' => $this->id,
+            'ticket_no' => $this->ticket_no,
             'asset_id' => new ITAsset(ITAssetModel::find($this->asset_id)),
             'staff_id' => new Staff(StaffModel::find($this->staff_id)),
             //'staff_id' => new Staff(StaffModel::where('id', $this->staff_id)->first()),
@@ -35,6 +36,8 @@ class IncidentReport extends JsonResource
             'image' => $this->image,
             'rate' => $this->rate,
             'status' => $this->status,
+            'solution' => $this->solution,
+            'remark' => $this->remark,
             'created_at' => $this->created_at,
         ];
     }

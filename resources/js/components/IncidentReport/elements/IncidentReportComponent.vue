@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="col-lg-2-auto">
                         <div :class="[{'btn-info': this.IncidentReport.asset_id.company.id === 1},{'btn-success': this.IncidentReport.asset_id.company.id === 2}, {'btn-warning': this.IncidentReport.asset_id.company.id === 3}, {'btn-info': this.IncidentReport.asset_id.company.id === 4},'card']">
-                            <div class="card-body">
-                                <div v-if="this.IncidentReport.asset_id === null  ">
+                            <div class="card-body"  style="padding: 8px;">
+                                <div v-if="this.IncidentReport.ticket_no === null  ">
                                     <span class="fs-10 muted text-primary" style="font-size: 15px; font-weight: 600;">-</span>
                                 </div>
-                                <div v-else="this.IncidentReport.asset_id !== null ">
+                                <div v-else="this.IncidentReport.ticket_no !== null ">
                                     <span class="fs-10 muted" style="font-size: 15px;">
                                         <span class="fs-20 text-white" style="font-size: 15px; font-weight: 600;">
-                                            {{IncidentReport.asset_id.computer_name}}
+                                            #{{IncidentReport.ticket_no}}
                                         </span>
                                     </span>
                                 </div>
@@ -41,10 +41,13 @@
                         <div v-if="this.IncidentReport.staff_id === null  ">
                             <span class="fs-10 muted" style="font-size: 14px;"> Issue By : - </span>
                         </div>
-                        <div v-else="this.IncidentReport.staff_id !== null ">
+                        <div v-else="this.IncidentReport.staff_id !== null " style="margin-bottom: 5px">
                             <span class="fs-10 muted" style="font-size: 14px;"> Issue By :
                                 <span class="fs-20 text-primary" style="font-size: 14px;">
                                     {{IncidentReport.staff_id.full_name}} ( {{IncidentReport.staff_id.staff_no}} )
+                                </span><br>
+                                 Email :<span class="fs-20 text-primary" style="font-size: 14px;">
+                                    {{IncidentReport.staff_id.email}}
                                 </span>
                             </span>
                         </div>
