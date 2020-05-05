@@ -1,7 +1,9 @@
 <template>
     <div class="content">
-        <div class="row" v-show-slide="this.isSlider">
-            <div class="col-lg-12">
+        <div class="row" v-show-slide="this.isSlider" style="margin-top: -40px">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-10">
                 <div class="card card-chart">
                     <div class="card-body">
                         <slider-component></slider-component>

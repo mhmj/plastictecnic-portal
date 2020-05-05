@@ -3,8 +3,8 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-            PT
+        <a class="simple-text logo-mini">
+            <img class="avatar border-gray" src="images/icons/plastictecnic-icon.jpg" style="border-radius: 30px">
         </a>
         <a href="{{route('profile')}}" class="simple-text logo-normal">
             {{ Auth::user()->username }}

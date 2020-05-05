@@ -160,8 +160,11 @@
                                         <div>
                                             <div class="form-group form-group-default required">
                                                 <select class="form-control" :style="[this.IncidentReport.status ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.status">
-                                                    <option v-bind:selected="IncidentReport.status == 'On Process'" value="On Process">On Process</option>
-                                                    <option v-bind:selected="IncidentReport.status == 'Fixed'" value="Fixed">Fixed</option>
+                                                    <option v-bind:selected="IncidentReport.status == 'Received'" value="Received">Received</option>
+                                                    <option v-bind:selected="IncidentReport.status == 'Pending 1'" value="Pending 1">Pending 1</option>
+                                                    <option v-bind:selected="IncidentReport.status == 'Pending 2'" value="Pending 2">Pending 2</option>
+                                                    <option v-bind:selected="IncidentReport.status == 'KIV'" value="KIV">KIV</option>
+                                                    <option v-bind:selected="IncidentReport.status == 'Closed'" value="Closed">Closed</option>
                                                 </select>
                                             </div>
                                         </div>

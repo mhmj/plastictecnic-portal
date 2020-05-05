@@ -12,6 +12,10 @@ namespace App\Classes\Modules\IncidentReport\Services;
 use App\IncidentReport;
 use App\Http\Resources\IncidentReport as IncidentReportResources;
 use Illuminate\Http\Request;
+use App\Notifications\IncidentReportReceived;
+use App\Notifications\IncidentReportITReceived;
+use App\Staff;
+use Illuminate\Support\Facades\Notification;
 
 class UpdatesIncidentReport
 {
@@ -60,6 +64,14 @@ class UpdatesIncidentReport
         $incident_report->rate = $request->input('rate');
         $incident_report->status = $request->input('status');
 
+        $staff = Staff::where('id', $request->input('staff_id'))->get();
+        $ITStaff = Staff::where('id', $request->input('handle_by'))->get();
+
+        if($request->input('status') ==='Received')
+        {
+            Notification::send($staff, new IncidentReportReceived($incident_report));
+            Notification::send($ITStaff, new IncidentReportITReceived($incident_report));
+        }
 
         if($incident_report->save()){
             return new IncidentReportResources($incident_report);

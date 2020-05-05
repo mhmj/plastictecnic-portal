@@ -320,7 +320,7 @@
                 formData.append("description", this.IncidentReport.description);
                 formData.append("file", this.file);
                 formData.append("rate",this.IncidentReport.rate);
-                formData.append("status", "Received");
+                formData.append("status", "-");
 
 
                 axios.post('/api/v1/IncidentReport/create-incident-report', formData, config)

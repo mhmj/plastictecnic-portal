@@ -64,7 +64,7 @@
                         <div>
                             <span class="fs-10 muted" style="font-size: 14px;"> Status :</span>
                             <span class="fs-10 muted" style="font-size: 14px;">
-                                <span :class="[{'text-success': IncidentReport.status === 'Fixed'}, {'text-warning': IncidentReport.status === 'On Process'}, {'text-info': IncidentReport.status === 'Received'} ]" style="font-size: 14px;">
+                                <span :class="[{'text-success': IncidentReport.status === 'Closed'}, {'text-warning': IncidentReport.status === 'Pending 1'}, {'text-warning': IncidentReport.status === 'Pending 2'}, {'text-danger': IncidentReport.status === 'KIV'}, {'text-info': IncidentReport.status === 'Received'} ]" style="font-size: 14px;">
                                     {{this.IncidentReport.status}}
                                 </span>
                             </span>

@@ -10,7 +10,11 @@ namespace App\Classes\Modules\IncidentReport\Services;
 
 
 use App\IncidentReport;
+use App\Notifications\IncidentReportITReceived;
+use App\Notifications\IncidentReportReceived;
+use App\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 
 class CreatesIncidentReport
 {
@@ -66,6 +70,17 @@ class CreatesIncidentReport
             'status' => $request->input('status'),
         ]);
 
-        return $model;
+        $staff = Staff::where('id', $request->input('staff_id'))->get();
+        $ITStaff = Staff::where('id', $request->input('handle_by'))->get();
+
+
+
+        if($request->input('status') ==='Received')
+        {
+            \Illuminate\Support\Facades\Notification::send($staff, new IncidentReportReceived($model));
+            \Illuminate\Support\Facades\Notification::send($ITStaff, new IncidentReportITReceived($model));
+        }
+
+        //return $model;
     }
 }
