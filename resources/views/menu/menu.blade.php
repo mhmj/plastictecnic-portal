@@ -65,6 +65,26 @@
                     </a>
                 </li>
             @endif
+            @if(Auth::user()->role_id == '4')
+                <li class="{{ (request()->routeIs('HR-Staff-ITAsset')) ? 'active' : '' }} ">
+                    <a href="{{route('HR-Staff-ITAsset')}}">
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <p class="text-bold">IT Asset Management</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->routeIs('HR-Staff-Incident-Report')) ? 'active' : '' }} ">
+                    <a href="{{route('HR-Staff-Incident-Report')}}">
+                        <i class="now-ui-icons location_map-big"></i>
+                        <p class="text-bold">IT Incident Management</p>
+                    </a>
+                </li>
+                <li class="{{ (request()->routeIs('HR-Staff-List-Staff')) ? 'active' : '' }} ">
+                    <a href="{{route('HR-Staff-List-Staff')}}">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p class="text-bold">Staff List</p>
+                    </a>
+                </li>
+            @endif
             <li class="{{ (request()->routeIs('ITOperation')) ? 'active' : '' }} ">
                 <a href="{{route('ITOperation')}}">
                     <i class="now-ui-icons education_atom"></i>

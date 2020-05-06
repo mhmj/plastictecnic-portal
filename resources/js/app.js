@@ -3,13 +3,20 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+// import VueFusionCharts from 'vue-fusioncharts';
+// import FusionCharts from 'fusioncharts';
+// import Column2D from 'fusioncharts/fusioncharts.charts';
+// import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 require('./bootstrap');
+
+require('vue-fusioncharts');
+require('fusioncharts');
 
 require ('v-show-slide');
 
 window.Vue = require('vue');
 window.Event = new Vue();
+
 
 
 
@@ -94,7 +101,16 @@ Vue.component('list-staff-it-asset-location-component', require('./components/IT
                             /////////// Elements ///////////////
 
 Vue.component('it-asset-element-component', require('./components/ITAsset/elements/ITAssetComponent.vue').default);
+Vue.component('it-asset-summary-element-component', require('./components/ITAsset/elements/ITAssetSummaryComponent.vue').default);
+Vue.component('it-asset-brand-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetBrandsChart.vue').default);
+Vue.component('it-asset-location-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetLocationChart.vue').default);
+Vue.component('it-asset-received-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetReceivedChart.vue').default);
+
+
+
 Vue.component('staff-it-asset-element-component', require('./components/ITAsset/Staff/elements/StaffITAssetComponent.vue').default);
+
+
 
                             /////////// Forms //////////////////
 

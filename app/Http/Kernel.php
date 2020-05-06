@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
 
         'Staff' =>  \App\Http\Middleware\Staff::class,
         'ITStaff' =>  \App\Http\Middleware\ITStaff::class,
+        'HRStaff' =>  \App\Http\Middleware\HRStaff::class,
     ];
 }

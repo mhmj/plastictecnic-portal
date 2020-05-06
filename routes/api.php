@@ -49,6 +49,9 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::delete('/{id}/delete-it-asset', 'DeleteITAssetController@delete')->name('delete-it-asset');
         Route::post('/{id}/assign-it-asset', 'AssignITAssetController@assign')->name('assign-it-asset');
         Route::get('/{id}/{query}/search-it-asset', 'SearchITAssetController@search')->name('search-it-asset');
+        Route::get('/summary/brands', 'ITAssetSummaryController@brands')->name('summary-brands');
+        Route::get('/summary/locations', 'ITAssetSummaryController@locations')->name('summary-locations');
+        Route::get('/summary/received', 'ITAssetSummaryController@received')->name('summary-received');
 
         Route::get('/{id}/{category}/list-it-asset', 'ListAssetBasedOnLocationController@list')
             ->where('category', 'bangi|nilaiA|nilaiB')

@@ -1,32 +1,34 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col-12" style="margin-bottom: 15px; display: flex; justify-content: flex-end">
-                <form @submit.prevent="searchITAsset">
-                    <div class="input-group no-border">
-                        <input type="text" v-on:change="searchITAsset" v-model="searchQuery" class="form-control" placeholder="Search...">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <a @submit.prevent="searchITAsset">
-                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                </a>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 15px; display: flex; justify-content: flex-end">
+                    <form @submit.prevent="searchITAsset">
+                        <div class="input-group no-border">
+                            <input type="text" v-on:change="searchITAsset" v-model="searchQuery" class="form-control" placeholder="Search...">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <a @submit.prevent="searchITAsset">
+                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-        <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-        <div>
-            <div class="table" v-if="this.isSearching">
-                <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
-                <pagination-component ref="pagination" v-on:changePage="searchITAsset($event)"></pagination-component>
-            </div>
-            <div class="table" v-if="!this.isSearching">
-                <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
-                <pagination-component ref="pagination" v-on:changePage="fetchITAsset($event)"></pagination-component>
-            </div>
-            <div style="margin-top: 30px; justify-content: flex-end">
+            <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
+            <div>
+                <div class="table" v-if="this.isSearching">
+                    <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
+                    <pagination-component ref="pagination" v-on:changePage="searchITAsset($event)"></pagination-component>
+                </div>
+                <div class="table" v-if="!this.isSearching">
+                    <it-asset-element-component  v-for="asset in ITassets " v-bind:key="asset.id" :data="asset"></it-asset-element-component>
+                    <pagination-component ref="pagination" v-on:changePage="fetchITAsset($event)"></pagination-component>
+                </div>
+                <div style="margin-top: 30px; justify-content: flex-end">
+                </div>
             </div>
         </div>
     </div>

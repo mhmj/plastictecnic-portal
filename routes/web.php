@@ -48,3 +48,11 @@ Route::group(['middleware' => 'ITStaff'], function(){
     Route::post('/uploadFile-it-asset', 'ImportITAssetController@uploadFile');
 
 });
+
+Route::group(['middleware' => 'HRStaff'], function(){
+
+    Route::get('/HR-Staff-ITAsset', 'HRStaffPageController@HRStaffITAsset')->name('HR-Staff-ITAsset');
+    Route::get('/HR-Staff-Incident-Report', 'HRStaffPageController@HRStaffIncidentReport')->name('HR-Staff-Incident-Report');
+    Route::get('/HR-Staff-List-Staff', 'HRStaffPageController@HRStaffListStaff')->name('HR-Staff-List-Staff');
+
+});

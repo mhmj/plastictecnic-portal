@@ -57,6 +57,9 @@
             @if(Auth::user()->role_id == '3')
                 <it-staff-dashboard-component id1="{{Auth::user()->id}}"></it-staff-dashboard-component>
             @endif
+            @if(Auth::user()->role_id == '4')
+                <it-staff-dashboard-component id1="{{Auth::user()->id}}"></it-staff-dashboard-component>
+            @endif
             <footer class="footer">
                 <div class=" container-fluid ">
                     <div class="copyright" id="copyright">
