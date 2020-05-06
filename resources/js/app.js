@@ -9,8 +9,6 @@
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 require('./bootstrap');
 
-require('vue-fusioncharts');
-require('fusioncharts');
 
 require ('v-show-slide');
 
