@@ -101,6 +101,7 @@ Vue.component('list-staff-it-asset-location-component', require('./components/IT
 Vue.component('it-asset-element-component', require('./components/ITAsset/elements/ITAssetComponent.vue').default);
 Vue.component('it-asset-summary-element-component', require('./components/ITAsset/elements/ITAssetSummaryComponent.vue').default);
 Vue.component('it-asset-brand-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetBrandsChart.vue').default);
+Vue.component('it-asset-category-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetCategoryChart.vue').default);
 Vue.component('it-asset-location-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetLocationChart.vue').default);
 Vue.component('it-asset-received-chart-element-component', require('./components/ITAsset/elements/Chart/Vue/ITAssetReceivedChart.vue').default);
 
@@ -179,6 +180,13 @@ Vue.component('staff-list-incident-report-component', require('./components/Inci
                             /////////// Elements ///////////////
 
 Vue.component('incident-report-element-component', require('./components/IncidentReport/elements/IncidentReportComponent.vue').default);
+
+Vue.component('incident-report-summary-element-component', require('./components/IncidentReport/elements/IncidentReportSummaryComponent.vue').default);
+Vue.component('incident-report-location-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportLocationChart.vue').default);
+Vue.component('incident-report-root-cause-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportRootCause.vue').default);
+Vue.component('incident-report-status-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportStatusChart.vue').default);
+
+
 Vue.component('staff-incident-report-element-component', require('./components/IncidentReport/Staff/elements/StaffIncidentReportComponent.vue').default);
 
                             /////////// Forms //////////////////

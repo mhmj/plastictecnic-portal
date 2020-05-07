@@ -71,6 +71,11 @@
                                     <div class="col">
                                         <ul class="nav" data-tabs="tabs">
                                             <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
+                                                <button style="background-color: #2b5797;" type="button" class="btn btn-md" href="#summary" data-toggle="tab">
+                                                    Summary
+                                                </button>
+                                            </li>
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
                                                 <button type="button" class="btn btn-md btn-info" href="#bangi" data-toggle="tab">
                                                     Bangi Plant
                                                 </button>
@@ -94,11 +99,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card  card-tasks">
-                            <div class="card-header "></div>
-                            <div class="card-body ">
+                        <div class="card-tasks">
+                            <div class="">
                                 <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="bangi">
+                                    <div class="tab-pane active" id="summary">
+                                        <incident-report-summary-element-component></incident-report-summary-element-component>
+                                    </div>
+                                    <div class="tab-pane" id="bangi">
                                         <list-incident-report-location-component id1="1" category="bangi"></list-incident-report-location-component>
                                     </div>
                                     <div class="tab-pane"  id="nilai-a">

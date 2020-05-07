@@ -51,6 +51,29 @@ class ITAssetSummaryController
 
         return $array;
     }
+    public function category()
+    {
+        $array = [];
+        $Laptop = $this->repository->where('asset_category_id','=',1)->get();
+        $Desktop = $this->repository->where('asset_category_id','=',2)->get();
+        $Server = $this->repository->where('asset_category_id','=',3)->get();
+        $Switch = $this->repository->where('asset_category_id','=',4)->get();
+        $NAS = $this->repository->where('asset_category_id','=',5)->get();
+        $Firewall = $this->repository->where('asset_category_id','=',6)->get();
+        $Printer = $this->repository->where('asset_category_id','=',7)->get();
+
+        $Laptop = $Laptop->count();
+        $Desktop = $Desktop->count();
+        $Server = $Server->count();
+        $Switch = $Switch->count();
+        $NAS = $NAS->count();
+        $Firewall = $Firewall->count();
+        $Printer = $Printer->count();
+
+        array_push($array,$Laptop,$Desktop,$Server,$Switch,$NAS,$Firewall,$Printer);
+
+        return $array;
+    }
 
     public function locations()
     {

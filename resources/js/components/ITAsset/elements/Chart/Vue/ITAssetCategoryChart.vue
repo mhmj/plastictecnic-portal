@@ -1,18 +1,18 @@
 <template>
-    <bar-chart :chart-data="datacollection" :options="options" :height="150"></bar-chart>
+    <bar :chart-data="datacollection" :options="options" :height="150"></bar>
 </template>
 <script>
 
-    import BarChart from '../js/BarChart'
+    import Bar from '../js/BarChart'
 
     export default {
         components: {
-            BarChart
+            Bar
         },
         data(){
             return {
                 datacollection: "",
-                brand_data:[],
+                category_data:[],
                 options : {
                     scales: {
                         yAxes: [{
@@ -35,17 +35,17 @@
         methods: {
             fetchData(){
                 let vm = this
-                fetch('/api/v1/ITAsset/summary/brands').then(response => response.json())
+                fetch('/api/v1/ITAsset/summary/category').then(response => response.json())
                     .then(response => {
-                        vm.brand_data = response;
-                        this.brand_data = vm.brand_data;
+                        vm.category_data = response;
+                        this.category_data = vm.category_data;
                         this.fillData();
                     });
             },
             fillData()
             {
                 this.datacollection = {
-                    labels: ['Dell','Lenovo','HP','ASUS','ACER','LG','Synology','FortiGate'],
+                    labels: ['Laptop','Desktop','Server','Switch','NAS','Firewall','Printer'],
                     datasets: [
                         {
                             label: '',
@@ -59,7 +59,7 @@
                                 '#2d89ef',
                                 '#e3a21a'
                             ],
-                            data: this.brand_data
+                            data: this.category_data
                         },
                     ]
                 }

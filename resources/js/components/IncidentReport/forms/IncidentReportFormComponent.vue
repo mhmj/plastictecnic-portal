@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" v-if="this.previewImage === false">
+                                        <div class="row" v-if="this.previewImage === false && this.IncidentReport.image !=='null' ">
                                             <div class="col-md-4">
                                                 <div class="card card-user">
                                                     <div class="image">
@@ -183,6 +183,10 @@
                                                     <option v-bind:selected="IncidentReport.status == 'KIV'" value="KIV">KIV</option>
                                                     <option v-bind:selected="IncidentReport.status == 'Closed'" value="Closed">Closed</option>
                                                 </select>
+                                            </div>
+                                            <div class="form-group form-group-default required" v-if="IncidentReport.status === 'Closed'">
+                                                <label class="muted">Solution</label>
+                                                <input class="form-control" :style="[this.IncidentReport.solution ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.solution">
                                             </div>
                                         </div>
                                     </div>
@@ -447,6 +451,7 @@
                     image: '',
                     rate: '',
                     status: '',
+                    solution: '',
                     created_at: '',
 
                 },
@@ -521,6 +526,7 @@
                 formData.append("file", this.IncidentReport.image);
                 formData.append("rate",this.IncidentReport.rate);
                 formData.append("status", this.IncidentReport.status);
+                formData.append("solution", this.IncidentReport.solution);
 
                 let vm= this;
                 axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)

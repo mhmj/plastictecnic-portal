@@ -63,6 +63,7 @@ class UpdatesIncidentReport
         $incident_report->image =$fileNameToStore;
         $incident_report->rate = $request->input('rate');
         $incident_report->status = $request->input('status');
+        $incident_report->solution = $request->input('solution');
 
         $staff = Staff::where('id', $request->input('staff_id'))->get();
         $ITStaff = Staff::where('id', $request->input('handle_by'))->get();

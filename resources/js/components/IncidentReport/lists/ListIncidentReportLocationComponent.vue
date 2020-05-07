@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-        <div>
-            <div class="table">
-                <incident-report-element-component v-for="IncidentReport in IncidentReports " v-bind:key="IncidentReport.id" :data="IncidentReport"></incident-report-element-component>
-            </div>
-            <div style="margin-top: 30px; justify-content: flex-end">
-                <pagination-component ref="pagination" v-on:changePage="fetchIncidentReport($event)"></pagination-component>
+    <div class="card">
+        <div class="card-body">
+            <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
+            <div>
+                <div class="table">
+                    <incident-report-element-component v-for="IncidentReport in IncidentReports " v-bind:key="IncidentReport.id" :data="IncidentReport"></incident-report-element-component>
+                </div>
+                <div style="margin-top: 30px; justify-content: flex-end">
+                    <pagination-component ref="pagination" v-on:changePage="fetchIncidentReport($event)"></pagination-component>
+                </div>
             </div>
         </div>
     </div>

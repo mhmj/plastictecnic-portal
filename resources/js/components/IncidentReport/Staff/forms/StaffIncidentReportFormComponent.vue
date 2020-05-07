@@ -8,7 +8,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <label class="muted text-primary"><h5>Incident Information</h5></label>
+                                        <label class="muted text-primary"><h5>Incident Information {{IncidentReport.solution}}</h5></label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -54,7 +54,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-top: 10px;" v-if="this.previewImage === false">
+                                        <div class="row" style="margin-top: 10px;" v-if="this.previewImage === false  && this.IncidentReport.image !=='null'">
                                             <div class="col-md-4">
                                                 <div class="card card-user">
                                                     <div class="image">
@@ -367,6 +367,7 @@
                     image: '',
                     rate: '',
                     status: '',
+                    solution:'',
                     created_at: '',
 
                 },
@@ -413,6 +414,7 @@
                     formData.append("file", this.file);
                     formData.append("rate",this.IncidentReport.rate);
                     formData.append("status", this.IncidentReport.status);
+                    formData.append("solution", this.IncidentReport.solution);
 
                     let vm= this;
                     axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
@@ -451,6 +453,7 @@
                     formData.append("file", this.file);
                     formData.append("rate",this.IncidentReport.rate);
                     formData.append("status", this.IncidentReport.status);
+                    formData.append("solution", this.IncidentReport.solution);
 
                     let vm= this;
                     axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
