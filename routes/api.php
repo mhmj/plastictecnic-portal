@@ -70,6 +70,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::post('/{id}/update-license', 'UpdateLicensingController@update')->name('update-license');
         Route::delete('/{id}/delete-license', 'DeleteLicensingController@delete')->name('delete-license');
         Route::get('/{id}/{query}/search-license', 'SearchLicensingController@search')->name('search-license');
+        Route::get('{id}/list-license/it-asset', 'ListLicensingBasedOnITAssetController@list')->name('list-license-it-asset');
 
 
         Route::get('/{id}/{category}/list-license', 'ListLicensingBasedOnLocationController@list')

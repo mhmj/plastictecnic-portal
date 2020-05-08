@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46995b44-0a81-434e-8695-331f21c07fba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/graph/graph-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/graph/graph-2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/IncidentReport/IncidentReportSummaryController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/Vue/ITAssetCategoryChart.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/Vue/IncidentReportLocationChart.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/Vue/IncidentReportRootCause.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/Vue/IncidentReportStatusChart.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/js/BarChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/js/DoughnutChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/js/PieChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/IncidentReportSummaryComponent.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/Licensing/ListLicensingBasedOnITAssetLogic.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/Licensing/Services/ListsLicensingBasedOnITAsset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Licensing/ListLicensingBasedOnITAssetController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/License/elements/LicenseITAssetComponent.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/License/lists/ListLicensedITAssetComponent.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Classes/Modules/IncidentReport/Services/UpdatesIncidentReport.php" afterPath="$PROJECT_DIR$/app/Classes/Modules/IncidentReport/Services/UpdatesIncidentReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ITAsset/ITAssetSummaryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ITAsset/ITAssetSummaryController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/app.js" afterPath="$PROJECT_DIR$/resources/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/Vue/ITAssetBrandsChart.vue" afterPath="$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/Vue/ITAssetBrandsChart.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/ITAsset/elements/ITAssetSummaryComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/ITAsset/elements/ITAssetSummaryComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/IncidentReport/forms/IncidentReportFormComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/forms/IncidentReportFormComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/IncidentReport/lists/ListIncidentReportLocationComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/lists/ListIncidentReportLocationComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/ITStaff/IncidentReport.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/ITStaff/IncidentReport.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/ITAsset/forms/ITAssetFormComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/ITAsset/forms/ITAssetFormComponent.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,38 +30,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IncidentReportFormComponent.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/IncidentReport/forms/IncidentReportFormComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7014">
-              <caret line="71" column="121" lean-forward="false" selection-start-line="71" selection-start-column="121" selection-end-line="71" selection-end-column="121" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaffIncidentReportFormComponent.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="454" column="74" lean-forward="false" selection-start-line="454" selection-start-column="74" selection-end-line="454" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdatesIncidentReport.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Classes/Modules/IncidentReport/Services/UpdatesIncidentReport.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="65" column="62" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -85,17 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fus</find>
-      <find>fusion</find>
-      <find>fusion c</find>
-      <find>fusion ch</find>
-      <find>fusion cha</find>
-      <find>fusion char</find>
-      <find>fusion chart</find>
-      <find>free tri</find>
-      <find>FusionCharts Trial</find>
-      <find>T</find>
-      <find>Tri</find>
       <find>Tria</find>
       <find>Trial</find>
       <find>option</find>
@@ -115,6 +60,17 @@
       <find>el-ima</find>
       <find>el-imag</find>
       <find>el-image</find>
+      <find>tab</find>
+      <find>table</find>
+      <find>tabl</find>
+      <find>&lt;tabl</find>
+      <find>&lt;table</find>
+      <find>&lt;table?</find>
+      <find>t</find>
+      <find>&lt;</find>
+      <find>&lt;th?</find>
+      <find>&lt;th</find>
+      <find>&lt;th&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -131,12 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_27_040500_create_incident_report_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/IncidentReport.php" />
-        <option value="$PROJECT_DIR$/app/IncidentReport.php" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/forms/CreateIncidentReportFormComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/IncidentReportComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/elements/StaffIncidentReportComponent.vue" />
@@ -169,11 +119,9 @@
         <option value="$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/Vue/ITAssetBrandsChart.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ITAsset/ITAssetSummaryController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/Vue/ITAssetCategoryChart.vue" />
-        <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/js/components/ITAsset/elements/ITAssetSummaryComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/pages/ITStaff/IncidentReport.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/lists/ListIncidentReportLocationComponent.vue" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/IncidentReport/IncidentReportSummaryController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/Vue/IncidentReportStatusChart.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/elements/Chart/Vue/IncidentReportRootCause.vue" />
@@ -182,6 +130,14 @@
         <option value="$PROJECT_DIR$/app/Classes/Modules/IncidentReport/Services/UpdatesIncidentReport.php" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/forms/IncidentReportFormComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" />
+        <option value="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/Licensing/ListLicensingBasedOnITAssetLogic.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Licensing/ListLicensingBasedOnITAssetController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Modules/Licensing/Services/ListsLicensingBasedOnITAsset.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/ITAsset/forms/ITAssetFormComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/License/elements/LicenseITAssetComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/License/lists/ListLicensedITAssetComponent.vue" />
       </list>
     </option>
   </component>
@@ -253,8 +209,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,6 +218,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -291,167 +277,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Staff" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Staff" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -513,7 +339,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
+              <option name="myItemId" value="Licensing" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,7 +365,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="IncidentReport" />
+              <option name="myItemId" value="Licensing" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -547,8 +373,66 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ControllerLogic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ControllerLogic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Licensing" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -562,18 +446,18 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\Documents\Portal\System\v3\resources\js\components\IncidentReport\elements\Chart\js" />
-      <recent name="C:\Users\user\Documents\Portal\System\v3\resources\views\auth\passwords" />
-      <recent name="C:\Users\user\Documents\Portal\System\v3\public" />
-      <recent name="C:\Users\user\Documents\Portal\System\v3\public\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\Portal\System\v3\public\images\graph" />
       <recent name="C:\Users\user\Documents\Portal\System\v3\resources\js\components\ITAsset\elements\Chart\js" />
       <recent name="C:\Users\user\Documents\Portal\System\v3\public\images\slider" />
       <recent name="C:\Users\user\Documents\Portal\System\v3\public\images\icons" />
       <recent name="C:\Users\user\Documents\Portal\System\v3\public\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\Portal\System\v3\resources\js\components\IncidentReport\elements\Chart\js" />
+      <recent name="C:\Users\user\Documents\Portal\System\v3\resources\views\auth\passwords" />
+      <recent name="C:\Users\user\Documents\Portal\System\v3\public" />
+      <recent name="C:\Users\user\Documents\Portal\System\v3\public\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -717,12 +601,13 @@
       <workItem from="1588425730833" duration="321000" />
       <workItem from="1588661735414" duration="18394000" />
       <workItem from="1588737334304" duration="20498000" />
-      <workItem from="1588837590569" duration="9972000" />
+      <workItem from="1588837590569" duration="10562000" />
+      <workItem from="1588917607960" duration="4665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="814713000" />
+    <option name="totallyTimeSpent" value="819968000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -735,7 +620,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11292962" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
@@ -744,7 +628,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5613748" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31240544" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3161876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -798,102 +682,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/ITStaff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/HRStaff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="67" column="16" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ITStaffPageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HRStaffPageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Staff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="59" column="43" lean-forward="false" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StaffPageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/menu/menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-fusioncharts/component/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/License/forms/LicenseFormComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="142" lean-forward="true" selection-start-line="9" selection-start-column="142" selection-end-line="9" selection-end-column="197" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue-fusioncharts/dist/vue-fusioncharts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -937,18 +725,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/LineChart.vue" />
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ITAsset/forms/ITAssetFormComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1292">
-          <caret line="8" column="121" lean-forward="true" selection-start-line="8" selection-start-column="121" selection-end-line="8" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ITAsset/elements/Chart/js/PieChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -956,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -964,9 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#431#470#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,9 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="41" column="40" lean-forward="false" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="73" />
-          <folding>
-            <element signature="n#style#0;n#el-image#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,7 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="70" lean-forward="false" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,7 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,13 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,11 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="2" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#loading-component#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1066,7 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="102" column="40" lean-forward="false" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="104" column="36" lean-forward="false" selection-start-line="104" selection-start-column="36" selection-end-line="106" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="77" column="2" lean-forward="true" selection-start-line="77" selection-start-column="2" selection-end-line="91" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="44" column="52" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="14" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,15 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="26" column="60" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="184" column="15" lean-forward="true" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,11 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="37" column="81" lean-forward="false" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="40" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,15 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="27" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="99" column="29" lean-forward="false" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1188,16 +914,148 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/IncidentReport/forms/IncidentReportFormComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7014">
+        <state relative-caret-position="17">
           <caret line="71" column="121" lean-forward="false" selection-start-line="71" selection-start-column="121" selection-end-line="71" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Licensing/ListLicensingBasedOnITAssetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Licensing/ListLicensingBasedOnLocationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/Licensing/ListLicensingLocationLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/Licensing/ListLicensingBasedOnITAssetLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Modules/Licensing/Services/ListsLicensingBasedOnITAsset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="30" column="79" lean-forward="false" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
+          <folding>
+            <element signature="e#140#158#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Modules/Licensing/Services/ListsLicensingBangi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#141#159#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/License/forms/LicenseFormComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="106" column="38" lean-forward="true" selection-start-line="106" selection-start-column="38" selection-end-line="106" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/License/lists/ListLicensedLocationComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="102" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="135" column="15" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/License/elements/LicenseComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/now-ui-dashboard-master/now-ui-dashboard-master/examples/tables.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2856">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="454" column="74" lean-forward="false" selection-start-line="454" selection-start-column="74" selection-end-line="454" selection-end-column="74" />
+        <state relative-caret-position="399">
+          <caret line="142" column="54" lean-forward="true" selection-start-line="117" selection-start-column="48" selection-end-line="142" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ITAsset/forms/ITAssetFormComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="168" column="45" lean-forward="false" selection-start-line="168" selection-start-column="45" selection-end-line="168" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/License/lists/ListLicensedITAssetComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/License/elements/LicenseITAssetComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="47" lean-forward="false" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
           <folding />
         </state>
       </provider>

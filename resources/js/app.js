@@ -128,10 +128,12 @@ Vue.component('assign-it-asset-form-component', require('./components/ITAsset/fo
                                     /////////// Lists //////////////////
 
 Vue.component('list-license-location-component', require('./components/License/lists/ListLicensedLocationComponent.vue').default);
+Vue.component('list-license-it-asset-component', require('./components/License/lists/ListLicensedITAssetComponent.vue').default);
 
                                     /////////// Elements ///////////////
 
 Vue.component('license-element-component', require('./components/License/elements/LicenseComponent.vue').default);
+Vue.component('license-it-asset-element-component', require('./components/License/elements/LicenseITAssetComponent.vue').default);
 
                                     /////////// Forms //////////////////
 
