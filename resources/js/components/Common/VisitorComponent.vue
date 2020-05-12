@@ -393,7 +393,7 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h1 :style="[this.visitor.temperature <= '37.5' ? {'color': 'green'} :{'color': 'red'}]" style="display: flex; justify-content: center">{{visitor.temperature}}</h1>
+                                <h1 :style="[this.visitor.temperature <= '37.5' ? {'color': 'green'} :{'color': 'red'}]" style="display: flex; justify-content: center">{{visitor.temperature}} &#8451;</h1>
                             </div>
                         </div>
                         <div class="row">
