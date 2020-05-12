@@ -12,9 +12,6 @@
                         <img class="d-block w-100" src="images/slider/protal_banner_02.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/slider/protal_banner_03.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
                         <img class="d-block w-100" src="images/slider/protal_banner_04.jpg" alt="Second slide">
                     </div>
                 </div>

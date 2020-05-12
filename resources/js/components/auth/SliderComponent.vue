@@ -18,13 +18,6 @@
             <el-carousel-item>
                 <el-image
                         style="width: 100%; height: 100%"
-                        src="images/slider/protal_banner_03.jpg"
-                        fit="fit">
-                </el-image>
-            </el-carousel-item>
-            <el-carousel-item>
-                <el-image
-                        style="width: 100%; height: 100%"
                         src="images/slider/protal_banner_04.jpg"
                         fit="fit">
                 </el-image>
