@@ -15,7 +15,7 @@
             <div class="col-lg-8">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <h4 class="card-title text-primary">Announcement</h4>
+                        <h5 class="card-title text-primary">Official Announcement</h5>
                         <div class="dropdown">
                             <button v-on:click="newAnnouncement" type="button" class="btn btn-round btn-outline-default btn-simple btn-icon no-caret">
                                 <i class="now-ui-icons ui-1_simple-add"></i>

@@ -44,13 +44,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group form-group-default required">
                                             <label class="muted">Root Cause </label>
-                                            <span style="color: red">*</span>
-                                            <div class="row" v-if="('root_cause' in errors)">
-                                                <div class="col">
-                                                    <label class="text-danger">{{errors['root_cause']}}</label>
-                                                </div>
-                                            </div>
-                                            <select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.root_cause">
+                                            <select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'lightgray'}]" v-model="IncidentReport.root_cause">
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>
@@ -479,7 +473,7 @@
 
             checkIncidentReport(){
                 this.errors = [];
-                if(this.IncidentReport.incident_category && this.IncidentReport.root_cause && this.IncidentReport.asset_id.id && this.IncidentReport.staff_id.id && this.IncidentReport.handle_by.id )
+                if(this.IncidentReport.incident_category && this.IncidentReport.asset_id.id && this.IncidentReport.staff_id.id && this.IncidentReport.handle_by.id )
                 {
                     $("#IncidentReportModal").modal('hide');
                     this.createIncidentReport();
@@ -490,10 +484,10 @@
                 {
                     this.errors['category'] = "Choose the Incident Category"
                 }
-                if(!this.IncidentReport.root_cause)
-                {
-                    this.errors['root_cause'] = "Choose the Root Cause"
-                }
+//                if(!this.IncidentReport.root_cause)
+//                {
+//                    this.errors['root_cause'] = "Choose the Root Cause"
+//                }
                 if(!this.IncidentReport.asset_id.id)
                 {
                     this.errors['asset'] = "Choose the Asset"

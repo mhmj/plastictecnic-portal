@@ -50,13 +50,15 @@ class IncidentReportSummaryController
         $array = [];
         $root_cause_1 = $this->repository->where('root_cause','=', 'SW/HW/DB Configuration')->get();
         $root_cause_2 = $this->repository->where('root_cause','=','SW/HW/DB Bug')->get();
-        $root_cause_3 = $this->repository->where('root_cause','=', 'User Negligence')->get();
+        $root_cause_3 = $this->repository->where('root_cause','=','HW Failure')->get();
+        $root_cause_4 = $this->repository->where('root_cause','=', 'User Negligence')->get();
 
         $root_cause_1 = $root_cause_1->count();
         $root_cause_2 = $root_cause_2->count();
         $root_cause_3 = $root_cause_3->count();
+        $root_cause_4 = $root_cause_4->count();
 
-        array_push($array,$root_cause_1,$root_cause_2,$root_cause_3);
+        array_push($array,$root_cause_1,$root_cause_2,$root_cause_3,$root_cause_4);
 
         return $array;
     }

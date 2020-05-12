@@ -368,6 +368,7 @@
                     rate: '',
                     status: '',
                     solution:'',
+                    remark:'',
                     created_at: '',
 
                 },
@@ -415,6 +416,7 @@
                     formData.append("rate",this.IncidentReport.rate);
                     formData.append("status", this.IncidentReport.status);
                     formData.append("solution", this.IncidentReport.solution);
+                    formData.append("remark", this.IncidentReport.remark);
 
                     let vm= this;
                     axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)
@@ -454,6 +456,7 @@
                     formData.append("rate",this.IncidentReport.rate);
                     formData.append("status", this.IncidentReport.status);
                     formData.append("solution", this.IncidentReport.solution);
+                    formData.append("remark", this.IncidentReport.remark);
 
                     let vm= this;
                     axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)

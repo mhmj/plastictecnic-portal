@@ -147,7 +147,7 @@
                                             <div class="tab-pane" id="inventory" style="border-top: 2px solid #9f00a7; margin-top: 10px">
                                                 <div class="row" style="margin-top: 20px">
                                                     <div class="col-lg-12">
-                                                        {{--<img style="width: 100%;height: 80%;"  src="{{asset('/images/IT operation/3-DataCenter/3.0.jpg')}}">--}}
+                                                        <img style="width: 70%;height: 100%;"  src="{{asset('/images/graph/graph-2.jpg')}}">
                                                     </div>
                                                 </div>
                                             </div>

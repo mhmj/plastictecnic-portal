@@ -41,24 +41,25 @@
                                             <select class="form-control" :style="[this.IncidentReport.root_cause ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.root_cause">
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>
+                                                <option v-bind:selected="IncidentReport.root_cause == 'HW Failure'" value="HW Failure">HW Failure</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group form-group-default required">
                                             <label class="muted">Job Start</label>
                                             <input placeholder="DD/MM/YY" class="form-control" :style="[this.IncidentReport.job_start ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.job_start">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group form-group-default required">
-                                            <label class="muted">Job Finish</label>
-                                            <input placeholder="DD/MM/YY" class="form-control" :style="[this.IncidentReport.job_finish ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.job_finish">
-                                        </div>
-                                    </div>
+                                    <!--<div class="col-lg-6">-->
+                                        <!--<div class="form-group form-group-default required">-->
+                                            <!--<label class="muted">Job Finish</label>-->
+                                            <!--<input placeholder="DD/MM/YY" class="form-control" :style="[this.IncidentReport.job_finish ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.job_finish">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                 </div>
                                 <div class="row" v-if="this.IncidentReport.image">
                                     <div class="col-lg-12">
@@ -184,9 +185,21 @@
                                                     <option v-bind:selected="IncidentReport.status == 'Closed'" value="Closed">Closed</option>
                                                 </select>
                                             </div>
+                                            <div class="form-group form-group-default required" v-if="IncidentReport.status === 'Pending 1'">
+                                                <label class="muted">Remark</label>
+                                                <input class="form-control" :style="[this.IncidentReport.remark ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.remark">
+                                            </div>
+                                            <div class="form-group form-group-default required" v-if="IncidentReport.status === 'Pending 2'">
+                                                <label class="muted">Remark</label>
+                                                <input class="form-control" :style="[this.IncidentReport.remark ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.remark">
+                                            </div>
                                             <div class="form-group form-group-default required" v-if="IncidentReport.status === 'Closed'">
                                                 <label class="muted">Solution</label>
                                                 <input class="form-control" :style="[this.IncidentReport.solution ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.solution">
+                                            </div>
+                                            <div class="form-group form-group-default required" v-if="IncidentReport.status === 'Closed'">
+                                                <label class="muted">Job Finish</label>
+                                                <input class="form-control" :style="[this.IncidentReport.job_finish ? {'border-color': 'green'} :{'border-color': 'lightgray'} ]" v-model="IncidentReport.job_finish">
                                             </div>
                                         </div>
                                     </div>
@@ -452,6 +465,7 @@
                     rate: '',
                     status: '',
                     solution: '',
+                    remark: '',
                     created_at: '',
 
                 },
@@ -527,6 +541,7 @@
                 formData.append("rate",this.IncidentReport.rate);
                 formData.append("status", this.IncidentReport.status);
                 formData.append("solution", this.IncidentReport.solution);
+                formData.append("remark", this.IncidentReport.remark);
 
                 let vm= this;
                 axios.post('/api/v1/IncidentReport/'+ this.IncidentReport.id +'/update-incident-report', formData, config)

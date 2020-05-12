@@ -28,7 +28,7 @@
                             <div class="row" style="margin-top: 20px">
                                 <div class="col-lg-12">
                                     <label class="muted text-primary" style="font-size: 20px">Description</label><br>
-                                    {{announcementDetails.description}}
+                                    <nl2br tag="span" :text="announcementDetails.description" />
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 20px" v-if="this.announcementDetails.file">
@@ -78,7 +78,13 @@
     </div>
 </template>
 <script>
+    import Nl2br from 'vue-nl2br'
+
     export default {
+        name: 'MyComponent',
+        components: {
+            Nl2br,
+        },
         props: {
             'data': {
             },

@@ -34,13 +34,14 @@
             fillData ()
             {
                 this.datacollection = {
-                    labels: ['SW/HW/DB Configuration','SW/HW/DB Bug','User Negligence'],
+                    labels: ['SW/HW/DB Configuration','SW/HW/DB Bug', 'HW Failure','User Negligence'],
                     datasets: [
                         {
                             label: '',
                             backgroundColor: [
                                 '#2b5797',
                                 '#ffc40d',
+                                '#1e7145',
                                 '#ee1111',
                             ],
                             data: this.root_cause_data

@@ -15,7 +15,7 @@
 <script src="{{asset('js/now-ui-dashboard.min.js?v=1.5.0')}}"></script>
 <script src="{{asset('demo/demo.js')}}"></script>
 <script src="{{asset('js/plugins/bootstrap-datepicker.js')}}"></script>
-<script src="{{asset('element-ui/lib/index.js')}}"></script>
+{{--<script src="{{asset('element-ui/lib/index.js')}}"></script>--}}
 
 
 {{--<script>--}}

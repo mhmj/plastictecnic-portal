@@ -64,6 +64,7 @@ class UpdatesIncidentReport
         $incident_report->rate = $request->input('rate');
         $incident_report->status = $request->input('status');
         $incident_report->solution = $request->input('solution');
+        $incident_report->remark = $request->input('remark');
 
         $staff = Staff::where('id', $request->input('staff_id'))->get();
         $ITStaff = Staff::where('id', $request->input('handle_by'))->get();

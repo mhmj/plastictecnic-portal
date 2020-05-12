@@ -15,7 +15,7 @@
             <div class="col-lg-8">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <h4 class="card-title text-primary">Announcement</h4>
+                        <h5 class="card-title text-primary">Official Announcement</h5>
                     </div>
                     <div class="card-body">
                         <loading-component v-show="isAnnouncementLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>

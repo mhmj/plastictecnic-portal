@@ -9,11 +9,15 @@
 // import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 require('./bootstrap');
 
-
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 require ('v-show-slide');
 
 window.Vue = require('vue');
 window.Event = new Vue();
+
+Vue.use(ElementUI, { locale });
+
 
 
 
@@ -42,6 +46,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
 Vue.component('profile-component', require('./components/Common/ProfileComponent.vue').default);
+Vue.component('visitor-component', require('./components/Common/VisitorComponent.vue').default);
 
 
 

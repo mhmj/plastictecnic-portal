@@ -18,6 +18,12 @@
                     <p class="bold">Home</p>
                 </a>
             </li>
+            <li class="">
+                <a href="">
+                    <i class="fa fa-thermometer-quarter"></i>
+                    <p>Daily Health</p>
+                </a>
+            </li>
             @if(Auth::user()->role_id == '2')
                 <li class="{{ (request()->routeIs('Staff-ITAsset')) ? 'active' : '' }} ">
                     <a href="{{route('Staff-ITAsset')}}">
