@@ -2,69 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46995b44-0a81-434e-8695-331f21c07fba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/IT operation/1-ITTeam/1.1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/elements" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/CreateStaffDailyHealthLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/ListPersonalDailyHealthLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/ListStaffDailyHealthByNameLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/ListVisitorDailyHealthBasedOnLocationLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/SearchVisitorDailyHealthLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/CreatesStaffDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/ListVisitorDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/ListsPersonalDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/ListsStaffDailyHealthByName.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/SearchesVisitorDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/CreateStaffDailyHealthController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/ListPersonalDailyHealthController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/ListStaffDailyHealthByNameController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/ListVisitorDailyHealthBasedOnLocationController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/SearchVisitorDailyHealthController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Resources/StaffDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/StaffDailyHealth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/VisitorDailyHealthBangi.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/VisitorDailyHealthNilaiA.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/VisitorDailyHealthNilaiB.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_05_13_040152_create_visitor_bangi_daily_health_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_05_13_040346_create_visitor_nilai_a_daily_health_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_05_13_040400_create_visitor_nilai_b_daily_health_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_05_19_061440_create_staff_daily_health_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/Common/VisitorBangiComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/Common/VisitorNilaiAComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/Common/VisitorNilaiBComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/dailyhealth.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/DailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthDetails.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/forms/CreateVisitorDailyHealthForm.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDashboardDailyHealth.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListVisitorDailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListVisitorDashboardDailyHealth.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/dailyhealth.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/element/DailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/lists/ListStaffDailyHealthComponent.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/daily_health.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/list_daily_health.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/visitor/visitor_nilai_A.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/visitor/visitor_nilai_B.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2020_05_12_021752_create_visitor_daily_health_table.php" afterPath="$PROJECT_DIR$/database/migrations/2020_05_12_021752_create_visitor_bangi_daily_health_table.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/visitor/visitor.blade.php" afterPath="$PROJECT_DIR$/resources/views/visitor/visitor_bangi.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Common/VisitorDailyHealth.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Common/VisitorDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HRStaffPageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HRStaffPageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ITStaffPageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ITStaffPageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Resources/VisitorDailyHealth.php" afterPath="$PROJECT_DIR$/app/Http/Resources/VisitorDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/VisitorDailyHealth.php" afterPath="$PROJECT_DIR$/app/VisitorDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/app.js" afterPath="$PROJECT_DIR$/resources/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffCreateIncidentReportFormComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffCreateIncidentReportFormComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/menu/menu.blade.php" afterPath="$PROJECT_DIR$/resources/views/menu/menu.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/ITOperation.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/ITOperation.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -108,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateStaffDailyHealthForm.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateStaffDailyHealthForm.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="616" column="31" lean-forward="false" selection-start-line="616" selection-start-column="31" selection-end-line="616" selection-end-column="42" />
+            <state relative-caret-position="442">
+              <caret line="625" column="14" lean-forward="true" selection-start-line="625" selection-start-column="14" selection-end-line="625" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="808">
+              <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -175,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DailyHealth/SearchVisitorDailyHealthController.php" />
         <option value="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/SearchesVisitorDailyHealth.php" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffIncidentReportFormComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/IncidentReport/Staff/forms/StaffCreateIncidentReportFormComponent.vue" />
@@ -226,6 +173,7 @@
         <option value="$PROJECT_DIR$/resources/js/components/Common/VisitorNilaiAComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/forms/CreateVisitorDailyHealthForm.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -848,12 +796,12 @@
       <workItem from="1589500653064" duration="4931000" />
       <workItem from="1589759502223" duration="29149000" />
       <workItem from="1589845781178" duration="29486000" />
-      <workItem from="1589932484005" duration="14392000" />
+      <workItem from="1589932484005" duration="15212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="994006000" />
+    <option name="totallyTimeSpent" value="994826000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -929,16 +877,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DailyHealth/CreateStaffDailyHealthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding>
-            <element signature="e#135#215#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Classes/Modules/ControllerLogic/DailyHealth/CreateStaffDailyHealthLogic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1411,8 +1349,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="616" column="31" lean-forward="false" selection-start-line="616" selection-start-column="31" selection-end-line="616" selection-end-column="42" />
+        <state relative-caret-position="442">
+          <caret line="625" column="14" lean-forward="true" selection-start-line="625" selection-start-column="14" selection-end-line="625" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
           <folding />
         </state>
       </provider>
