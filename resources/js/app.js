@@ -11,12 +11,21 @@ require('./bootstrap');
 
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
+
+import JsonExcel from 'vue-json-excel'
+
+import VueQrcodeReader from "vue-qrcode-reader";
+
+
 require ('v-show-slide');
 
 window.Vue = require('vue');
 window.Event = new Vue();
 
 Vue.use(ElementUI, { locale });
+
+Vue.component('downloadExcel', JsonExcel)
+Vue.use(VueQrcodeReader);
 
 
 
@@ -46,7 +55,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
 Vue.component('profile-component', require('./components/Common/ProfileComponent.vue').default);
-Vue.component('visitor-component', require('./components/Common/VisitorComponent.vue').default);
+
+Vue.component('visitor-bangi-component', require('./components/Common/VisitorBangiComponent.vue').default);
+Vue.component('visitor-a-nilai-component', require('./components/Common/VisitorNilaiAComponent.vue').default);
+Vue.component('visitor-b-nilai-component', require('./components/Common/VisitorNilaiBComponent.vue').default);
 
 
 
@@ -207,6 +219,37 @@ Vue.component('delete-incident-report-form-component', require('./components/Inc
 Vue.component('staff-delete-incident-report-form-component', require('./components/IncidentReport/Staff/forms/StaffDeleteIncidentReportFormComponent.vue').default);
 
 
+
+/////////////////////////////////// Daily Health Component //////////////////////////////////////////
+
+/////////// Lists //////////////////
+
+Vue.component('daily-health-component', require('./components/DailyHealth/ITStaff/dailyhealth.vue').default);
+Vue.component('list-dashboard-daily-health-component', require('./components/DailyHealth/ITStaff/lists/ListVisitorDashboardDailyHealth.vue').default);
+Vue.component('list-visitor-daily-health-component', require('./components/DailyHealth/ITStaff/lists/ListVisitorDailyHealthComponent.vue').default);
+
+
+Vue.component('staff-daily-health-component', require('./components/DailyHealth/Staff/dailyhealth.vue').default);
+Vue.component('list-personal-daily-health-component', require('./components/DailyHealth/Staff/lists/ListStaffDailyHealthComponent.vue').default);
+
+Vue.component('list-staff-dashboard-daily-health-component', require('./components/DailyHealth/ITStaff/lists/ListStaffDashboardDailyHealth.vue').default);
+Vue.component('list-staff-daily-health-component', require('./components/DailyHealth/ITStaff/lists/ListStaffDailyHealthComponent.vue').default);
+
+
+/////////// Elements ///////////////
+
+Vue.component('daily-health-element-component', require('./components/DailyHealth/ITStaff/element/DailyHealthComponent.vue').default);
+Vue.component('staff-element-daily-health-element-component', require('./components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue').default);
+Vue.component('staff-element-daily-health-details-component', require('./components/DailyHealth/ITStaff/element/StaffDailyHealthDetails.vue').default);
+
+Vue.component('staff-daily-health-element-component', require('./components/DailyHealth/Staff/element/DailyHealthComponent.vue').default);
+
+
+/////////// Forms //////////////////
+
+Vue.component('create-daily-health-form-component', require('./components/DailyHealth/ITStaff/forms/CreateVisitorDailyHealthForm.vue').default);
+
+Vue.component('staff-create-daily-health-form-component', require('./components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue').default);
 
 
 

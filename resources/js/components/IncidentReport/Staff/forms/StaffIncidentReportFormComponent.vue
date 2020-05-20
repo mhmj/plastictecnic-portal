@@ -8,7 +8,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <label class="muted text-primary"><h5>Incident Information {{IncidentReport.solution}}</h5></label>
+                                        <label class="muted text-primary"><h5>Incident Information</h5></label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -39,7 +39,14 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group form-group-default required">
-                                                    <label class="muted">Incident Image</label>
+                                                    <label class="muted">Incident File</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group form-group-default required">
+                                                    <a :href="image_source + IncidentReport.image " target="_blank">{{IncidentReport.image}}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,43 +54,43 @@
                                             <div class="col-lg-12">
                                                 <div class=" fileinput fileinput-new text-left" >
                                                     <div>
-                                                <span class="form-control">
-                                                    <input type="file" v-on:change="onFileChange" />
-                                                </span>
+                                                        <span class="form-control">
+                                                            <input type="file" v-on:change="onFileChange" />
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-top: 10px;" v-if="this.previewImage === false  && this.IncidentReport.image !=='null'">
-                                            <div class="col-md-4">
-                                                <div class="card card-user">
-                                                    <div class="image">
-                                                        <a v-on:click="preview">
-                                                            <img class="btn btn-outline-primary" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ; "  :src="image_source +  this.IncidentReport.image" >
-                                                            <!--:src="image_source +'/'+ this.IncidentReport.image"-->
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-top: 10px" v-if="this.previewImage === true">
-                                            <div class="col-lg-12">
-                                                <div class="card" >
-                                                    <div class="card-header">
-                                                        <div style="display: flex;justify-content: flex-end; font-weight: bold; color: red">
-                                                            <a class="btn btn-outline-primary"  v-on:click="preview">X</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body" >
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <img style="height: 100%; width: 100%;"  :src="image_source +  this.IncidentReport.image" >
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!--<div class="row" style="margin-top: 10px;" v-if="this.previewImage === false  && this.IncidentReport.image !=='null'">-->
+                                            <!--<div class="col-md-4">-->
+                                                <!--<div class="card card-user">-->
+                                                    <!--<div class="image">-->
+                                                        <!--<a v-on:click="preview">-->
+                                                            <!--<img class="btn btn-outline-primary" style="padding: 10px; margin-bottom: 10px; width: 100% ;max-width: 100% ;height: 100% ; "  :src="image_source +  this.IncidentReport.image" >-->
+                                                            <!--&lt;!&ndash;:src="image_source +'/'+ this.IncidentReport.image"&ndash;&gt;-->
+                                                        <!--</a>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row" style="margin-top: 10px" v-if="this.previewImage === true">-->
+                                            <!--<div class="col-lg-12">-->
+                                                <!--<div class="card" >-->
+                                                    <!--<div class="card-header">-->
+                                                        <!--<div style="display: flex;justify-content: flex-end; font-weight: bold; color: red">-->
+                                                            <!--<a class="btn btn-outline-primary"  v-on:click="preview">X</a>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="card-body" >-->
+                                                        <!--<div class="row">-->
+                                                            <!--<div class="col-lg-12">-->
+                                                                <!--<img style="height: 100%; width: 100%;"  :src="image_source +  this.IncidentReport.image" >-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
                                     </div>
                                 </div>
                                 <div class="row" v-if="!this.IncidentReport.image">

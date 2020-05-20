@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group form-group-default required" data-provides="fileinput">
-                                            <label class="muted">Incident Image</label>
+                                            <label class="muted">Incident File</label>
                                         </div>
                                         <div class=" fileinput fileinput-new text-left" >
                                         <div>

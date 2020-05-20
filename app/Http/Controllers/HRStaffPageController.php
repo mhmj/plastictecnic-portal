@@ -23,4 +23,8 @@ class HRStaffPageController
     {
         return view('pages.Staff.ListStaff');
     }
+    public function HRDaily_health()
+    {
+        return view('pages.list_daily_health');
+    }
 }

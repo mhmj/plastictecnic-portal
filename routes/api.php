@@ -119,7 +119,25 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::get('/{id}/{new_password}/change-password', 'ProfileDetailsController@changePassword')->name('change-password-profile');
 
 
-        Route::post('/create-visitor-daily-health', 'VisitorDailyHealth@create')->name('change-password-profile');
+        Route::post('/create-visitor-daily-health', 'VisitorDailyHealth@create')->name('create-visitor-daily-health');
+        Route::post('/staff-create-visitor-daily-health', 'VisitorDailyHealth@StaffCreate')->name('staff-create-visitor-daily-health');
+        Route::delete('/{companyID}/{id}/staff-delete-visitor-daily-health', 'VisitorDailyHealth@StaffDelete')->name('staff-delete-visitor-daily-health');
+
+    });
+
+    Route::group(['prefix' => 'dailyhealth', 'as' => 'dailyhealth.', 'namespace' => 'DailyHealth'], function () {
+
+        Route::get('/{id}/{category}/list-visitor-daily-health', 'ListVisitorDailyHealthBasedOnLocationController@list')
+            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->name('list-visitor-daily-health');
+
+        Route::post('/staff-create-daily-health', 'CreateStaffDailyHealthController@create')->name('staff-create-daily-health');
+
+        Route::get('/{companyId}/{staffId}/staff-personal-daily-health', 'ListPersonalDailyHealthController@list')->name('staff-personal-daily-health');
+
+
+
+        Route::get('/{id}/{query}/search-visitor-daily-health', 'SearchVisitorDailyHealthController@search')->name('search-visitor-daily-health');
 
     });
 

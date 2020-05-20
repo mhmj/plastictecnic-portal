@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class VisitorDailyHealth extends JsonResource
@@ -16,8 +17,12 @@ class VisitorDailyHealth extends JsonResource
     {
         return [
             'id' => $this->id,
+            'company_id' => $this->company_id,
+            'company_name' => $this->company_name,
             'name' => $this->name,
             'NRIC_passport' => $this->NRIC_passport,
+            'person_to_meet' => $this->person_to_meet,
+            'company_from_name' => $this->company_from_name,
             'vehicle_no' => $this->vehicle_no,
             'mobile_no' => $this->mobile_no,
             'nationality' => $this->nationality,

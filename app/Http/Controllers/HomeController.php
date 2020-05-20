@@ -40,4 +40,8 @@ class HomeController extends Controller
     {
         return view('pages.profile');
     }
+    public function DailyHealth()
+    {
+        return view('pages.daily_health');
+    }
 }

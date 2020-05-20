@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVisitorDailyHealthTable extends Migration
+class CreateVisitorBangiDailyHealthTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateVisitorDailyHealthTable extends Migration
      */
     public function up()
     {
-        Schema::create('visitor_daily_health', function (Blueprint $table) {
+        Schema::create('visitor_bangi_daily_health', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->string('name')->nullable();
             $table->string('NRIC_passport')->nullable();
             $table->string('vehicle_no')->nullable();
@@ -28,7 +29,6 @@ class CreateVisitorDailyHealthTable extends Migration
             $table->string('visited_other_country')->nullable();
             $table->string('tabliqh')->nullable();
             $table->string('temperature')->nullable();
-
             $table->timestamps();
         });
     }
@@ -40,6 +40,6 @@ class CreateVisitorDailyHealthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visitor_daily_health');
+        Schema::dropIfExists('visitor_bangi_daily_health');
     }
 }

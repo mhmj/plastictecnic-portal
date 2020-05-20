@@ -35,4 +35,8 @@ class ITStaffPageController extends Controller
     {
         return view('pages.ITStaff.License');
     }
+    public function ITDaily_health()
+    {
+        return view('pages.list_daily_health');
+    }
 }

@@ -18,10 +18,10 @@
                     <p class="bold">Home</p>
                 </a>
             </li>
-            <li class="">
-                <a href="">
+            <li class="{{ (request()->routeIs('daily-health')) ? 'active' : '' }} ">
+                <a href="{{route('daily-health')}}">
                     <i class="fa fa-thermometer-quarter"></i>
-                    <p>Daily Health</p>
+                    <p class="bold">Daily Health</p>
                 </a>
             </li>
             @if(Auth::user()->role_id == '2')
@@ -46,6 +46,12 @@
             @endif
 
             @if(Auth::user()->role_id == '3')
+                <li class="{{ (request()->routeIs('IT-list-daily-health')) ? 'active' : '' }} ">
+                    <a href="{{route('IT-list-daily-health')}}">
+                        <i class="fas fa-file-medical-alt"></i>
+                        <p>List Daily Health</p>
+                    </a>
+                </li>
                 <li class="{{ (request()->routeIs('IT-ITAsset')) ? 'active' : '' }} ">
                     <a href="{{route('IT-ITAsset')}}">
                         <i class="now-ui-icons design_bullet-list-67"></i>
@@ -72,6 +78,12 @@
                 </li>
             @endif
             @if(Auth::user()->role_id == '4')
+                <li class="{{ (request()->routeIs('HR-list-daily-health')) ? 'active' : '' }} ">
+                    <a href="{{route('HR-list-daily-health')}}">
+                        <i class="fas fa-file-medical-alt"></i>
+                        <p>List Daily Health</p>
+                    </a>
+                </li>
                 <li class="{{ (request()->routeIs('HR-Staff-ITAsset')) ? 'active' : '' }} ">
                     <a href="{{route('HR-Staff-ITAsset')}}">
                         <i class="now-ui-icons design_bullet-list-67"></i>

@@ -3,31 +3,18 @@
 @section('content')
     <div class="wrapper">
         <div class="main-panel" id="main-panel" style="width: 100%;">
-            {{--<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">--}}
-                {{--<div class="container-fluid">--}}
-                    {{--<div class="navbar-wrapper" >--}}
-                        {{--<div class="logo">--}}
-                            {{--<a class="simple-text logo-mini">--}}
-                                {{--<img class="avatar border-gray" src="images/icons/plastictecnic-icon.jpg" style="height:50px; width:50px; border-radius: 80px; margin-right: 10px;">--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                        {{----}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</nav>--}}
             <nav class="navbar  navbar-absolute" style="background-color: #0c2646">
-                <div class="container-fluid">
+                <div class="container-fluid" style="justify-content: center">
                     <div class="navbar-wrapper" >
                         <div class="logo">
                             <a class="simple-text logo-mini">
-                                <img class="avatar border-gray" src="images/icons/plastictecnic-icon.jpg" style="height:50px; width:50px; border-radius: 80px; margin-right: 10px;">
+                                <img class="avatar border-gray" src="/images/icons/plastictecnic-icon.jpg" style="height:50px; width:50px; border-radius: 80px; margin-right: 10px;">
                             </a>
                         </div>
-                        <h4 class="card-title text-white" style="padding-bottom: 15px">TECNIC GROUP</h4>
                     </div>
                 </div>
             </nav>
-            <div class="content" style="margin-top: 120px" >
+            <div class="content" style="margin-top: 80px" >
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card  card-tasks">
@@ -35,7 +22,7 @@
                                 <h4 class="card-title">Health Screening Form For Visitor</h4>
                             </div>
                             <div class="card-body ">
-                                <visitor-component></visitor-component>
+                                <visitor-b-nilai-component></visitor-b-nilai-component>
                             </div>
                         </div>
                     </div>
