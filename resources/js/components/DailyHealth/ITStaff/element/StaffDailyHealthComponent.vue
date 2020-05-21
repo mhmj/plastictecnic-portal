@@ -25,6 +25,16 @@
                 <div class="row" v-show-slide="isEditing">
                     <div class="col-lg-12">
                         <div class="card card-body " >
+                            <div class="row" style="display: flex; justify-content: flex-end">
+                                <form @submit.prevent="">
+                                    <el-date-picker
+                                            type="date"
+                                            placeholder="Pick a Date"
+                                            format="yyyy/MM/dd"
+                                            value-format="yyyy-MM-dd">
+                                    </el-date-picker>
+                                </form>
+                            </div>
                             <div class="row">
                                 <table class="table-responsive">
                                     <th></th>
@@ -80,7 +90,6 @@
                     .then(response => {
 
                         this.DailyHealths = response.data;
-                        console.log(this.DailyHealths);
                         this.$refs.pagination.makePagination(response.meta, response.links);
                         this.isLoading = false;
                     })

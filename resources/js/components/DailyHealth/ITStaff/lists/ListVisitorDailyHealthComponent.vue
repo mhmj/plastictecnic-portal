@@ -13,19 +13,28 @@
                         </div>
                         <div class="col-6" style=" display: flex; justify-content: flex-end ">
                             <div class="row">
-                                <div class="col-lg-7" style="margin-top: 8px; display: flex; justify-content: flex-end ">
+                                <div class="col-lg-8" style="margin-top: 8px; display: flex; justify-content: flex-end ">
                                     <form @submit.prevent="searchDailyHealths">
+                                        <!--<el-date-picker-->
+                                                <!--v-on:change="searchDailyHealths"-->
+                                                <!--v-model="searchQuery"-->
+                                                <!--type="date"-->
+                                                <!--placeholder="Pick a Date"-->
+                                                <!--format="yyyy/MM/dd"-->
+                                                <!--value-format="yyyy-MM-dd">-->
+                                        <!--</el-date-picker>-->
                                         <el-date-picker
                                                 v-on:change="searchDailyHealths"
                                                 v-model="searchQuery"
-                                                type="date"
-                                                placeholder="Pick a Date"
+                                                type="daterange"
+                                                start-placeholder="Start date"
+                                                end-placeholder="End date"
                                                 format="yyyy/MM/dd"
                                                 value-format="yyyy-MM-dd">
                                         </el-date-picker>
                                     </form>
                                 </div>
-                                <div class="col-lg-5" style=" display: flex; justify-content: flex-end ">
+                                <div class="col-lg-4" style=" display: flex; justify-content: flex-end ">
                                     <form @submit.prevent="searchDailyHealths">
                                         <div class="input-group no-border">
                                             <download-excel

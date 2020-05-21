@@ -41,24 +41,35 @@ class SearchesVisitorDailyHealth
 
     public function execute($id, $query)
     {
-        $date = strtotime($query);
+        $date = explode(',',$query);
 
-        $date = date('Y-m-d',$date);
+        $date1 = strtotime($date[0]);
+        $from = date('Y-m-d',$date1);
+
+        $date2 = strtotime($date[1]);
+        $to = date('Y-m-d',$date2);
 
         if($id == 1)
         {
+//            $visitor = $this->repository_bangi->where('company_id',$id)
+//                ->where('created_at', 'LIKE', "%".$date."%")
+//                ->orWhere('name', 'LIKE', "%".$query."%")
+//                ->latest()
+//                ->paginate(5);
+
             $visitor = $this->repository_bangi->where('company_id',$id)
-                ->where('created_at', 'LIKE', "%".$date."%")
-                ->orWhere('name', 'LIKE', "%".$query."%")
+                ->whereDate('created_at', '>=', $from)
+                ->whereDate('created_at', '<=', $to)
                 ->latest()
                 ->paginate(5);
+
             return VisitorDailyHealthResources::collection($visitor);
         }
         if($id == 2)
         {
             $visitor = $this->repository_nilaiA->where('company_id',$id)
-                ->where('created_at', 'LIKE', "%".$date."%")
-                ->orWhere('name', 'LIKE', "%".$query."%")
+                ->whereDate('created_at', '>=', $from)
+                ->whereDate('created_at', '<=', $to)
                 ->latest()
                 ->paginate(5);
 
@@ -67,8 +78,8 @@ class SearchesVisitorDailyHealth
         if($id == 3)
         {
             $visitor = $this->repository_nilaiB->where('company_id',$id)
-                ->where('created_at', 'LIKE', "%".$date."%")
-                ->orWhere('name', 'LIKE', "%".$query."%")
+                ->whereDate('created_at', '>=', $from)
+                ->whereDate('created_at', '<=', $to)
                 ->latest()
                 ->paginate(5);
 
