@@ -138,6 +138,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
 
         Route::get('/{id}/{query}/search-visitor-daily-health', 'SearchVisitorDailyHealthController@search')->name('search-visitor-daily-health');
+        Route::get('/{id}/{query}/search-staff-daily-health-by-date', 'SearchStaffDailyHealthByDateController@search')->name('search-staff-daily-health-by-date');
 
     });
 

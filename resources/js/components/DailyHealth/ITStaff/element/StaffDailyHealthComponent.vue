@@ -28,14 +28,17 @@
                             <div class="row" style="display: flex; justify-content: flex-end">
                                 <form @submit.prevent="">
                                     <el-date-picker
-                                            type="date"
-                                            placeholder="Pick a Date"
+                                            v-on:change="searchDailyHealths"
+                                            v-model="searchQuery"
+                                            type="daterange"
+                                            start-placeholder="Start date"
+                                            end-placeholder="End date"
                                             format="yyyy/MM/dd"
                                             value-format="yyyy-MM-dd">
                                     </el-date-picker>
                                 </form>
                             </div>
-                            <div class="row">
+                            <div class="row" v-if="!this.isSearching">
                                 <table class="table-responsive">
                                     <th></th>
                                     <th>Daily Pack</th>
@@ -46,10 +49,27 @@
                                     <th>Breathing Difficulty</th>
                                     <th>Sore Throat</th>
                                     <th>Weak in Limbs</th>
-                                    <staff-element-daily-health-details-component v-for="DailyHealth in DailyHealths " v-bind:key="DailyHealth.id" :data="DailyHealth" ></staff-element-daily-health-details-component>
+                                    <staff-element-daily-health-details-component  v-for="DailyHealth in DailyHealths " v-bind:key="DailyHealth.id" :data="DailyHealth" ></staff-element-daily-health-details-component>
                                 </table>
                             </div>
-                            <div class="row" style="display: flex; justify-content: flex-end">
+                            <div class="row" v-if="this.isSearching">
+                                <table class="table-responsive">
+                                    <th></th>
+                                    <th>Daily Pack</th>
+                                    <th>Sanitizing</th>
+                                    <th>Overall Health</th>
+                                    <th>Flu</th>
+                                    <th>Cough</th>
+                                    <th>Breathing Difficulty</th>
+                                    <th>Sore Throat</th>
+                                    <th>Weak in Limbs</th>
+                                    <staff-element-daily-health-details-component  v-for="DailyHealth in DailyHealths " v-bind:key="DailyHealth.id" :data="DailyHealth" ></staff-element-daily-health-details-component>
+                                </table>
+                            </div>
+                            <div class="row" style="display: flex; justify-content: flex-end" v-if="this.isSearching">
+                                <pagination-component ref="pagination" v-on:changePage="searchDailyHealths($event)"></pagination-component>
+                            </div>
+                            <div class="row" style="display: flex; justify-content: flex-end" v-if="!this.isSearching">
                                 <pagination-component ref="pagination" v-on:changePage="fetchDailyHealths($event)"></pagination-component>
                             </div>
                         </div>
@@ -66,6 +86,8 @@
             return {
                 staff: this.data,
                 DailyHealths: [],
+                searchQuery: '',
+                isSearching: false,
                 isEditing: false,
                 isDeleting: false,
                 isAssigning: false,
@@ -94,6 +116,31 @@
                         this.isLoading = false;
                     })
                     .catch(error => console.log(error))
+            },
+            searchDailyHealths(page = 1){
+                this.isLoading = true;
+                this.isSearching = true;
+                if(this.searchQuery){
+                    fetch('/api/v1/dailyhealth/'+ this.staff.id +'/'+ this.searchQuery +'/search-staff-daily-health-by-date' + '?page='+ page).then(response => response.json())
+                        .then(response => {
+
+                            this.DailyHealths = response.data;
+
+//                            this.json_data = this.DailyHealths;
+//
+//                            var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+//                            this.file_name = 'Visitor-Daily-Health-'+ currentDateWithFormat + '.xls';
+
+                            this.$refs.pagination.makePagination(response.meta, response.links);
+
+                            this.isLoading = false;
+                        })
+                        .catch(error => console.log(error))
+                }
+                if(!this.searchQuery){
+                    this.fetchDailyHealths();
+                }
+
             },
             toggleEdit(){
                 this.isEditing = !this.isEditing;
