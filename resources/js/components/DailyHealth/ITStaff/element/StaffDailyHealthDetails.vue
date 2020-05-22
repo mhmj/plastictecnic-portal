@@ -68,11 +68,11 @@
 
                     if(this.$parent.isSearching === false)
                     {
-                        Event.$emit('updateStaffList');
+                        Event.$emit('updateStaffHealthList');
                     }
                     if(this.$parent.isSearching === true)
                     {
-                        Event.$emit('updateStaffSearchList');
+                        Event.$emit('updateStaffHealthSearchList');
                     }
 
                 })

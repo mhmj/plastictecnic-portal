@@ -139,10 +139,10 @@
             }
         },
         mounted(){
-            Event.$on('updateStaffList', () => {
+            Event.$on('updateStaffHealthList', () => {
                 this.fetchDailyHealths();
             });
-            Event.$on('updateStaffSearchList', () => {
+            Event.$on('updateStaffHealthSearchList', () => {
                 this.searchDailyHealths();
             });
         },
