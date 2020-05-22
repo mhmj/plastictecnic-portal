@@ -12,6 +12,7 @@ namespace App\Classes\Modules\ControllerLogic\ITAsset;
 use App\Classes\Modules\ITAsset\Services\ListsITAssetBangi;
 use App\Classes\Modules\ITAsset\Services\ListsITAssetNilaiA;
 use App\Classes\Modules\ITAsset\Services\ListsITAssetNilaiB;
+use App\Classes\Modules\ITAsset\Services\Staff\ListsITAssetGoodhart;
 
 class ListITAssetLocationLogic
 {
@@ -24,17 +25,22 @@ class ListITAssetLocationLogic
     /** @var  ListsITAssetNilaiB */
     private $ListITAssetNilaiB;
 
+    /** @var  ListsITAssetGoodhart */
+    private $ListITAssetGoodhart;
+
     /**
      * ListITAssetLocationLogic constructor.
      * @param ListsITAssetBangi $ListITAssetBangi
      * @param ListsITAssetNilaiA $ListITAssetNilaiA
      * @param ListsITAssetNilaiB $ListITAssetNilaiB
+     * @param ListsITAssetGoodhart $ListITAssetGoodhart
      */
-    public function __construct(ListsITAssetBangi $ListITAssetBangi, ListsITAssetNilaiA $ListITAssetNilaiA, ListsITAssetNilaiB $ListITAssetNilaiB)
+    public function __construct(ListsITAssetBangi $ListITAssetBangi, ListsITAssetNilaiA $ListITAssetNilaiA, ListsITAssetNilaiB $ListITAssetNilaiB, ListsITAssetGoodhart $ListITAssetGoodhart)
     {
         $this->ListITAssetBangi = $ListITAssetBangi;
         $this->ListITAssetNilaiA = $ListITAssetNilaiA;
         $this->ListITAssetNilaiB = $ListITAssetNilaiB;
+        $this->ListITAssetGoodhart = $ListITAssetGoodhart;
     }
 
 
@@ -51,6 +57,10 @@ class ListITAssetLocationLogic
         elseif ($category === 'nilaiB'){
 
             return $this->ListITAssetNilaiB->execute($id);
+        }
+        elseif ($category === 'goodhart'){
+
+            return $this->ListITAssetGoodhart->execute($id);
         }
     }
 }

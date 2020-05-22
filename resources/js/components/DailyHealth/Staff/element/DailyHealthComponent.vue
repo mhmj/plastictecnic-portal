@@ -1,10 +1,10 @@
 <template>
     <div style="margin-top: 0px">
-        <div class="row border-bottom" style="margin-bottom: 5px" >
+        <div class="row border-bottom" style=" padding: 0px;" >
             <div class="col-lg-12 text-left">
                 <div class="row">
                     <div class="col-lg-1">
-                        <span style="font-size: 16px; font-weight: bold" :style="[this.dailyhealth.temperature <= '37.5' ? {'color': 'green'} :{'color': 'red'}]">{{this.dailyhealth.temperature}} &#8451;</span>
+                        <span style="font-size: 15px; font-weight: bold" :style="[this.dailyhealth.temperature <= '37.5' ? {'color': 'green'} :{'color': 'red'}]">{{this.dailyhealth.temperature}} &#8451;</span>
                     </div>
                     <div class="col-lg-3 text-info">
                         <span style="font-size: 15px;">{{this.dailyhealth.staff_name}}</span>
@@ -18,8 +18,8 @@
                     <div class="col-lg-2">
                         <span style="font-size: 15px;">{{this.dailyhealth.created_at}}</span>
                     </div>
-                    <div class="col-lg-1  text-right" style="margin-bottom: 15px; margin-top: -15px">
-                        <a @click="toggleView()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                    <div class="col-lg-1  text-right" style="margin-top:-15px; margin-bottom: 15px">
+                        <a @click="toggleView()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn  btn-icon btn-icon-mini btn-neutral">
                             <i class="fa fa-search-plus text-dark"></i>
                         </a>
                     </div>

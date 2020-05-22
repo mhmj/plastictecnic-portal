@@ -55,7 +55,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::get('/summary/received', 'ITAssetSummaryController@received')->name('summary-received');
 
         Route::get('/{id}/{category}/list-it-asset', 'ListAssetBasedOnLocationController@list')
-            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
             ->name('list-it-asset-location');
 
 
@@ -104,7 +104,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
 
         Route::get('/{id}/{category}/list-incident-report', 'ListIncidentReportLocationController@list')
-            ->where('category', 'bangi|nilaiA|nilaiB')
+            ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
             ->name('list-incident-report-location');
 
         Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
@@ -135,9 +135,12 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
         Route::get('/{companyId}/{staffId}/staff-personal-daily-health', 'ListPersonalDailyHealthController@list')->name('staff-personal-daily-health');
 
+        Route::delete('/{id}/delete-staff-personal-daily-health', 'DeleteStaffDailyHealthController@delete')->name('delete-staff-personal-daily-health');
+
 
 
         Route::get('/{id}/{query}/search-visitor-daily-health', 'SearchVisitorDailyHealthController@search')->name('search-visitor-daily-health');
+
         Route::get('/{id}/{query}/search-staff-daily-health-by-date', 'SearchStaffDailyHealthByDateController@search')->name('search-staff-daily-health-by-date');
 
     });

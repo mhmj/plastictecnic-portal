@@ -10,6 +10,7 @@ namespace App\Classes\Modules\ControllerLogic\IncidentReport;
 
 
 use App\Classes\Modules\IncidentReport\Services\ListsIncidentReportBangi;
+use App\Classes\Modules\IncidentReport\Services\ListsIncidentReportGoodhart;
 use App\Classes\Modules\IncidentReport\Services\ListsIncidentReportNilaiA;
 use App\Classes\Modules\IncidentReport\Services\ListsIncidentReportNilaiB;
 
@@ -24,18 +25,25 @@ class ListIncidentReportLocationLogic
     /** @var  ListsIncidentReportNilaiB */
     private $ListsIncidentReportNilaiB;
 
+    /** @var  ListsIncidentReportGoodhart */
+    private $ListsIncidentReportGoodhart;
+
+
     /**
      * ListIncidentReportLocationLogic constructor.
      * @param ListsIncidentReportBangi $ListsIncidentReportBangi
      * @param ListsIncidentReportNilaiA $ListsIncidentReportNilaiA
      * @param ListsIncidentReportNilaiB $ListsIncidentReportNilaiB
+     * @param ListsIncidentReportGoodhart $ListsIncidentReportGoodhart
      */
-    public function __construct(ListsIncidentReportBangi $ListsIncidentReportBangi, ListsIncidentReportNilaiA $ListsIncidentReportNilaiA, ListsIncidentReportNilaiB $ListsIncidentReportNilaiB)
+    public function __construct(ListsIncidentReportBangi $ListsIncidentReportBangi, ListsIncidentReportNilaiA $ListsIncidentReportNilaiA, ListsIncidentReportNilaiB $ListsIncidentReportNilaiB, ListsIncidentReportGoodhart $ListsIncidentReportGoodhart)
     {
         $this->ListsIncidentReportBangi = $ListsIncidentReportBangi;
         $this->ListsIncidentReportNilaiA = $ListsIncidentReportNilaiA;
         $this->ListsIncidentReportNilaiB = $ListsIncidentReportNilaiB;
+        $this->ListsIncidentReportGoodhart = $ListsIncidentReportGoodhart;
     }
+
 
     public function execute(int $id, string $category)
     {
@@ -48,6 +56,10 @@ class ListIncidentReportLocationLogic
             return $this->ListsIncidentReportNilaiA->execute($id);
         }
         elseif ($category === 'nilaiB'){
+
+            return $this->ListsIncidentReportNilaiB->execute($id);
+        }
+        elseif ($category === 'goodhart'){
 
             return $this->ListsIncidentReportNilaiB->execute($id);
         }

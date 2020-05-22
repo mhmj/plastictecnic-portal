@@ -90,6 +90,11 @@
                                                     Nilai Plant (Block B)
                                                 </button>
                                             </li>
+                                            <li class="nav-item col-lg-auto" style="padding-left: 10px; padding-right: 0px">
+                                                <button type="button" class="btn btn-md btn-info" href="#goodhart" data-toggle="tab">
+                                                    GOODHART MILLIONS S/B (Bangi Plant)
+                                                </button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -113,6 +118,9 @@
                                     </div>
                                     <div class="tab-pane" id="nilai-b">
                                         <list-it-asset-location-component id1="3" category="nilaiB"></list-it-asset-location-component>
+                                    </div>
+                                    <div class="tab-pane" id="goodhart">
+                                        <list-it-asset-location-component id1="4" category="goodhart"></list-it-asset-location-component>
                                     </div>
                                 </div>
                             </div>

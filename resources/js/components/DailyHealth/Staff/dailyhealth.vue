@@ -33,7 +33,14 @@
                                 <staff-create-daily-health-form-component :id1="this.id1" :id2="this.id2"></staff-create-daily-health-form-component>
                             </div>
                             <div class="tab-pane " id="list">
-                                <list-personal-daily-health-component :id1="this.id1" :id2="this.id2"></list-personal-daily-health-component>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card card-body">
+                                            <staff-daily-health-element-component v-for="dailyhealth in DailyHealths " v-bind:key="dailyhealth.id" :data="dailyhealth"></staff-daily-health-element-component>
+                                            <pagination-component ref="pagination" v-on:changePage="fetchDailyHealths($event)"></pagination-component>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -56,18 +63,31 @@
         },
         data(){
             return {
-
+                DailyHealths: [],
+                searchQuery: '',
             }
         },
-        mounted() {
-
-        },
         created() {
-
+            this.fetchDailyHealths();
         },
-
+        mounted() {
+            Event.$on('updatePersonalList', () => {
+                this.fetchDailyHealths();
+            });
+        },
         methods: {
+            fetchDailyHealths(page = 1){
+                this.isLoading = true;
+                this.isSearching = false;
+                fetch('/api/v1/dailyhealth/'+ this.id1 + '/'+ this.id2 +'/staff-personal-daily-health' + '?page='+ page).then(response => response.json())
+                    .then(response => {
 
+                        this.DailyHealths = response.data;
+                        this.$refs.pagination.makePagination(response.meta, response.links);
+                        this.isLoading = false;
+                    })
+                    .catch(error => console.log(error))
+            },
         }
 
 

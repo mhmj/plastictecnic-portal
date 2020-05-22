@@ -680,9 +680,9 @@
                     }
                 )
                     .then(res =>
+                        Event.$emit('updatePersonalList'),
                         this.isPage2 = !this.isPage2,
                         this.isPage3 = !this.isPage3,
-                        //this.clearForm(),
                     );
             },
             clearForm(){

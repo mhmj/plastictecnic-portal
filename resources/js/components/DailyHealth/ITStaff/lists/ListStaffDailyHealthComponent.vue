@@ -18,22 +18,6 @@
                                         </div>
                                     </div>
                                 </form>
-                                <!--<div class="col-lg-5" style=" display: flex; justify-content: flex-end ">-->
-                                    <!--<form @submit.prevent="searchDailyHealths">-->
-                                        <!--<div class="input-group no-border">-->
-                                            <!--<download-excel-->
-                                                    <!--class   = "btn"-->
-                                                    <!--style="background-color: #2b5797;"-->
-                                                    <!--:data   = "json_data"-->
-                                                    <!--type    = "csv"-->
-                                                    <!--worksheet = "My Worksheet"-->
-                                                    <!--:name    = "this.file_name">-->
-
-                                                <!--Download Excel-->
-                                            <!--</download-excel>-->
-                                        <!--</div>-->
-                                    <!--</form>-->
-                                <!--</div>-->
                             </div>
                         </div>
                     </div>
@@ -41,7 +25,7 @@
                 </div>
             </div>
             <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-            <div>
+            <div class="row">
                 <div class="table" v-if="!this.isSearching">
                     <staff-element-daily-health-element-component  v-for="staff in Staffs " v-bind:key="staff.id" :data="staff"></staff-element-daily-health-element-component>
                     <pagination-component ref="pagination" v-on:changePage="fetchStaff($event)"></pagination-component>
@@ -119,33 +103,6 @@
                 }
 
             },
-//            searchDailyHealths(page = 1){
-//                this.isLoading = true;
-//                this.isSearching = true;
-//                if(this.searchQuery){
-//                    fetch('/api/v1/dailyhealth/'+ this.id1 +'/'+ this.searchQuery +'/search-visitor-daily-health' + '?page='+ page).then(response => response.json())
-//                        .then(response => {
-//
-//                            this.DailyHealths = response.data;
-//
-//                            this.json_data = this.DailyHealths;
-//
-//                            var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
-//                            this.file_name = 'Visitor-Daily-Health-'+ currentDateWithFormat + '.xls';
-//
-//                            this.$refs.pagination.makePagination(response.meta, response.links);
-//
-//                            this.isLoading = false;
-//                        })
-//                        .catch(error => console.log(error))
-//                }
-//                if(!this.searchQuery){
-//                    this.fetchDailyHealths();
-//                }
-//
-//            },
-
-
         }
     }
 </script>

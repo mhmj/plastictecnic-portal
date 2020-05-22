@@ -1,75 +1,72 @@
 <template>
-    <div>
-        <div v-show-slide="!this.isCreating">
-            <div class="row" style=" margin-top: 0px">
-                <div class="col-12" style="margin-bottom: 15px;">
-                    <div class="row">
-                        <div class="col-6" style=" display: flex; justify-content: flex-start ">
-                            <div class="input-group no-border">
-                                <button class="btn btn-primary" @click="newVisitor()">
-                                    New
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-6" style=" display: flex; justify-content: flex-end ">
-                            <div class="row">
-                                <div class="col-lg-8" style="margin-top: 8px; display: flex; justify-content: flex-end ">
-                                    <form @submit.prevent="searchDailyHealths">
-                                        <!--<el-date-picker-->
-                                                <!--v-on:change="searchDailyHealths"-->
-                                                <!--v-model="searchQuery"-->
-                                                <!--type="date"-->
-                                                <!--placeholder="Pick a Date"-->
-                                                <!--format="yyyy/MM/dd"-->
-                                                <!--value-format="yyyy-MM-dd">-->
-                                        <!--</el-date-picker>-->
-                                        <el-date-picker
-                                                v-on:change="searchDailyHealths"
-                                                v-model="searchQuery"
-                                                type="daterange"
-                                                start-placeholder="Start date"
-                                                end-placeholder="End date"
-                                                format="yyyy/MM/dd"
-                                                value-format="yyyy-MM-dd">
-                                        </el-date-picker>
-                                    </form>
-                                </div>
-                                <div class="col-lg-4" style=" display: flex; justify-content: flex-end ">
-                                    <form @submit.prevent="searchDailyHealths">
-                                        <div class="input-group no-border">
-                                            <download-excel
-                                                    class   = "btn"
-                                                    style="background-color: #2b5797;"
-                                                    :data   = "json_data"
-                                                    type    = "csv"
-                                                    worksheet = "My Worksheet"
-                                                    :name    = "this.file_name">
-
-                                                Download Excel
-                                            </download-excel>
+    <div class="row">
+        <div class="col-12">
+            <div v-show-slide="!this.isCreating">
+                <div class="row" style=" margin-top: 0px">
+                    <div class="col-12" style="margin-bottom: 15px;">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-6" style="">
+                                        <div class="input-group no-border" style="display: flex; justify-content: flex-start ">
+                                            <button class="btn btn-primary" @click="newVisitor()">
+                                                New
+                                            </button>
                                         </div>
-                                    </form>
+                                    </div>
+                                    <div class="col-6" style="display: flex; justify-content: flex-end;">
+                                        <form @submit.prevent="searchDailyHealths">
+                                            <div class="input-group no-border" style=" margin-right: 10px">
+                                                <download-excel
+                                                        class   = "btn"
+                                                        style="background-color: #2b5797;"
+                                                        :data   = "json_data"
+                                                        type    = "csv"
+                                                        worksheet = "My Worksheet"
+                                                        :name    = "this.file_name">
+
+                                                    Download Excel
+                                                </download-excel>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="">
+                                <div class="row">
+                                    <div class="col-12" style="margin-top: 8px; display: flex; justify-content: flex-end ">
+                                        <form @submit.prevent="searchDailyHealths">
+                                            <el-date-picker
+                                                    v-on:change="searchDailyHealths"
+                                                    v-model="searchQuery"
+                                                    type="daterange"
+                                                    start-placeholder="Start date"
+                                                    end-placeholder="End date"
+                                                    format="yyyy/MM/dd"
+                                                    value-format="yyyy-MM-dd">
+                                            </el-date-picker>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
+                <div>
+                    <div class="table" v-if="this.isSearching">
+                        <daily-health-element-component  v-for="dailyhealth in DailyHealths " v-bind:key="dailyhealth.id" :data="dailyhealth"></daily-health-element-component>
+                        <pagination-component ref="pagination" v-on:changePage="searchDailyHealths($event)"></pagination-component>
+                    </div>
+                    <div class="table" v-if="!this.isSearching">
+                        <daily-health-element-component  v-for="dailyhealth in DailyHealths " v-bind:key="dailyhealth.id" :data="dailyhealth"></daily-health-element-component>
+                        <pagination-component ref="pagination" v-on:changePage="fetchDailyHealths($event)"></pagination-component>
+                    </div>
                 </div>
             </div>
-            <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-            <div>
-                <div class="table" v-if="this.isSearching">
-                    <daily-health-element-component  v-for="dailyhealth in DailyHealths " v-bind:key="dailyhealth.id" :data="dailyhealth"></daily-health-element-component>
-                    <pagination-component ref="pagination" v-on:changePage="searchDailyHealths($event)"></pagination-component>
-                </div>
-                <div class="table" v-if="!this.isSearching">
-                    <daily-health-element-component  v-for="dailyhealth in DailyHealths " v-bind:key="dailyhealth.id" :data="dailyhealth"></daily-health-element-component>
-                    <pagination-component ref="pagination" v-on:changePage="fetchDailyHealths($event)"></pagination-component>
-                </div>
+            <div v-show-slide="this.isCreating">
+                <create-daily-health-form-component :id1="this.id1"></create-daily-health-form-component>
             </div>
-        </div>
-        <div v-show-slide="this.isCreating">
-            <create-daily-health-form-component :id1="this.id1"></create-daily-health-form-component>
         </div>
     </div>
 </template>
