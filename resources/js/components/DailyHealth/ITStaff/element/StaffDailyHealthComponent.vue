@@ -29,7 +29,7 @@
                                     <div class="row">
                                         <div class="col-6" style="">
                                             <div class="input-group no-border" style="display: flex; justify-content: flex-start ">
-                                                <button class="btn btn-primary" @click="newVisitor()">
+                                                <button class="btn btn-primary" @click="newDailyHealth()">
                                                     New
                                                 </button>
                                             </div>
@@ -70,11 +70,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" >
+                        <div class="row" v-show-slide="this.isCreating">
+                            <div class="card card-body">
+                                <hr-staff-create-daily-health-form-component :id1="this.staff.company_id.id" :id2="this.staff.id"></hr-staff-create-daily-health-form-component>
+                            </div>
+                        </div>
+                            <div class="row" v-if="!this.isCreating">
                                 <div class="card card-body">
                                     <!--<loading-component v-if="isLoad" style=" display: flex; align-items: center; justify-content: center"></loading-component>-->
                                     <table class="table-responsive" v-if="!this.isSearching">
-                                        <th></th>
+                                        <th> </th>
                                         <th>Daily Pack</th>
                                         <th>Sanitizing</th>
                                         <th>Overall Health</th>
@@ -123,6 +128,7 @@
                 searchQuery: '',
                 isLoad: false,
                 isSearching: false,
+                isCreating: false,
                 isEditing: false,
                 isDeleting: false,
                 isAssigning: false,
@@ -150,6 +156,9 @@
             this.fetchDailyHealths();
         },
         methods:{
+            newDailyHealth(){
+                this.isCreating = !this.isCreating;
+            },
             fetchDailyHealths(page = 1){
                 this.isLoad = true;
                 this.isSearching = false;

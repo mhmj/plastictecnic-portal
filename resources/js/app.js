@@ -251,6 +251,8 @@ Vue.component('create-daily-health-form-component', require('./components/DailyH
 
 Vue.component('staff-create-daily-health-form-component', require('./components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue').default);
 
+Vue.component('hr-staff-create-daily-health-form-component', require('./components/DailyHealth/Staff/forms/HRCreateStaffDailyHealthForm.vue').default);
+
 
 
 

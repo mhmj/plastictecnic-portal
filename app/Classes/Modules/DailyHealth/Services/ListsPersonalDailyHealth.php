@@ -31,7 +31,7 @@ class ListsPersonalDailyHealth
         $dailyhealth = $this->repository->where('staff_id', $staffId)
                                         ->where('company_id', $companyId)
                                         ->latest()
-                                        ->paginate(5);
+                                        ->paginate(7);
 
         return StaffDailyHealthResources::collection($dailyhealth);
     }

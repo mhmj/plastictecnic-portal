@@ -75,10 +75,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" v-if="isPage1 === true">
+            <div class="col-lg-6">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-body " >
+                            <div class="row" style="margin-bottom: 10px">
+                                <div class="col-4">
+                                    <strong>
+                                        <label style="font-size: 15px" class="text-muted text-dark">Temperature</label>
+                                    </strong>
+                                </div>
+                                <div class="col-1">
+                                    <label style="font-size: 15px">:</label>
+                                </div>
+                                <div class="col-6" style="margin-left: -20px">
+                                    <el-input-number v-model="StaffDailyHealth.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px">
+                                <div class="col-4">
+                                    <strong>
+                                        <label style="font-size: 15px" class="text-muted text-dark">Date</label>
+                                    </strong>
+                                </div>
+                                <div class="col-1">
+                                    <label style="font-size: 15px">:</label>
+                                </div>
+                                <div class="col-6" style="margin-left: -20px">
+                                    <el-date-picker
+                                            v-model="StaffDailyHealth.created_at"
+                                            type="date"
+                                            placeholder="Select date"
+                                            format="yyyy/MM/dd"
+                                            value-format="yyyy-MM-dd">
+                                    </el-date-picker>
+                                </div>
+                            </div>
                             <div class="row" style="margin-bottom: 10px">
                                 <div class="col-12">
                                     <div class="row">
@@ -301,184 +333,7 @@
                                         <div class="col-6"></div>
                                         <div class="col-6">
                                             <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                                                <a class="btn btn-primary text-white" @click="onChangePage()">Next</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6" v-if="isPage2 === true">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-body " >
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-12">
-                                    <div class="row" v-if="isScanner === true">
-                                        <div class="col-lg-l2">
-                                            <div class="row text-center">
-                                                <div class="col-lg-12">
-                                                    <strong>
-                                                        <label style="font-size: 15px;" class="text-muted text-dark">Please scan the QR code for entering the temperature</label>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-2"></div>
-                                                <div class="col-8">
-                                                    <qrcode-stream @decode="onDecode"></qrcode-stream>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="margin-top: 15px">
-                                                <div class="col-6" style="margin-left: 10px">
-                                                    <div class="form-group form-group-default" style="display:flex; justify-content: flex-start">
-                                                        <a class="btn btn-primary text-white" @click="onChangePage()">Back</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row" v-if="isScanner === false">
-                                        <div class="col-12">
-                                            <div class="row" style="margin-bottom: 10px" v-if="isTemperature === true">
-                                                <div class="col-4">
-                                                    <label style="font-size: 15px" class="text-muted text-dark">Temperature</label>
-                                                    <label style="font-size: 13px" class="text-muted text-dark">Suhu</label>
-                                                </div>
-                                                <div class="col-1">
-                                                    <label style="font-size: 15px">:</label>
-                                                </div>
-                                                <div class="col-6" style="margin-left: -20px">
-                                                    <el-input-number v-model="StaffDailyHealth.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="margin-top: 15px">
-                                                <div class="col-6">
-                                                    <div class="form-group form-group-default" style="display:flex; justify-content: flex-start">
-                                                        <a class="btn btn-primary text-white" @click="onChangePage()">Back</a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                                                        <a class="btn btn-success text-white" @click="createStaffDailyHealth()">Submit</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6" v-if="isPage3 === true">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-body ">
-                            <div class="row" style="display: flex; justify-content: center; margin-bottom: 15px">
-                                <div class="col-12">
-                                    <h1 :style="[this.StaffDailyHealth.temperature <= '37.5' ? {'color': 'green'} :{'color': 'red'}]" style=" display: flex; justify-content: center"> {{StaffDailyHealth.temperature}} &#8451;</h1>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Daily Starter Pack</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.daily_starter_pack ==='Yes' ? {'color': 'green'} :{'color': 'red'}]">
-                                    {{StaffDailyHealth.daily_starter_pack}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px;">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Hand Sanitizing</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.hand_sanitizing ==='Yes' ? {'color': 'green'} :{'color': 'red'}]">
-                                    {{StaffDailyHealth.hand_sanitizing}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 20px;">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Overall Health</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.overall_health ==='Yes' ? {'color': 'green'} :{'color': 'red'}]">
-                                    {{StaffDailyHealth.overall_health}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Flu</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.flu ==='Yes' ? {'color': 'red'} :{'color': 'green'}]">
-                                    {{StaffDailyHealth.flu}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Cough</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.cough ==='Yes' ? {'color': 'red'} :{'color': 'green'}]">
-                                    {{StaffDailyHealth.cough}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Breathing Difficulties</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.breathing_difficulty ==='Yes' ? {'color': 'red'} :{'color': 'green'}]">
-                                    {{StaffDailyHealth.breathing_difficulty}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Sore Throat</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.sore_throat ==='Yes' ? {'color': 'red'} :{'color': 'green'}]">
-                                    {{StaffDailyHealth.sore_throat}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-7">
-                                    <label style="font-size: 15px" class="text-muted text-dark">Weak in Limbs</label>
-                                </div>
-                                <div class="col-1">
-                                    <label style="font-size: 15px">:</label>
-                                </div>
-                                <div class="col-3" :style="[this.StaffDailyHealth.weak_in_limbs ==='Yes' ? {'color': 'red'} :{'color': 'green'}]">
-                                    {{StaffDailyHealth.weak_in_limbs}}
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 10px">
-                                <div class="col-12">
-                                    <div class="row" style="margin-top: 15px">
-                                        <div class="col-6"></div>
-                                        <div class="col-6">
-                                            <div class="form-group form-group-default" style="display:flex; justify-content: flex-end">
-                                                <a class="btn btn-success text-white" @click="donePage()">Done</a>
+                                                <a class="btn btn-primary text-white" @click="checkForm()">Submit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -492,15 +347,14 @@
     </div>
 </template>
 <script>
-    import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
     export default {
         props: {
             'id1': {
-                type: String,
+                type: Number,
                 required: true
             },
             'id2': {
-                type: String,
+                type: Number,
                 required: true
             }
         },
@@ -509,10 +363,6 @@
                 result: '',
                 error: '',
                 errors: [],
-                isPage1: true,
-                isPage2:false,
-                isPage3:false,
-                isScanner: true,
                 isTemperature: false,
                 Staff: {
                     id:'',
@@ -553,6 +403,7 @@
                     overall_health: '',
                     temperature: '',
                     remark: '',
+                    created_at: '',
                 },
             }
         },
@@ -568,7 +419,7 @@
                     .catch(error => console.log(error))
             },
 
-            onChangePage()
+            checkForm()
             {
                 this.errors = [];
 
@@ -576,8 +427,7 @@
                     && this.StaffDailyHealth.breathing_difficulty && this.StaffDailyHealth.sore_throat && this.StaffDailyHealth.weak_in_limbs
                     && this.StaffDailyHealth.overall_health )
                 {
-                    this.isPage1 = !this.isPage1;
-                    this.isPage2 = !this.isPage2;
+                    this.createStaffDailyHealth();
                 }
 
                 if(!this.StaffDailyHealth.daily_starter_pack)
@@ -613,57 +463,27 @@
                     this.errors['overall_health'] = "Please choose"
                 }
             },
-            onDecode (result) {
-                if(result === 'Tecnic@2020')
-                {
-                    this.isScanner = false;
-                    this.isTemperature = true;
-                }
-                if(result !== 'Tecnic@2020')
-                {
-                    alert('Please Scan Again');
-                }
-            },
-            async onInit (promise) {
-                try {
-                    await promise
-                } catch (error) {
-                    if (error.name === 'NotAllowedError') {
-                        this.error = "ERROR: you need to grant camera access permisson"
-                    } else if (error.name === 'NotFoundError') {
-                        this.error = "ERROR: no camera on this device"
-                    } else if (error.name === 'NotSupportedError') {
-                        this.error = "ERROR: secure context required (HTTPS, localhost)"
-                    } else if (error.name === 'NotReadableError') {
-                        this.error = "ERROR: is the camera already in use?"
-                    } else if (error.name === 'OverconstrainedError') {
-                        this.error = "ERROR: installed cameras are not suitable"
-                    } else if (error.name === 'StreamApiNotSupportedError') {
-                        this.error = "ERROR: Stream API is not supported in this browser"
-                    }
-                }
-                alert(this.error);
-            },
+
             createStaffDailyHealth()
             {
 
-                if(this.id1 ==='1')
+                if(this.Staff.company_id.id =='1')
                 {
                     this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Bangi'
+
                 }
-                if(this.id1 ==='2')
+                if(this.Staff.company_id.id =='2')
                 {
                     this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Nilai(A)'
                 }
-                if(this.id1 ==='3')
+                if(this.Staff.company_id.id =='3')
                 {
                     this.StaffDailyHealth.company_name = 'Bangi Plastics Sdn Bhd - Nilai(B)'
                 }
-                if(this.id1 ==='4')
+                if(this.Staff.company_id.id =='4')
                 {
                     this.StaffDailyHealth.company_name = 'GOODHART MILLIONS S/B (Bangi Plant)'
                 }
-
                 axios.post('/api/v1/dailyhealth/staff-create-daily-health',
                     {
                         staff_id: this.Staff.id,
@@ -681,12 +501,13 @@
                         overall_health: this.StaffDailyHealth.overall_health,
                         temperature: this.StaffDailyHealth.temperature,
                         remark: this.StaffDailyHealth.remark,
+                        created_at: this.StaffDailyHealth.created_at,
                     }
                 )
                     .then(res =>
-                        Event.$emit('updatePersonalList'),
-                        this.isPage2 = !this.isPage2,
-                        this.isPage3 = !this.isPage3,
+                        Event.$emit('updateStaffHealthList'),
+                        this.clearForm(),
+                        this.$parent.newDailyHealth(),
                     );
             },
             clearForm(){
@@ -708,11 +529,6 @@
                     remark: '',
                 }
             },
-            donePage(){
-                this.clearForm();
-                this.isPage1 = !this.isPage1;
-                this.isPage3 = !this.isPage3;
-            }
         }
     }
 </script>
