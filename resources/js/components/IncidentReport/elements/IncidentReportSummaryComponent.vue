@@ -14,6 +14,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <label class="muted" style="color: #2b5797;"><h5>Handle By IT</h5></label>
+                            </div>
+                            <div class="card-body">
+                                <incident-report-handle-by-chart-element-component></incident-report-handle-by-chart-element-component>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-5">
                 <div class="row">

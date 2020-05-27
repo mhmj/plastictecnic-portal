@@ -47,6 +47,7 @@
                                             <select class="form-control"  :style="[this.IncidentReport.root_cause ?  {'border-color': 'green'} : {'border-color':'lightgray'}]" v-model="IncidentReport.root_cause">
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Configuration'" value="SW/HW/DB Configuration">SW/HW/DB Configuration</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'SW/HW/DB Bug'" value="SW/HW/DB Bug">SW/HW/DB Bug</option>
+                                                <option v-bind:selected="IncidentReport.root_cause == 'HW Failure'" value="HW Failure">HW Failure</option>
                                                 <option v-bind:selected="IncidentReport.root_cause == 'User Negligence'" value="User Negligence">User Negligence</option>
                                             </select>
                                         </div>

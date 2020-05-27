@@ -204,6 +204,7 @@ Vue.component('incident-report-summary-element-component', require('./components
 Vue.component('incident-report-location-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportLocationChart.vue').default);
 Vue.component('incident-report-root-cause-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportRootCause.vue').default);
 Vue.component('incident-report-status-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportStatusChart.vue').default);
+Vue.component('incident-report-handle-by-chart-element-component', require('./components/IncidentReport/elements/Chart/Vue/IncidentReportHandleByChart.vue').default);
 
 
 Vue.component('staff-incident-report-element-component', require('./components/IncidentReport/Staff/elements/StaffIncidentReportComponent.vue').default);

@@ -100,6 +100,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::get('/summary/status', 'IncidentReportSummaryController@status')->name('summary-status');
         Route::get('/summary/root-cause', 'IncidentReportSummaryController@root_cause')->name('summary-root-cause');
         Route::get('/summary/location', 'IncidentReportSummaryController@location')->name('summary-location');
+        Route::get('/summary/handle-by', 'IncidentReportSummaryController@handle_by')->name('handle-by');
 
 
 

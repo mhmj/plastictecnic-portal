@@ -79,5 +79,23 @@ class IncidentReportSummaryController
         return $array;
     }
 
+    public function handle_by()
+    {
+        $array = [];
+        $Amar = $this->repository->where('handle_by','=', 10)->get();
+        $Kelvin = $this->repository->where('handle_by','=',16)->get();
+        $Hazim = $this->repository->where('handle_by','=', 1)->get();
+        $Hilmi = $this->repository->where('handle_by','=', 132)->get();
+
+        $Amar = $Amar->count();
+        $Kelvin = $Kelvin->count();
+        $Hazim = $Hazim->count();
+        $Hilmi = $Hilmi->count();
+
+        array_push($array,$Amar,$Kelvin,$Hazim,$Hilmi);
+
+        return $array;
+    }
+
 
 }
