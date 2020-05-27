@@ -329,7 +329,7 @@
                                             <div class="row">
                                                 <div class="col-2"></div>
                                                 <div class="col-8">
-                                                    <qrcode-stream @decode="onDecode"></qrcode-stream>
+                                                    <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-top: 15px">
@@ -621,6 +621,7 @@
                 }
                 if(result !== 'Tecnic@2020')
                 {
+                    this.reload();
                     alert('Please Scan Again');
                 }
             },
@@ -629,20 +630,32 @@
                     await promise
                 } catch (error) {
                     if (error.name === 'NotAllowedError') {
-                        this.error = "ERROR: you need to grant camera access permisson"
+                        this.error = "ERROR: You need to grant camera access permission"
                     } else if (error.name === 'NotFoundError') {
-                        this.error = "ERROR: no camera on this device"
+                        this.error = "ERROR: No camera on this device"
                     } else if (error.name === 'NotSupportedError') {
-                        this.error = "ERROR: secure context required (HTTPS, localhost)"
+                        this.error = "ERROR: Secure context required (HTTPS, localhost)"
                     } else if (error.name === 'NotReadableError') {
-                        this.error = "ERROR: is the camera already in use?"
+                        this.error = "ERROR: Is the camera already in use?"
                     } else if (error.name === 'OverconstrainedError') {
-                        this.error = "ERROR: installed cameras are not suitable"
+                        this.error = "ERROR: Installed cameras are not suitable"
                     } else if (error.name === 'StreamApiNotSupportedError') {
                         this.error = "ERROR: Stream API is not supported in this browser"
                     }
                 }
-                alert(this.error);
+                if(this.error)
+                {
+                    if(confirm(this.error + '\nPlease click OK to refresh the page.')){
+                        window.location.reload();
+                    }
+                }
+            },
+            async reload () {
+                this.isScanner = false
+
+                await this.$nextTick()
+
+                this.isScanner = true
             },
             createStaffDailyHealth()
             {

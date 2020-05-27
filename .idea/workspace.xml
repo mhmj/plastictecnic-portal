@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46995b44-0a81-434e-8695-331f21c07fba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/HRCreateStaffDailyHealthForm.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/CreatesStaffDailyHealth.php" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/CreatesStaffDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/ListsPersonalDailyHealth.php" afterPath="$PROJECT_DIR$/app/Classes/Modules/DailyHealth/Services/ListsPersonalDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/StaffDailyHealth.php" afterPath="$PROJECT_DIR$/app/StaffDailyHealth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/app.js" afterPath="$PROJECT_DIR$/resources/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDashboardDailyHealth.vue" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDashboardDailyHealth.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue" afterPath="$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,24 +24,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HRCreateStaffDailyHealthForm.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/HRCreateStaffDailyHealthForm.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="479" column="17" lean-forward="true" selection-start-line="479" selection-start-column="17" selection-end-line="479" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateStaffDailyHealthForm.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateStaffDailyHealthForm.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="506" column="16" lean-forward="true" selection-start-line="506" selection-start-column="16" selection-end-line="506" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="929">
+              <caret line="641" column="60" lean-forward="true" selection-start-line="641" selection-start-column="60" selection-end-line="641" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>imp</find>
       <find>import</find>
       <find>&lt;link href=&quot;{{ asset('element-ui/lib/theme-chalk/index.css') }}&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;</find>
       <find>import eleme</find>
@@ -94,6 +76,7 @@
       <find>\(\)\&quot;\&gt;\n                                                    New\n                                                \&lt;\/button\&gt;\n                                            \&lt;\/div\&gt;\n                                        \&lt;\/div\&gt;\n                                        \&lt;div class\=\&quot;col\-6\&quot; style\=\&quot;display\: flex\; justify\-content\: flex\-end\;\&quot;\&gt;\n                                            \&lt;form \@submit\.prevent\=\&quot;searchDailyHealths\&quot;\&gt;\n                                                \&lt;div class\=\&quot;input\-group no\-border\&quot; style\=\&quot; margin\-right\: 10px\&quot;\&gt;\n                                                    \&lt;download\-excel\n                                                            class   \= \&quot;btn\&quot;\n                                                            style\=\&quot;background\-color\: \#2b5797\;\&quot;\n                                                            \:data   \= \&quot;json_data\&quot;\n                                                            type    \= \&quot;csv\&quot;\n                                                            worksheet \= \&quot;My Worksheet\&quot;\n                                                            \:name    \= \&quot;this\.file_name\&quot;\&gt;\n</find>
       <find>newVisitor</find>
       <find>staff-create-daily-health-form-component</find>
+      <find>deco</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -521,7 +504,75 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailyHealth" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Staff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="forms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailyHealth" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Staff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1050,12 +1101,12 @@
       <workItem from="1590031170616" duration="13076000" />
       <workItem from="1590105236792" duration="17763000" />
       <workItem from="1590244848699" duration="2614000" />
-      <workItem from="1590543557329" duration="4848000" />
+      <workItem from="1590543557329" duration="13820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1037595000" />
+    <option name="totallyTimeSpent" value="1046567000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,24 +1210,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/lists/ListStaffDailyHealthComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListVisitorDashboardDailyHealth.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/element/DailyHealthComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="60" lean-forward="false" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1465,26 +1502,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDailyHealthComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="34" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="135" column="30" lean-forward="true" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/ITStaff/Staff.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="91" column="52" lean-forward="true" selection-start-line="91" selection-start-column="52" selection-end-line="91" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/element/DailyHealthComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2657">
+          <caret line="2" column="60" lean-forward="false" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/lists/ListStaffDailyHealthComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="85" column="34" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1497,10 +1534,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/lists/ListStaffDailyHealthComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="506" column="16" lean-forward="true" selection-start-line="506" selection-start-column="16" selection-end-line="506" selection-end-column="16" />
+        <state relative-caret-position="34">
+          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="8" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/ITStaff/element/StaffDailyHealthComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-747">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1511,6 +1556,16 @@
           <caret line="479" column="17" lean-forward="true" selection-start-line="479" selection-start-column="17" selection-end-line="479" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/DailyHealth/Staff/forms/CreateStaffDailyHealthForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="929">
+          <caret line="641" column="60" lean-forward="true" selection-start-line="641" selection-start-column="60" selection-end-line="641" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
