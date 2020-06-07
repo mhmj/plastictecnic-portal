@@ -13,7 +13,7 @@ class Staff extends Authenticatable
     protected $table='staff';
 
     protected $fillable = [
-        'company_id', 'department_id', 'designation_id', 'staff_no', 'email','username','full_name' ,'telephone_no','phone_no','password','role_id'
+        'company_id', 'department_id', 'designation_id', 'staff_no', 'email','username','full_name' ,'telephone_no','phone_no','password','role_id','image'
     ];
 
     protected $hidden = [

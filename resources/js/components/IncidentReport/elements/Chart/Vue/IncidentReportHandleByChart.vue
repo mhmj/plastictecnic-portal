@@ -1,19 +1,31 @@
 <template>
-    <pie-chart :chart-data="datacollection" :options="options" :height="200"></pie-chart>
+    <bar :chart-data="datacollection" :options="options" :height="200"></bar>
 </template>
 <script>
 
-    import PieChart from '../js/PieChart'
+    import Bar from '../js/BarChart'
 
     export default {
         components: {
-            PieChart
+            Bar
         },
         data(){
             return {
                 datacollection: "",
                 handle_by:[],
                 options : {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                precision:0,
+                                beginAtZero: true,
+                                min: 0
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
                 },
             }
         },

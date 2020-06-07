@@ -118,6 +118,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
         Route::get('/{id}', 'ProfileDetailsController@profile')->name('profile');
         Route::get('/{id}/{new_password}/change-password', 'ProfileDetailsController@changePassword')->name('change-password-profile');
+        Route::post('/{id}/change-profile-picture', 'ProfileDetailsController@changeProfilePicture')->name('change-profile-picture');
 
 
         Route::post('/create-visitor-daily-health', 'VisitorDailyHealth@create')->name('create-visitor-daily-health');

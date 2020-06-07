@@ -4,8 +4,24 @@
             <div class="col-lg-8 text-left">
                 <div class="row">
                     <div class="col-lg-2-auto">
-                        <div :class="[{'btn-info': this.staff.company_id.id === 1},{'btn-success': this.staff.company_id.id === 2}, {'btn-warning': this.staff.company_id.id === 3}, {'btn-info': this.staff.company_id.id === 4},'card']">
+                        <div >
                             <div class="card-body">
+                                <div v-if="staff.image">
+                                    <el-avatar shape="circle" :size="100" :fit="fit">
+                                        <el-image :src="this.src  + this.staff.image" :fit="fit" style="width: 100%; height: 100%; border-radius: 100%; border: 1px dashed gray"/>
+                                    </el-avatar>
+                                </div>
+                                <div v-if="!staff.image">
+                                    <el-avatar shape="circle" :size="100" :fit="fit" style="background-color:lightgray; display:flex; justify-content: center; align-items: center; border: 1px dashed gray">
+                                        <el-avatar><i style="font-size:40px; background-color:lightgray" class="now-ui-icons users_single-02"></i></el-avatar>
+                                    </el-avatar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2-auto" style="display: flex; align-items: center; margin-top: 20px">
+                        <div :class="[{'btn-info': this.staff.company_id.id === 1},{'btn-success': this.staff.company_id.id === 2}, {'btn-warning': this.staff.company_id.id === 3}, {'btn-info': this.staff.company_id.id === 4},'card']">
+                            <div class="card-body" style="padding:8px">
                                 <div>
                                     <span class="text-white" style="font-size: 15px; font-weight: 600;">
                                         {{staff.staff_no}}
@@ -94,6 +110,8 @@
         props: ['data'],
         data() {
             return {
+                src: 'storage/ProfilePicture/',
+                fit: 'fill',
                 staff: this.data,
                 isEditing: false,
                 isDeleting: false,

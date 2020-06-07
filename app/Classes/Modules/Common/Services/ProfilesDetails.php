@@ -11,6 +11,7 @@ namespace App\Classes\Modules\Common\Services;
 
 use App\Staff;
 use App\Http\Resources\Staff as StaffResources;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ProfilesDetails
@@ -46,6 +47,32 @@ class ProfilesDetails
         return new StaffResources($profile);
 
     }
+
+    public function changeProfilePicture($id, Request $request)
+    {
+        if($request->hasFile('image'))
+        {
+
+            $filenameWithExt = $request->image->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path = $request->image->storeAs('public/ProfilePicture', $fileNameToStore);
+
+        }
+        else
+        {
+            $fileNameToStore = 'null';
+        }
+        $picture = $this->repository->findOrFail($id);
+
+        $picture->image = $fileNameToStore;
+
+        if($picture->save()){
+            return new StaffResources($picture);
+        }
+    }
+
 
 
 }

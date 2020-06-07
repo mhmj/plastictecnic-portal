@@ -56,9 +56,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card  card-tasks">
-                            <div class="card-header ">
-                                <h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Profile</h4>
-                            </div>
                             <div class="card-body ">
                                 <profile-component id1="{{Auth::user()->id}}"></profile-component>
                             </div>

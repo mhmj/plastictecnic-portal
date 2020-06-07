@@ -16,12 +16,16 @@ import JsonExcel from 'vue-json-excel'
 
 import VueQrcodeReader from "vue-qrcode-reader";
 
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+
+
 
 require ('v-show-slide');
 
 window.Vue = require('vue');
 window.Event = new Vue();
-
+Vue.component("v-select", vSelect);
 Vue.use(ElementUI, { locale });
 
 Vue.component('downloadExcel', JsonExcel)
@@ -55,6 +59,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('pagination-component',require('./components/Common/PaginationComponent.vue').default);
 Vue.component('loading-component', require('./components/Common/LoadingComponent.vue').default);
 Vue.component('profile-component', require('./components/Common/ProfileComponent.vue').default);
+Vue.component('profile-avatar-component', require('./components/Common/ProfileAvatarComponent.vue').default);
 
 Vue.component('visitor-bangi-component', require('./components/Common/VisitorBangiComponent.vue').default);
 Vue.component('visitor-a-nilai-component', require('./components/Common/VisitorNilaiAComponent.vue').default);

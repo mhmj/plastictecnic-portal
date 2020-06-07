@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Common;
 
 
 use App\Classes\Modules\ControllerLogic\Common\ProfileDetailsLogic;
+use Illuminate\Http\Request;
 
 class ProfileDetailsController
 {
@@ -21,6 +22,11 @@ class ProfileDetailsController
     public function changePassword($id, $new_password, ProfileDetailsLogic $logic)
     {
         return $logic->changePassword($id, $new_password);
+    }
+
+    public function changeProfilePicture($id, Request $request, ProfileDetailsLogic $logic)
+    {
+        return $logic->changeProfilePicture($id, $request);
     }
 
 }

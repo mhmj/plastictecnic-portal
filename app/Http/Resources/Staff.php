@@ -32,6 +32,7 @@ class Staff extends JsonResource
             'phone_no' => $this->phone_no,
             'email_verified_at' => $this->email_verified_at,
             'password' => $this->password,
+            'image' => $this->image,
         ];
     }
 }
