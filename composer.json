@@ -70,7 +70,8 @@
             "npm install v-show-slide",
             "npm install vue-chartjs chart.js",
             "npm install vue-json-excel",
-            "npm install vue-nl2br"
+            "npm install vue-nl2br",
+            "npm install vue-select"
         ],
         "post-install-cmd": [
             "npm run development"
