@@ -461,9 +461,19 @@
                                             <label style="font-size: 14px" class="text-muted">Suhu</label>
                                         </div>
                                     </div>
+                                    <div class="row" v-if="('temperature' in errors)">
+                                        <div class="col">
+                                            <label style="font-size: 15px;" class="text-danger">{{errors['temperature']}}</label>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col">
-                                            <el-input-number v-model="visitor.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>
+                                            <el-input
+                                                    placeholder="Temperature"
+                                                    v-model="visitor.temperature"
+                                                    clearable>
+                                            </el-input>
+                                            <!--<el-input-number v-model="visitor.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>-->
                                         </div>
                                     </div>
                                 </div>
@@ -662,7 +672,7 @@
                     visited_country: [],
                     visited_other_country: '',
                     tabliqh: '',
-                    temperature: ''
+                    temperature: 36
 
                 },
                 isSubmit: false,
@@ -697,7 +707,7 @@
             submitForm()
             {
                 this.errors = [];
-                if(this.visitor.contact_with && this.visitor.is_visited_china && this.visitor.tabliqh)
+                if(this.visitor.contact_with && this.visitor.is_visited_china && this.visitor.tabliqh && this.visitor.temperature && !isNaN(this.visitor.temperature))
                 {
                     this.createVisitorDailyHealth();
                 }
@@ -712,6 +722,14 @@
                 if(!this.visitor.tabliqh)
                 {
                     this.errors['tabliqh'] = "Please choose one"
+                }
+                if(!this.visitor.temperature)
+                {
+                    this.errors['temperature'] = "Please fill temperature"
+                }
+                if(isNaN(this.visitor.temperature))
+                {
+                    this.errors['temperature'] = "Please fill temperature"
                 }
             },
             createVisitorDailyHealth()

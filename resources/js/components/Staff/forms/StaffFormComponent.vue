@@ -17,8 +17,15 @@
                                                     <el-image :src="this.src  + this.staff.image" :fit="fit" style="width: 100%; height: 100%; border: 1px dashed gray"/>
                                             </div>
                                             <div v-if="!staff.image">
-                                                <el-avatar shape="circle" :size="100" :fit="fit" style="background-color:lightgray; display:flex; justify-content: center; align-items: center; border: 1px dashed gray">
-                                                    <el-avatar><i style="font-size:40px; background-color:lightgray" class="now-ui-icons users_single-02"></i></el-avatar>
+                                                <!--<el-image  fit="fit" style="width: 100%; height: 100%; border: 1px dashed gray">-->
+                                                    <!--<div slot="error" class="image-slot">-->
+                                                        <!--<i style="font-size:40px;" class="el-icon-picture-outline"></i>-->
+                                                    <!--</div>-->
+                                                <!--</el-image>-->
+                                                <!--<el-image src="/images/no-image.jpg" :fit="fit" style="width: 100%; height: 100%; border: 1px dashed gray">-->
+                                                <!--</el-image>-->
+                                                <el-avatar shape="square" :size="230" :fit="fit" style="background-color:lightgray; display:flex; justify-content: center; align-items: center; border: 1px dashed gray">
+                                                    <i style="font-size:40px; background-color:lightgray" class="now-ui-icons users_single-02"></i>
                                                 </el-avatar>
                                             </div>
                                         </div>
@@ -131,7 +138,9 @@
     </div>
 </template>
 <script>
+    import ElImage from "../../../../../public/element-ui/packages/image/src/main";
     export default {
+        components: {ElImage},
         props: {
             'data': {
                 type: Object,

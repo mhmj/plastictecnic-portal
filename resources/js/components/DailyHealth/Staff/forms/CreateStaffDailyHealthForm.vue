@@ -352,7 +352,18 @@
                                                     <label style="font-size: 15px">:</label>
                                                 </div>
                                                 <div class="col-6" style="margin-left: -20px">
-                                                    <el-input-number v-model="StaffDailyHealth.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>
+
+                                                    <el-input
+                                                            placeholder="Temperature"
+                                                            v-model="StaffDailyHealth.temperature"
+                                                            clearable>
+                                                    </el-input>
+                                                    <div class="row" v-if="('temperature' in errors)">
+                                                        <div class="col">
+                                                            <label style="font-size: 15px;" class="text-danger">{{errors['temperature']}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!--<el-input-number v-model="StaffDailyHealth.temperature" :precision="2" :step="0.01" :min="34" :max="42"></el-input-number>-->
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-top: 15px">
@@ -551,7 +562,7 @@
                     sore_throat: '',
                     weak_in_limbs: '',
                     overall_health: '',
-                    temperature: '',
+                    temperature: 36,
                     remark: '',
                 },
             }
@@ -659,48 +670,61 @@
             },
             createStaffDailyHealth()
             {
+                this.errors = [];
 
-                if(this.id1 ==='1')
+                if(this.StaffDailyHealth.temperature && !isNaN(this.StaffDailyHealth.temperature))
                 {
-                    this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Bangi'
-                }
-                if(this.id1 ==='2')
-                {
-                    this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Nilai(A)'
-                }
-                if(this.id1 ==='3')
-                {
-                    this.StaffDailyHealth.company_name = 'Bangi Plastics Sdn Bhd - Nilai(B)'
-                }
-                if(this.id1 ==='4')
-                {
-                    this.StaffDailyHealth.company_name = 'GOODHART MILLIONS S/B (Bangi Plant)'
-                }
-
-                axios.post('/api/v1/dailyhealth/staff-create-daily-health',
+                    if(this.id1 ==='1')
                     {
-                        staff_id: this.Staff.id,
-                        staff_no: this.Staff.staff_no,
-                        staff_name: this.Staff.full_name,
-                        company_id: this.Staff.company_id.id,
-                        company_name: this.StaffDailyHealth.company_name,
-                        daily_starter_pack: this.StaffDailyHealth.daily_starter_pack,
-                        hand_sanitizing: this.StaffDailyHealth.hand_sanitizing,
-                        flu: this.StaffDailyHealth.flu,
-                        cough: this.StaffDailyHealth.cough,
-                        breathing_difficulty: this.StaffDailyHealth.breathing_difficulty,
-                        sore_throat: this.StaffDailyHealth.sore_throat,
-                        weak_in_limbs: this.StaffDailyHealth.weak_in_limbs,
-                        overall_health: this.StaffDailyHealth.overall_health,
-                        temperature: this.StaffDailyHealth.temperature,
-                        remark: this.StaffDailyHealth.remark,
+                        this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Bangi'
                     }
-                )
-                    .then(res =>
-                        Event.$emit('updatePersonalList'),
-                        this.isPage2 = !this.isPage2,
-                        this.isPage3 = !this.isPage3,
-                    );
+                    if(this.id1 ==='2')
+                    {
+                        this.StaffDailyHealth.company_name = 'Plastictecnic Sdn Bhd - Nilai(A)'
+                    }
+                    if(this.id1 ==='3')
+                    {
+                        this.StaffDailyHealth.company_name = 'Bangi Plastics Sdn Bhd - Nilai(B)'
+                    }
+                    if(this.id1 ==='4')
+                    {
+                        this.StaffDailyHealth.company_name = 'GOODHART MILLIONS S/B (Bangi Plant)'
+                    }
+
+                    axios.post('/api/v1/dailyhealth/staff-create-daily-health',
+                        {
+                            staff_id: this.Staff.id,
+                            staff_no: this.Staff.staff_no,
+                            staff_name: this.Staff.full_name,
+                            company_id: this.Staff.company_id.id,
+                            company_name: this.StaffDailyHealth.company_name,
+                            daily_starter_pack: this.StaffDailyHealth.daily_starter_pack,
+                            hand_sanitizing: this.StaffDailyHealth.hand_sanitizing,
+                            flu: this.StaffDailyHealth.flu,
+                            cough: this.StaffDailyHealth.cough,
+                            breathing_difficulty: this.StaffDailyHealth.breathing_difficulty,
+                            sore_throat: this.StaffDailyHealth.sore_throat,
+                            weak_in_limbs: this.StaffDailyHealth.weak_in_limbs,
+                            overall_health: this.StaffDailyHealth.overall_health,
+                            temperature: this.StaffDailyHealth.temperature,
+                            remark: this.StaffDailyHealth.remark,
+                        }
+                    )
+                        .then(res =>
+                                Event.$emit('updatePersonalList'),
+                            this.isPage2 = !this.isPage2,
+                            this.isPage3 = !this.isPage3,
+                        );
+                }
+
+                if(!this.StaffDailyHealth.temperature)
+                {
+                    this.errors['temperature'] = "Please fill temperature"
+                }
+                if(isNaN(this.StaffDailyHealth.temperature))
+                {
+                    this.errors['temperature'] = "Please fill temperature"
+                }
             },
             clearForm(){
                 this.StaffDailyHealth = {

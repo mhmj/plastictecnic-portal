@@ -1,7 +1,10 @@
 <template>
     <a class="simple-text logo-mini">
-        <el-avatar shape="circle" :size="33" style="border: 1px solid red"  >
+        <el-avatar shape="circle" :size="33" style="border: 1px solid black"  v-if="staff.image" >
             <el-image :src="this.src" :fit="this.fit" style="width: 100%; height: 100%;"/>
+        </el-avatar>
+        <el-avatar shape="circle" :size="33" style="border: 1px solid black" v-if="!staff.image" >
+            <i style="font-size:10px; " class="now-ui-icons users_single-02"></i>
         </el-avatar>
         <!--<el-avatar  shape="circle" :size="30" >-->
             <!--<img :src="this.src" :fit="fit"/>-->
