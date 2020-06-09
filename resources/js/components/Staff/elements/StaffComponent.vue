@@ -20,15 +20,17 @@
                         </div>
                     </div>
                     <div class="col-lg-2-auto" style="display: flex; align-items: center; margin-top: 20px">
-                        <div :class="[{'btn-info': this.staff.company_id.id === 1},{'btn-success': this.staff.company_id.id === 2}, {'btn-warning': this.staff.company_id.id === 3}, {'btn-info': this.staff.company_id.id === 4},'card']">
-                            <div class="card-body" style="padding:8px">
-                                <div>
+                        <a v-on:click="toggleEdit">
+                            <div :class="[{'btn-info': this.staff.company_id.id === 1},{'btn-success': this.staff.company_id.id === 2}, {'btn-warning': this.staff.company_id.id === 3}, {'btn-info': this.staff.company_id.id === 4},'card']">
+                                <div class="card-body" style="padding:8px">
+                                    <div>
                                     <span class="text-white" style="font-size: 15px; font-weight: 600;">
                                         {{staff.staff_no}}
                                     </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="row" style="padding-bottom: 10px">
