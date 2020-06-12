@@ -1,40 +1,144 @@
 <template>
     <div>
         <div>
-            <div class="row" style=" margin-top: 0px">
-                <div class="col-12" style="margin-bottom: 15px;">
+            <el-tabs type="border-card">
+                <el-tab-pane label="All">
                     <div class="row">
-                        <div class="col-12" style=" display: flex; justify-content: flex-end ">
-                            <div class="row" >
-                                <form  @submit.prevent="searchStaff">
-                                    <div style="margin-left: -20px" class="input-group no-border">
-                                        <input type="text" v-on:change="searchStaff" v-model="searchQuery" class="form-control" placeholder="Search...">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                                <a @submit.prevent="searchStaff">
-                                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="col-6" style="display: flex; justify-content: flex-start;">
+                            <download-excel
+                                    class   = "btn"
+                                    style="background-color: #2b5797; margin-top: 0px"
+                                    :data   = "json_data"
+                                    type    = "csv"
+                                    worksheet = "My Worksheet"
+                                    :name    = "this.file_name">
+
+                                Download Excel
+                            </download-excel>
+                        </div>
+                        <div class="col-6" style="display: flex; justify-content: flex-end ">
+                            <form @submit.prevent="searchDailyHealths">
+                                <el-date-picker
+                                        v-on:change="searchDailyHealths"
+                                        v-model="searchDailyHealth"
+                                        type="daterange"
+                                        start-placeholder="Start date"
+                                        end-placeholder="End date"
+                                        format="yyyy/MM/dd"
+                                        value-format="yyyy-MM-dd">
+                                </el-date-picker>
+                            </form>
                         </div>
                     </div>
+                    <el-table
+                            :data="DailyHealths"
+                            :default-sort = "{prop: 'created_at', order: 'descending'}"
+                            style="width: 100%"
+                            height="500">
+                        <el-table-column
+                                fixed
+                                type="index"
+                                :index="indexMethod">
+                        </el-table-column>
+                        <el-table-column
+                                cell-style = "cellStyle"
+                                fixed
+                                prop="temperature"
+                                label=""
+                                width="80">
+                        </el-table-column>
+                        <el-table-column
+                                fixed
+                                prop="staff_name"
+                                label="Name"
+                                width="350">
+                        </el-table-column>
+                        <el-table-column
+                                fixed
+                                sortable
+                                prop="created_at"
+                                label="Date"
+                                width="150">
+                        </el-table-column>
+                        <el-table-column
+                                prop="daily_starter_pack"
+                                label="D.P"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="hand_sanitizing"
+                                label="S"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="overall_health"
+                                label="O.H"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="flu"
+                                label="F"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="cough"
+                                label="C"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="breathing_difficulty"
+                                label="B.D"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="sore_throat"
+                                label="S.T"
+                                width="100">
+                        </el-table-column>
+                        <el-table-column
+                                prop="weak_in_limbs"
+                                label="W.L"
+                                width="100">
+                        </el-table-column>
+                    </el-table>
+                </el-tab-pane>
+                <el-tab-pane label="Individual">
+                    <div class="row" style=" margin-top: 0px">
+                        <div class="col-12" style="margin-bottom: 15px;">
+                            <div class="row">
+                                <div class="col-12" style=" display: flex; justify-content: flex-end ">
+                                    <div class="row" >
+                                        <form  @submit.prevent="searchStaff">
+                                            <div style="margin-left: -20px" class="input-group no-border">
+                                                <input type="text" v-on:change="searchStaff" v-model="searchQuery" class="form-control" placeholder="Search...">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <a @submit.prevent="searchStaff">
+                                                            <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
-                </div>
-            </div>
-            <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
-            <div class="row">
-                <div class="table" v-if="!this.isSearching">
-                    <staff-element-daily-health-element-component  v-for="staff in Staffs " v-bind:key="staff.id" :data="staff"></staff-element-daily-health-element-component>
-                    <pagination-component ref="pagination" v-on:changePage="fetchStaff($event)"></pagination-component>
-                </div>
-                <div class="table" v-if="this.isSearching">
-                    <staff-element-daily-health-element-component  v-for="staff in Staffs " v-bind:key="staff.id" :data="staff"></staff-element-daily-health-element-component>
-                    <pagination-component ref="pagination" v-on:changePage="searchStaff($event)"></pagination-component>
-                </div>
-            </div>
+                        </div>
+                    </div>
+                    <loading-component v-show="isLoading" style=" display: flex; align-items: center; justify-content: center"></loading-component>
+                    <div class="row">
+                        <div class="table" v-if="!this.isSearching">
+                            <staff-element-daily-health-element-component  v-for="staff in Staffs " v-bind:key="staff.id" :data="staff"></staff-element-daily-health-element-component>
+                            <pagination-component ref="pagination" v-on:changePage="fetchStaff($event)"></pagination-component>
+                        </div>
+                        <div class="table" v-if="this.isSearching">
+                            <staff-element-daily-health-element-component  v-for="staff in Staffs " v-bind:key="staff.id" :data="staff"></staff-element-daily-health-element-component>
+                            <pagination-component ref="pagination" v-on:changePage="searchStaff($event)"></pagination-component>
+                        </div>
+                    </div>
+                </el-tab-pane>
+            </el-tabs>
         </div>
     </div>
 </template>
@@ -54,10 +158,40 @@
         data() {
             return {
                 Staffs: [],
-                DailyHealths: [],
+                DailyHealths: [{
+                    id:'',
+                    staff_id:'',
+                    staff_no:'',
+                    staff_name: '',
+                    company_id: '',
+                    company_name: '',
+                    daily_starter_pack: '',
+                    hand_sanitizing: '',
+                    flu: '',
+                    cough: '',
+                    breathing_difficulty: '',
+                    sore_throat: '',
+                    weak_in_limbs: '',
+                    overall_health: '',
+                    temperature: '',
+                    remark: '',
+                    created_at: '',
+                    updated_at: '',
+                }],
                 searchQuery: '',
+                searchDailyHealth: '',
                 isLoading: false,
                 isSearching: false,
+                file_name: '',
+                json_data: [],
+                json_meta: [
+                    [
+                        {
+                            'key': 'charset',
+                            'value': 'utf-8'
+                        }
+                    ]
+                ],
             }
         },
         mounted() {
@@ -70,8 +204,15 @@
         },
         created() {
             this.fetchStaff();
+            this.fetchDailyHealth();
         },
         methods: {
+            cellStyle(){
+                return 'color: #00cc00;'
+            },
+            indexMethod(index) {
+                return index +1;
+            },
             fetchStaff(page = 1){
                 this.isLoading = true;
                 this.isSearching = false;
@@ -82,6 +223,19 @@
                         this.isLoading = false;
                     })
                     .catch(error => console.log(error))
+            },
+            fetchDailyHealth(){
+                var todayDate = new Date().toISOString().slice(0,10);
+                fetch('/api/v1/dailyhealth/'+ this.id1 +'/' + todayDate + '/list-all-staff-daily-health').then(response => response.json())
+                    .then(response => {
+                        this.DailyHealths = response.data;
+                        this.json_data = this.DailyHealths;
+                        var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+                        this.file_name = 'List-Health-Screening-'+ currentDateWithFormat + '.xls';
+                        //this.$refs.pagination.makePagination(response.meta, response.links);
+                    })
+                    .catch(error => console.log(error))
+
             },
             searchStaff(page = 1){
                 this.isLoading = true;
@@ -100,6 +254,28 @@
                 }
                 if(!this.searchQuery){
                     this.fetchStaff();
+                }
+
+            },
+            searchDailyHealths(){
+                if(this.searchDailyHealth){
+                    fetch('/api/v1/dailyhealth/'+ this.id1 +'/'+ this.searchDailyHealth +'/search-all-daily-health-by-date').then(response => response.json())
+                        .then(response => {
+
+                            this.DailyHealths = response.data;
+                            this.json_data = this.DailyHealths;
+                            this.file_name = 'List-Health-Screening.xls';
+
+//                            var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+//                            this.file_name = this.staff.full_name+'-List-Health-Screening-'+ currentDateWithFormat + '.xls';
+//
+//                            this.$refs.pagination.makePagination(response.meta, response.links);
+
+                        })
+                        .catch(error => console.log(error))
+                }
+                if(!this.searchDailyHealth){
+                    this.fetchDailyHealth();
                 }
 
             },

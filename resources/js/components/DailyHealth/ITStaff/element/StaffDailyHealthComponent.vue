@@ -34,9 +34,9 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-6" style="display: flex; justify-content: flex-end;">
+                                        <div class="col-6" style="display: flex; justify-content: flex-end; ">
                                             <form @submit.prevent="searchDailyHealths">
-                                                <div class="input-group no-border" style=" margin-right: 10px">
+                                                <div class="input-group no-border" style=" margin-right: 20px">
                                                     <download-excel
                                                             class   = "btn"
                                                             style="background-color: #2b5797;"
@@ -76,18 +76,18 @@
                             </div>
                         </div>
                             <div class="row" v-if="!this.isCreating">
-                                <div class="card card-body">
+                                <div class="col-lg-12">
                                     <!--<loading-component v-if="isLoad" style=" display: flex; align-items: center; justify-content: center"></loading-component>-->
-                                    <table class="table-responsive" v-if="!this.isSearching">
+                                    <table class="table-responsive" style="width: auto" v-if="!this.isSearching">
                                         <th> </th>
-                                        <th>Daily Pack</th>
-                                        <th>Sanitizing</th>
-                                        <th>Overall Health</th>
-                                        <th>Flu</th>
-                                        <th>Cough</th>
-                                        <th>Breathing Difficulty</th>
-                                        <th>Sore Throat</th>
-                                        <th>Weak in Limbs</th>
+                                        <th><label class="muted">Daily Pack</label></th>
+                                        <th><label class="muted">Sanitizing</label></th>
+                                        <th><label class="muted">Overall Health</label></th>
+                                        <th><label class="muted">Flu</label></th>
+                                        <th><label class="muted">Cough</label></th>
+                                        <th><label class="muted">Breathing Difficulty</label></th>
+                                        <th><label class="muted">Sore Throat</label></th>
+                                        <th><label class="muted">Weak in Limbs</label></th>
                                         <th></th>
                                         <th></th>
                                         <staff-element-daily-health-details-component  v-for="DailyHealth in DailyHealths " v-bind:key="DailyHealth.id" :data="DailyHealth" ></staff-element-daily-health-details-component>
@@ -102,6 +102,8 @@
                                         <th>Breathing Difficulty</th>
                                         <th>Sore Throat</th>
                                         <th>Weak in Limbs</th>
+                                        <th></th>
+                                        <th></th>
                                         <staff-element-daily-health-details-component  v-for="DailyHealth in DailyHealths " v-bind:key="DailyHealth.id" :data="DailyHealth" ></staff-element-daily-health-details-component>
                                     </table>
                                     <div style="display: flex; justify-content: flex-end" v-if="this.isSearching">

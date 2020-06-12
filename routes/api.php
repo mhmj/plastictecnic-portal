@@ -133,6 +133,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
             ->where('category', 'bangi|nilaiA|nilaiB')
             ->name('list-visitor-daily-health');
 
+        Route::get('/{id}/{today}/list-all-staff-daily-health','ListAllDailyHealthController@list' )->name('list-all-staff-daily-health');
+
         Route::post('/staff-create-daily-health', 'CreateStaffDailyHealthController@create')->name('staff-create-daily-health');
 
         Route::get('/{companyId}/{staffId}/staff-personal-daily-health', 'ListPersonalDailyHealthController@list')->name('staff-personal-daily-health');
@@ -144,6 +146,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
         Route::get('/{id}/{query}/search-visitor-daily-health', 'SearchVisitorDailyHealthController@search')->name('search-visitor-daily-health');
 
         Route::get('/{id}/{query}/search-staff-daily-health-by-date', 'SearchStaffDailyHealthByDateController@search')->name('search-staff-daily-health-by-date');
+
+        Route::get('/{id}/{query}/search-all-daily-health-by-date', 'SearchAllDailyHealthByDateController@search')->name('search-all-daily-health-by-date');
 
     });
 
