@@ -141,6 +141,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
 
         Route::delete('/{id}/delete-staff-personal-daily-health', 'DeleteStaffDailyHealthController@delete')->name('delete-staff-personal-daily-health');
 
+        Route::get('/{id}/{date}/list-all-not-done-staff-personal-daily-health', 'ListAllNotDoneDailyHealthController@list')->name('list-all-not-done-staff-personal-daily-health');
+
 
 
         Route::get('/{id}/{query}/search-visitor-daily-health', 'SearchVisitorDailyHealthController@search')->name('search-visitor-daily-health');

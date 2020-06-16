@@ -672,7 +672,7 @@
                     visited_country: [],
                     visited_other_country: '',
                     tabliqh: '',
-                    temperature: 36
+                    temperature: ''
 
                 },
                 isSubmit: false,

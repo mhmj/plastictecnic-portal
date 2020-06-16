@@ -138,6 +138,39 @@
                         </div>
                     </div>
                 </el-tab-pane>
+                <el-tab-pane label="Unattend">
+                    <div class="row">
+                        <div class="col-lg-12" style="display: flex; justify-content: flex-end">
+                            <el-date-picker
+                                    v-on:change="fetchUnAttendStaff"
+                                    v-model="searchUnAttendStaffQuery"
+                                    type="date"
+                                    placeholder="Pick a date"
+                                    format="yyyy/MM/dd"
+                                    value-format="yyyy-MM-dd">
+                            </el-date-picker>
+                        </div>
+                    </div>
+                    <el-table
+                            :data="UnAttendStaff"
+                            :default-sort = "{prop: 'full_name', order: 'ascending'}"
+                            style="width: 100%"
+                            height="700">
+                        <el-table-column
+                                fixed
+                                type="index"
+                                :min-width="20"
+                                :index="indexMethod">
+                        </el-table-column>
+                        <el-table-column
+                                fixed
+                                sortable
+                                prop="full_name"
+                                label="Name"
+                                :min-width="80">
+                        </el-table-column>
+                    </el-table>
+                </el-tab-pane>
             </el-tabs>
         </div>
     </div>
@@ -178,8 +211,12 @@
                     created_at: '',
                     updated_at: '',
                 }],
+                UnAttendStaff: [{
+                    full_name: '',
+                }],
                 searchQuery: '',
                 searchDailyHealth: '',
+                searchUnAttendStaffQuery: '',
                 isLoading: false,
                 isSearching: false,
                 file_name: '',
@@ -201,10 +238,17 @@
             Event.$on('updateSearchStaff', () => {
                 this.searchStaff();
             });
+            Event.$on('updateDailyHealth', () => {
+                this.fetchDailyHealth();
+            });
+            Event.$on('updateUnAttendStaff', () => {
+                this.fetchUnAttendStaff();
+            });
         },
         created() {
             this.fetchStaff();
             this.fetchDailyHealth();
+            this.fetchUnAttendStaff();
         },
         methods: {
             cellStyle(){
@@ -235,6 +279,27 @@
                         //this.$refs.pagination.makePagination(response.meta, response.links);
                     })
                     .catch(error => console.log(error))
+
+            },
+            fetchUnAttendStaff(){
+                if(!this.searchUnAttendStaffQuery)
+                {
+                    var todayDate = new Date().toISOString().slice(0,10);
+                    fetch('/api/v1/dailyhealth/'+ this.id1 +'/' + todayDate + '/list-all-not-done-staff-personal-daily-health').then(response => response.json())
+                        .then(response => {
+                            this.UnAttendStaff = response;
+                        })
+                        .catch(error => console.log(error))
+                }
+                if(this.searchUnAttendStaffQuery)
+                {
+                    fetch('/api/v1/dailyhealth/'+ this.id1 +'/' + this.searchUnAttendStaffQuery + '/list-all-not-done-staff-personal-daily-health').then(response => response.json())
+                        .then(response => {
+                            this.UnAttendStaff = response;
+                        })
+                        .catch(error => console.log(error))
+                }
+
 
             },
             searchStaff(page = 1){

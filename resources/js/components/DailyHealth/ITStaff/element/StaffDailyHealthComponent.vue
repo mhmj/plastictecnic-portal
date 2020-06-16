@@ -149,6 +149,8 @@
         mounted(){
             Event.$on('updateStaffHealthList', () => {
                 this.fetchDailyHealths();
+                Event.$emit('updateDailyHealth');
+                Event.$emit('updateUnAttendStaff');
             });
             Event.$on('updateStaffHealthSearchList', () => {
                 this.searchDailyHealths();

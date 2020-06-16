@@ -562,7 +562,7 @@
                     sore_throat: '',
                     weak_in_limbs: '',
                     overall_health: '',
-                    temperature: 36,
+                    temperature: '',
                     remark: '',
                 },
             }
