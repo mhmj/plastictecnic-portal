@@ -62,9 +62,9 @@
                                         <h5 class="card-category"><h4 class="card-title" style="padding-left: 10px; padding-right: 0px">Incident Report</h4></h5>
                                     </div>
                                     <div class="col-4" style="display: flex; justify-content: flex-end">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#IncidentReportModal">
-                                            New
-                                        </button>
+                                        {{--<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#IncidentReportModal">--}}
+                                            {{--New--}}
+                                        {{--</button>--}}
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
@@ -111,16 +111,19 @@
                                         <incident-report-summary-element-component></incident-report-summary-element-component>
                                     </div>
                                     <div class="tab-pane" id="bangi">
-                                        <list-incident-report-location-component id1="1" category="bangi"></list-incident-report-location-component>
+                                        <list-incident-report-tab-component id1="1" staff_id="{{Auth::user()->id}}" category="bangi"></list-incident-report-tab-component>
                                     </div>
                                     <div class="tab-pane"  id="nilai-a">
-                                        <list-incident-report-location-component id1="2" category="nilaiA"></list-incident-report-location-component>
+                                        <list-incident-report-tab-component id1="2" staff_id="{{Auth::user()->id}}" category="nilaiA"></list-incident-report-tab-component>
+                                        {{--<list-incident-report-location-component id1="2" category="nilaiA"></list-incident-report-location-component>--}}
                                     </div>
                                     <div class="tab-pane" id="nilai-b">
-                                        <list-incident-report-location-component id1="3" category="nilaiB"></list-incident-report-location-component>
+                                        <list-incident-report-tab-component id1="3" staff_id="{{Auth::user()->id}}" category="nilaiB"></list-incident-report-tab-component>
+                                        {{--<list-incident-report-location-component id1="3" category="nilaiB"></list-incident-report-location-component>--}}
                                     </div>
                                     <div class="tab-pane" id="goodhart">
-                                        <list-incident-report-location-component id1="4" category="goodhart"></list-incident-report-location-component>
+                                        <list-incident-report-tab-component id1="4" staff_id="{{Auth::user()->id}}" category="goodhart"></list-incident-report-tab-component>
+                                        {{--<list-incident-report-location-component id1="4" category="goodhart"></list-incident-report-location-component>--}}
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +141,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <create-incident-report-form-component id1="1"></create-incident-report-form-component>
+                            {{--<create-incident-report-form-component id1="1"></create-incident-report-form-component>--}}
                         </div>
                     </div>
                 </div>

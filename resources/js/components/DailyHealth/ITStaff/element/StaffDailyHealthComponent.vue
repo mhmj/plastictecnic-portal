@@ -14,7 +14,7 @@
                     <div class="col-lg-2"></div>
                     <div class="col-lg-1  text-right">
                         <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                            <i class="fa fa-search-plus text-dark"></i>
+                            <i class="fas fa-folder-open text-dark"></i>
                         </a>
                     </div>
                 </div>

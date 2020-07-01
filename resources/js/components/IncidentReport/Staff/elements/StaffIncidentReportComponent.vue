@@ -4,7 +4,7 @@
             <div class="col-lg-8 text-left">
                 <div class="row">
                     <div class="col-lg-2-auto">
-                        <div :class="['btn-success','card']">
+                        <div @click="toggleEdit()" :class="['btn-success','card']">
                             <div class="card-body" style="padding: 8px;">
                                 <div v-if="this.IncidentReport.ticket_no === null  ">
                                     <span class="fs-10 muted text-primary" style="font-size: 15px; font-weight: 600;">-</span>
@@ -79,22 +79,23 @@
                 <a @click="toggleEdit()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-pencil-alt text-dark"></i>
                 </a>
-                <a @click="toggleDelete()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="fas fa-trash text-danger"></i>
-                </a>
+                <el-popover
+                        placement="left"
+                        width="160"
+                        v-model="visible">
+                    <p class="text-danger">Are you sure to <br> delete this?</p>
+                    <div style="text-align: right; margin: 0">
+                        <el-button type="danger" size="mini" @click="deleteIncidentReport()">Confirm</el-button>
+                        <el-button style="margin-top: 5px" size="mini" type="default" @click="visible = false">Cancel</el-button>
+                    </div>
+                    <el-button style="border: none; padding: 0px " slot="reference"> <i  class="fa fa-trash text-danger"></i></el-button>
+                </el-popover>
             </div>
         </div>
         <div class="row">
-            <div class="table" v-show="isEditing">
+            <div class="table" v-show-slide="isEditing">
                 <div class="card card-body" >
                     <staff-incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></staff-incident-report-form-component>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="table" v-show="isDeleting">
-                <div class="card card-body" >
-                    <staff-delete-incident-report-form-component v-bind:id="IncidentReport.id" :data="IncidentReport"></staff-delete-incident-report-form-component>
                 </div>
             </div>
         </div>
@@ -111,6 +112,7 @@
         data() {
             return {
                 IncidentReport: this.data,
+                visible: false,
                 staff_id: '',
                 handle_by:'',
                 ITAssetID: '',
@@ -136,6 +138,18 @@
             },
             toggleDelete(){
                 this.isDeleting = !this.isDeleting;
+            },
+            deleteIncidentReport(){
+                var url = '/api/v1/IncidentReport/'+ this.IncidentReport.id +'/delete-incident-report', method = 'delete';
+                fetch(url, {
+                    method: method,
+                    body: JSON.stringify(),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    Event.$emit('updateIncidentReport');
+                })
             },
         }
     }

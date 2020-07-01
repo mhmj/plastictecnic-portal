@@ -108,6 +108,9 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
             ->where('category', 'bangi|nilaiA|nilaiB|goodhart')
             ->name('list-incident-report-location');
 
+        Route::get('/{location_id}/{staff_id}/list-incident-report-personal', 'ListIncidentReportPersonalController@list')
+            ->name('list-incident-report-personal');
+
         Route::group(['prefix' => 'staff', 'as' => 'staff.', 'namespace' => 'Staff'], function () {
             Route::get('/staff-list-incident-report/{id}', 'ListIncidentReportController@record')->name('staff-list-incident-report');
 
@@ -180,6 +183,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1', 'as' => 'api.'], function
     Route::get('/getITAsset', 'DropdownController@getITAsset');
     Route::get('/getITAssetDetails/{id}', 'DropdownController@getITAssetDetails');
     Route::get('/getITAssetByLocation/{id}', 'DropdownController@getITAssetByLocation');
+    Route::get('/getITAssetByStaff/{id}', 'DropdownController@getITAssetByStaff');
 
 });
 

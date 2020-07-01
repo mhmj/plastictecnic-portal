@@ -3,8 +3,8 @@
         <form method="post" @submit.prevent="assignITAsset">
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6 text-left">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 text-left">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -17,6 +17,35 @@
                                         <div class="form-group form-group-default required">
                                             <div class="table-responsive text-left" style="margin-top: 10px">
                                                 <table class="table" style="font-size: 15px;">
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <label class="muted" style="color: black">Staff</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td class="fs-20" style="width:70%;  height: auto; color: #007bff;">
+                                                            <div v-if="!this.asset.staff_id">
+                                                                <div class="fs-10 muted" style="font-size: 15px; color: #007bff">
+                                                                    <v-select :class="[{'btn-outline-default': !this.asset.staff_id},{'btn-outline-success': this.asset.staff_id}]" style="padding: 0px; border-radius: 8px; font-size: 13px;" @input="selectedStaff()" :options="ListStaffByLocation" :reduce="ListStaffByLocation => ListStaffByLocation.id " :label="ListStaffByLocation.label" v-model="staff_id" ></v-select>
+                                                                    <!--<select :style="[!this.asset.staff_id ?  {'border-color': 'green'} : {'border-color':'red'}]"  v-on:change="selectedStaff()" class="form-control" v-model="staff_id" >-->
+                                                                    <!--<option v-for="list in this.ListStaffByLocation" :value="list.id"> {{ list.staff_no }} -{{ list.full_name }}</option>-->
+                                                                    <!--</select>-->
+                                                                </div>
+                                                                <div class="row" v-if="('staff' in errors)">
+                                                                    <div class="col">
+                                                                        <label class="text-danger">{{errors['staff']}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div v-if="this.asset.staff_id">
+                                                                <div class="fs-10 muted" style="font-size: 15px;">
+                                                                    <v-select :class="[{'btn-outline-default': !this.asset.staff_id},{'btn-outline-success': this.asset.staff_id}]" style="padding: 0px; border-radius: 8px; font-size: 13px;" @input="selectedStaffDetails()" :options="ListStaffByLocation" :reduce="ListStaffByLocation => ListStaffByLocation.id " :label="ListStaffByLocation.label" v-model="asset.staff_id.id" ></v-select>
+                                                                    <!--<select  v-on:change="selectedStaffDetails()" class="form-control" v-model="asset.staff_id.id" >-->
+                                                                    <!--<option v-for="list in this.ListStaffByLocation" :value="list.id" v-bind:selected="list.id === asset.staff_id.id "> {{ list.staff_no }} -{{ list.full_name }}</option>-->
+                                                                    <!--</select>-->
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                     <tr >
                                                         <td class="text-left">
                                                             <label class="muted" style="color: black">Name</label>
@@ -71,33 +100,6 @@
                                                         <td>:</td>
                                                         <td class="fs-20" style="color: #007bff;">
                                                             <span>{{asset.company.name}} {{asset.company.base}}</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-left">
-                                                            <label class="muted" style="color: black">Staff</label>
-                                                        </td>
-                                                        <td>:</td>
-                                                        <td class="fs-20" style="width:70%; color: #007bff;">
-                                                            <span v-if="!this.asset.staff_id">
-                                                                <label class="fs-10 muted" style="font-size: 15px; color: #007bff">
-                                                                    <select :style="[!this.asset.staff_id ?  {'border-color': 'green'} : {'border-color':'red'}]"  v-on:change="selectedStaff()" class="form-control" v-model="staff_id" >
-                                                                        <option v-for="list in this.ListStaffByLocation" :value="list.id"> {{ list.staff_no }} -{{ list.full_name }}</option>
-                                                                    </select>
-                                                                </label>
-                                                                <div class="row" v-if="('staff' in errors)">
-                                                                    <div class="col">
-                                                                        <label class="text-danger">{{errors['staff']}}</label>
-                                                                    </div>
-                                                                </div>
-                                                            </span>
-                                                            <span v-if="this.asset.staff_id">
-                                                                <label class="fs-10 muted" style="font-size: 15px;">
-                                                                    <select  v-on:change="selectedStaffDetails()" class="form-control" v-model="asset.staff_id.id" >
-                                                                        <option v-for="list in this.ListStaffByLocation" :value="list.id" v-bind:selected="list.id === asset.staff_id.id "> {{ list.staff_no }} -{{ list.full_name }}</option>
-                                                                    </select>
-                                                                </label>
-                                                            </span>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -188,7 +190,9 @@
             getStaffByLocation(){
                 axios.get('/api/v1/getStaffByLocation/'+ this.$parent.$parent.id1)
                     .then(function (response) {
-                        this.ListStaffByLocation = response.data;
+                        this.ListStaffByLocation = $.map(response.data, function(value){
+                            return {'id': value.id, 'label': value.staff_no + ' - ' + value.full_name};
+                        });
                     }.bind(this));
             },
 

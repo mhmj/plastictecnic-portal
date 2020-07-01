@@ -166,7 +166,7 @@
                 </div>
                 <div class="tab-pane active" id="license" v-if="this.isLicense">
                     <div class="row">
-                        <div class="col-lg-10 text-left">
+                        <div class="col-lg-12 text-left">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">

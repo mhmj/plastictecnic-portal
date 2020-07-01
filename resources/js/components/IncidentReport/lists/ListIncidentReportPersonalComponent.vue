@@ -6,7 +6,7 @@
                 <incident-report-element-component v-for="IncidentReport in IncidentReports " v-bind:key="IncidentReport.id" :data="IncidentReport"></incident-report-element-component>
             </div>
             <div style="margin-top: 30px; justify-content: flex-end">
-                <pagination-component ref="pagination" v-on:changePage="fetchIncidentReport($event)"></pagination-component>
+                <pagination-component ref="pagination" v-on:changePage="fetchPersonalIncidentReport($event)"></pagination-component>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
 <script>
     export default {
         props: {
-            'category': {
+            'staff_id': {
                 type: String,
                 required: true
             },
@@ -25,28 +25,25 @@
         },
         data() {
             return {
-                tabPosition: 'left',
                 IncidentReports: [],
-                items:[],
-                serverurl: '3.0.245.237',
                 isLoading: false,
 
             }
         },
         mounted() {
             Event.$on('updateIncidentReport', () => {
-                this.fetchIncidentReport();
+                this.fetchPersonalIncidentReport();
             });
 
         },
         created() {
-            this.fetchIncidentReport();
+            this.fetchPersonalIncidentReport();
         },
         methods: {
-            fetchIncidentReport(page = 1){
+            fetchPersonalIncidentReport(page = 1){
                 this.isLoading = true;
 
-                fetch('/api/v1/IncidentReport/'+ this.id1 +'/'+ this.category +'/list-incident-report' + '?page='+ page).then(response => response.json())
+                fetch('/api/v1/IncidentReport/'+ this.id1 + '/' + this.staff_id +'/list-incident-report-personal' + '?page='+ page).then(response => response.json())
                     .then(response => {
 
                         this.IncidentReports = response.data;

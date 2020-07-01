@@ -9,7 +9,7 @@
                         <img class="d-block w-100 h-50" src="images/slider/protal_banner_01.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/slider/protal_banner_02.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="images/slider/protal_banner_05.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="images/slider/protal_banner_04.jpg" alt="Second slide">

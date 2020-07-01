@@ -98,27 +98,31 @@
                 <a @click="" data-toggle="modal" @click="toggleAssign()" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                     <i class="fas fa-user-tag text-black"></i>
                 </a>
-                <a @click="toggleDelete()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="fas fa-trash text-danger"></i>
-                </a>
+                <el-popover
+                        placement="left"
+                        width="160"
+                        v-model="visible">
+                    <p class="text-danger">Are you sure to <br> delete this?</p>
+                    <div style="text-align: right; margin: 0">
+                        <el-button type="danger" size="mini" @click="deleteITAsset()">Confirm</el-button>
+                        <el-button style="margin-top: 5px" size="mini" type="default" @click="visible = false">Cancel</el-button>
+                    </div>
+                    <el-button style="border: none; padding: 0px " slot="reference"> <i  class="fa fa-trash text-danger"></i></el-button>
+                </el-popover>
+                <!--<a @click="toggleDelete()" rel="tooltip" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">-->
+                    <!--<i class="fas fa-trash text-danger"></i>-->
+                <!--</a>-->
             </div>
         </div>
         <div class="row">
-            <div class="table" v-show="isEditing">
+            <div class="table" v-show-slide="isEditing">
                 <div class="card card-body" >
                     <it-asset-form-component v-bind:key="asset.id" :data="asset"></it-asset-form-component>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="table" v-show="isDeleting">
-                <div class="card card-body" >
-                    <delete-it-asset-form-component v-bind:key="asset.id" :data="asset"></delete-it-asset-form-component>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="table" v-show="isAssigning">
+            <div class="table" v-show-slide="isAssigning">
                 <div class="card card-body" >
                     <assign-it-asset-form-component v-bind:key="asset.id" :data="asset"></assign-it-asset-form-component>
                 </div>
@@ -134,6 +138,7 @@
         data() {
             return {
                 asset: this.data,
+                visible: false,
                 asset_id: 0,
                 staff_id: '',
                 brand_id: this.brand,
@@ -159,6 +164,18 @@
             },
             toggleAssign(){
                 this.isAssigning = !this.isAssigning;
+            },
+            deleteITAsset(){
+                var url = '/api/v1/ITAsset/'+ this.asset.id +'/delete-it-asset', method = 'delete';
+                fetch(url, {
+                    method: method,
+                    body: JSON.stringify(),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    Event.$emit('updateITList');
+                })
             },
         }
     }

@@ -32,8 +32,9 @@ class ListsAllDailyHealth
 
         $DailyHealth = $this->repository->where('company_id',$companyId)
                                         ->whereDate('created_at', '=', $today)
-                                        ->latest()
-                                        ->get();
+                                        ->get()
+                                        ->sortByDesc('staff_name');
+
         return StaffDailyHealthResources::collection($DailyHealth);
     }
 

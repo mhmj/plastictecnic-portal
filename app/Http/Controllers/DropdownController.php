@@ -125,6 +125,12 @@ class DropdownController extends Controller
         $data = ITAsset::where('company_id',$id)->get();
         return response()->json($data);
     }
+    public function getITAssetByStaff(int $id)
+    {
+        $data = ITAsset::where('staff_id',$id)->first();
+        return new ITAssetResources(ITAsset::find($data->id));
+//        return response()->json($data);
+    }
 
     public function getITAssetDetails(int $id)
     {

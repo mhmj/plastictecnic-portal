@@ -41,8 +41,8 @@ class SearchesAllDailyHealthByDate
             ->where('company_id',$companyId)
             ->whereDate('created_at', '>=', $from)
             ->whereDate('created_at', '<=', $to)
-            ->latest()
-            ->get();
+            ->get()
+            ->sortByDesc('staff_name');;
         return StaffDailyHealthResources::collection($dailyHealth);
     }
 

@@ -199,6 +199,8 @@ Vue.component('staff-list-details-component', require('./components/Staff/Staff/
                             /////////// Lists //////////////////
 
 Vue.component('list-incident-report-location-component', require('./components/IncidentReport/lists/ListIncidentReportLocationComponent.vue').default);
+Vue.component('list-incident-report-personal-component', require('./components/IncidentReport/lists/ListIncidentReportPersonalComponent.vue').default);
+Vue.component('list-incident-report-tab-component', require('./components/IncidentReport/lists/ListIncidentReportTabComponent.vue').default);
 Vue.component('staff-list-incident-report-component', require('./components/IncidentReport/Staff/lists/StaffListIncidentReportComponent.vue').default);
 
                             /////////// Elements ///////////////

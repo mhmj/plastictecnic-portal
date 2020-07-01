@@ -30,77 +30,107 @@
                             </form>
                         </div>
                     </div>
-                    <el-table
-                            :data="DailyHealths"
-                            :default-sort = "{prop: 'created_at', order: 'descending'}"
-                            style="width: 100%"
-                            height="500">
-                        <el-table-column
-                                fixed
-                                type="index"
-                                :index="indexMethod">
-                        </el-table-column>
-                        <el-table-column
-                                cell-style = "cellStyle"
-                                fixed
-                                prop="temperature"
-                                label=""
-                                width="80">
-                        </el-table-column>
-                        <el-table-column
-                                fixed
-                                prop="staff_name"
-                                label="Name"
-                                width="350">
-                        </el-table-column>
-                        <el-table-column
-                                fixed
-                                sortable
-                                prop="created_at"
-                                label="Date"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="daily_starter_pack"
-                                label="D.P"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="hand_sanitizing"
-                                label="S"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="overall_health"
-                                label="O.H"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="flu"
-                                label="F"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="cough"
-                                label="C"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="breathing_difficulty"
-                                label="B.D"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="sore_throat"
-                                label="S.T"
-                                width="100">
-                        </el-table-column>
-                        <el-table-column
-                                prop="weak_in_limbs"
-                                label="W.L"
-                                width="100">
-                        </el-table-column>
-                    </el-table>
+                    <div class="row">
+                        <div class="table-responsive">
+                            <el-table
+                                    stripe
+                                    :data="DailyHealths"
+                                    :default-sort = "{prop: 'created_at', order: 'descending'}"
+                                    style="width: 100%"
+                                    height="600">
+                                <el-table-column
+                                        type="index"
+                                        :min-width="2"
+                                        :index="indexMethod">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="temperature"
+                                        label=""
+                                        :min-width="6"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="staff_name"
+                                        label="Name"
+                                        :min-width="30"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        sortable
+                                        prop="created_at"
+                                        label="Date"
+                                        :min-width="12"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="daily_starter_pack"
+                                        label="D.P"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="hand_sanitizing"
+                                        label="S"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="overall_health"
+                                        label="O.H"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="flu"
+                                        label="F"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="cough"
+                                        label="C"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="breathing_difficulty"
+                                        label="B.D"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="sore_throat"
+                                        label="S.T"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="weak_in_limbs"
+                                        label="W.L"
+                                        :min-width="10"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        label=""
+                                        :min-width="5">
+                                    <template slot-scope="scope">
+                                        <el-popover
+                                                trigger="click"
+                                                placement="left"
+                                                width="160"
+                                                :v-model="visible">
+                                            <p class="text-danger">Are you sure to <br> delete this?</p>
+                                            <div style="text-align: right; margin: 0">
+                                                <el-button type="danger" size="mini" @click="DeleteDailyHealths(scope.row)">Confirm</el-button>
+                                                <!--<el-button style="margin-top: 5px" size="mini" type="default" @click="closePopover">Cancel</el-button>-->
+                                            </div>
+                                            <el-button style="border: none; padding: 0px " slot="reference"> <i class="fa fa-trash text-danger"></i></el-button>
+                                        </el-popover>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </div>
+                    </div>
                 </el-tab-pane>
                 <el-tab-pane label="Individual">
                     <div class="row" style=" margin-top: 0px">
@@ -191,6 +221,7 @@
         data() {
             return {
                 Staffs: [],
+                visible: false,
                 DailyHealths: [{
                     id:'',
                     staff_id:'',
@@ -251,8 +282,25 @@
             this.fetchUnAttendStaff();
         },
         methods: {
-            cellStyle(){
-                return 'color: #00cc00;'
+            DeleteDailyHealths(row){
+                var url = '/api/v1/dailyhealth/'+ row.id +'/delete-staff-personal-daily-health', method = 'delete';
+                fetch(url, {
+                    method: method,
+                    body: JSON.stringify(),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    if(!this.searchDailyHealth){
+                        this.fetchDailyHealth();
+                        Event.$emit('updateStaffHealthList');
+                    }
+                    if(this.searchDailyHealth){
+                        this.searchDailyHealths();
+                        //Event.$emit('updateStaffHealthList');
+                    }
+                    //this.fetchDailyHealth();
+                })
             },
             indexMethod(index) {
                 return index +1;

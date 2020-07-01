@@ -123,9 +123,11 @@
                                     <div v-if="this.license.it_asset_id === null">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <select v-on:change="selectedTemporaryITAsset" class="form-control" v-model="temporary_asset_id" >
-                                                    <option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
-                                                </select>
+                                                <!--<select v-on:change="selectedTemporaryITAsset" class="form-control" v-model="temporary_asset_id" >-->
+                                                    <!--<option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>-->
+                                                <!--</select>-->
+                                                <v-select :class="[{'btn-outline-default': !this.temporary_asset_id},{'btn-outline-success': this.temporary_asset_id}]" style="padding: 0px; border-radius: 8px; font-size: 13px;" @input="selectedTemporaryITAsset()" :options="ListITAssetByLocation" :reduce="ListITAssetByLocation => ListITAssetByLocation.id " :label="ListITAssetByLocation.label" v-model="temporary_asset_id" ></v-select>
+
                                             </div>
                                         </div>
                                         <div class="row">
@@ -202,9 +204,7 @@
                                     <div v-if="this.license.it_asset_id !== null">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <select v-on:change="selectedITAsset" class="form-control" v-model="license.it_asset_id.id" >
-                                                    <option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
-                                                </select>
+                                                <v-select :class="[{'btn-outline-default': !this.license.it_asset_id.id},{'btn-outline-success': this.license.it_asset_id.id}]" style="padding: 0px; border-radius: 8px; font-size: 13px;" @input="selectedITAsset()" :options="ListITAssetByLocation" :reduce="ListITAssetByLocation => ListITAssetByLocation.id " :label="ListITAssetByLocation.label" v-model="license.it_asset_id.id" ></v-select>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -323,7 +323,9 @@
             getITAssetByLocation(){
                 axios.get('/api/v1/getITAssetByLocation/'+ this.license.company_id.id)
                     .then(function (response) {
-                        this.ListITAssetByLocation = response.data;
+                        this.ListITAssetByLocation = $.map(response.data, function(value){
+                            return {'id': value.id, 'label': value.computer_name + ' - ' + value.serial_no};
+                        });
                     }.bind(this));
             },
             async selectedITAsset(){

@@ -416,8 +416,20 @@
                     formData.append("company_id", this.IncidentReport.asset_id.company.id);
                     formData.append("root_cause", this.IncidentReport.root_cause);
                     formData.append("incident_category", this.IncidentReport.incident_category);
-                    formData.append("job_start", this.IncidentReport.job_start);
-                    formData.append("job_finish", this.IncidentReport.job_finish);
+                    if(!this.IncidentReport.job_start){
+                        formData.append("job_start", "");
+                    }
+                    if(!this.IncidentReport.job_finish){
+                        formData.append("job_finish", "");
+                    }
+                    if(this.IncidentReport.job_start){
+                        formData.append("job_start", this.IncidentReport.job_start);
+                    }
+                    if(this.IncidentReport.job_finish){
+                        formData.append("job_finish", this.IncidentReport.job_finish);
+                    }
+//                    formData.append("job_start", "");
+//                    formData.append("job_finish", "");
                     formData.append("description", this.IncidentReport.description);
                     formData.append("file", this.file);
                     formData.append("rate",this.IncidentReport.rate);
@@ -456,8 +468,18 @@
                     formData.append("company_id", this.IncidentReport.asset_id.company.id);
                     formData.append("root_cause", this.IncidentReport.root_cause);
                     formData.append("incident_category", this.IncidentReport.incident_category);
-                    formData.append("job_start", this.IncidentReport.job_start);
-                    formData.append("job_finish", this.IncidentReport.job_finish);
+                    if(!this.IncidentReport.job_start){
+                        formData.append("job_start", "");
+                    }
+                    if(!this.IncidentReport.job_finish){
+                        formData.append("job_finish", "");
+                    }
+                    if(this.IncidentReport.job_start){
+                        formData.append("job_start", this.IncidentReport.job_start);
+                    }
+                    if(this.IncidentReport.job_finish){
+                        formData.append("job_finish", this.IncidentReport.job_finish);
+                    }
                     formData.append("description", this.IncidentReport.description);
                     formData.append("file", this.file);
                     formData.append("rate",this.IncidentReport.rate);

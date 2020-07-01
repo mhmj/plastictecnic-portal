@@ -29,7 +29,7 @@ class ListsStaffNilaiB
 
     public function execute(int $id)
     {
-        $staff = $this->repository->where('company_id', $id)->latest()->paginate(5);
+        $staff = $this->repository->where('company_id', $id)->latest()->paginate(10);
         return StaffResources::collection($staff);
     }
 }

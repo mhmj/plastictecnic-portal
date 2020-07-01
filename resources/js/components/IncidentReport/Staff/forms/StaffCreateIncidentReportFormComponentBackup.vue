@@ -8,7 +8,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <label class="muted text-primary"><h5>Incident Information</h5></label>
+                                        <label class="muted text-primary"><h5>Incident Information {{this.staffID}}</h5></label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -64,12 +64,27 @@
                                     <div class="card-body">
                                         <div>
                                             <label class="text-muted">
-                                                <h5 class="text-primary">Asset Information </h5>
+                                                <h5 class="text-primary">Asset Information</h5>
                                             </label>
                                         </div>
                                         <div>
+                                            <label class="muted">Asset</label>
+                                            <span style="color: red">*</span>
+                                            <div class="row" v-if="('asset' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['asset']}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="row" v-if="('notmatch' in errors)">
+                                                <div class="col">
+                                                    <label class="text-danger">{{errors['notmatch']}}</label>
+                                                </div>
+                                            </div>
+                                            <select v-on:change="selectedITAsset()" class="form-control" :style="[this.IncidentReport.asset_id.id ?  {'border-color': 'green'} : {'border-color':'red'}]" v-model="IncidentReport.asset_id.id" >
+                                                <option v-for="list in this.ListITAssetByLocation" :value="list.id" >{{ list.computer_name }} - {{ list.serial_no }}</option>
+                                            </select>
                                             <div>
-                                                <div class="table-responsive text-left">
+                                                <div class="table-responsive text-left" style="border-top: 1px grey solid; margin-top: 20px">
                                                     <table class="table">
                                                         <tr>
                                                             <td class="text-left">
@@ -87,24 +102,6 @@
                                                             <td>:</td>
                                                             <td class="fs-20" style="color: #007bff;">
                                                                 <span>{{IncidentReport.asset_id.serial_no}}</span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left">
-                                                                <label class="muted">Model</label>
-                                                            </td>
-                                                            <td>:</td>
-                                                            <td class="fs-20" style="color: #007bff;">
-                                                                <span>{{IncidentReport.asset_id.model}}</span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left">
-                                                                <label class="muted">Operating System</label>
-                                                            </td>
-                                                            <td>:</td>
-                                                            <td class="fs-20" style="color: #007bff;">
-                                                                <span>{{IncidentReport.asset_id.OS}}</span>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -233,7 +230,6 @@
         created() {
             this.getITAssetByLocation();
             this.selectedStaff();
-            this.selectedITAsset();
         },
         methods: {
             onFileChange(e){
@@ -259,7 +255,7 @@
             async selectedITAsset(){
 
                 let vm = this
-                fetch('/api/v1/getITAssetByStaff/'+ this.staffID).then(response => response.json())
+                fetch('/api/v1/getITAssetDetails/'+ this.IncidentReport.asset_id.id).then(response => response.json())
                     .then(response => {
                         vm.IncidentReport.asset_id = response.data;
                         this.IncidentReport.asset_id = vm.IncidentReport.asset_id;
